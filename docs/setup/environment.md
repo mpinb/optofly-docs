@@ -12,6 +12,14 @@ replaces `pip` and virtual environment management with one command.
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
+Confirm it worked:
+
+```bash
+uv --version
+```
+
+You should see something like `uv 0.x.y`.
+
 > ⚠️ **Common failure:** `uv: command not found` right after installing —
 > the installer added `uv` to a directory not yet on your shell's `PATH`.
 > Close and reopen your terminal, or run `source ~/.bashrc` (or
@@ -60,11 +68,19 @@ Two repos need vendor SDKs installed system-wide (not through `uv`) before
 These are one-time, per-machine installs — you won't need to repeat them
 when setting up an individual repo below.
 
+## 4. Braid
+
+Several tools in this project assume [Braid](https://strawlab.org/braid/)
+(the multi-camera 3D tracking system this project builds on) is already
+installed and running. Braid is a separate, external project — installing
+it is outside the scope of this wiki. See Braid's own documentation for
+setup instructions.
+
 ## Next step
 
 Once this is done, follow the setup page for whichever tool you need:
 
-- [OptoFly](optofly-setup.md) — running experiments
-- [Basler ChArUco Calibrator](basler-charuco-calibrator-setup.md) — camera calibration
-- [Liquid Lens Calibration](liquid-lens-calibration-setup.md) — lens calibration
+- [Basler ChArUco Calibrator](basler-charuco-calibrator-setup.md) — camera calibration (do this first)
+- [Liquid Lens Calibration](liquid-lens-calibration-setup.md) — lens calibration (after Braid is tracking)
+- [OptoFly](optofly-setup.md) — running experiments (set up last)
 - [Optotune Lens](optotune-lens-setup.md) — the lens driver library (usually installed automatically as a dependency of the two tools above, not run standalone)

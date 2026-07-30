@@ -11,6 +11,9 @@ cd ~/src/optofly
 uv sync
 ```
 
+If it succeeds, you'll see no error output, ending with a line like
+"Installed N packages".
+
 ## Configure
 
 ```bash
@@ -28,6 +31,9 @@ Make sure Braid is already running and recording before starting `optofly`:
 ```bash
 uv run python main.py
 ```
+
+Once it's actually running, you should see log output showing it's
+connected to Braid and listening for tracking data.
 
 > ⚠️ **Common failure:** `optofly` starts but no flies ever trigger
 > anything — this almost always means Braid isn't tracking yet, or the

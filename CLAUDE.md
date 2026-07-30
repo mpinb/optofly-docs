@@ -17,6 +17,7 @@ the next build picks up the fix automatically.
 
 ```
 docs/
+├── index.md                # site home page
 ├── overview.md            # what the project is, how the repos relate
 ├── setup/
 │   ├── environment.md      # shared env/dependencies
@@ -29,8 +30,12 @@ docs/
 └── repos/                 # auto-synced component repo docs (never hand-edited, see .gitignore)
 ```
 
-Rendered as a static site via MkDocs Material (or browsed as plain Markdown on GitHub
-if no site is set up yet).
+Rendered as a static site via MkDocs Material. The hand-written pages
+(`overview.md`, `workflow.md`, `troubleshooting.md`, `setup/*.md`) are
+readable as plain Markdown on GitHub, but everything under `docs/repos/**`
+only exists after a build (see Purpose above) — those links 404 on GitHub
+itself. Use the built/served site, not the GitHub file browser, to read
+component docs.
 
 ## Related repos
 
@@ -79,7 +84,11 @@ GitHub Pages on every push to `main` via `.github/workflows/deploy-docs.yml`.
   any new/renamed files in `docs/`, or they won't show up in the sidebar.
 - Local preview: `pip install mkdocs-material` then `mkdocs serve` (site at `localhost:8000`).
 - Live site: `https://mpinb.github.io/optofly-docs/`.
-- First-time setup: enable Pages in repo Settings → Pages → Source: "GitHub Actions".
+- First-time setup: enable Pages in repo Settings → Pages → Source: "Deploy
+  from a branch", then select the `gh-pages` branch and `/ (root)`. The
+  `gh-pages` branch is created automatically the first time the deploy
+  workflow runs — if it isn't in the branch dropdown yet, push to `main`
+  once first, wait for the Action to finish, then check again.
 - ⚠️ **Common failure:** page doesn't appear on the site — usually means it's missing from
   the `nav:` list in `mkdocs.yml`, not a build error. Check there first.
 - ⚠️ **Common failure:** Action runs but site doesn't update — check the Actions tab for a

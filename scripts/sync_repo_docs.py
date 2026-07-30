@@ -31,6 +31,7 @@ def clone_shallow(repo_name: str, dest: Path) -> None:
     subprocess.run(
         ["git", "clone", "--depth", "1", url, str(dest)],
         check=True,
+        timeout=120,
     )
 
 
@@ -62,8 +63,11 @@ def main() -> int:
         for repo_name, rel_src, rel_dest, exclude_dirs in SYNC_TARGETS:
             clone_dest = tmp_path / repo_name
             print(f"Cloning {repo_name}...")
-            clone_shallow(repo_name, clone_dest)
-            copy_target(clone_dest, rel_src, Path(rel_dest), exclude_dirs)
+            try:
+                clone_shallow(repo_name, clone_dest)
+                copy_target(clone_dest, rel_src, Path(rel_dest), exclude_dirs)
+            except (subprocess.CalledProcessError, FileNotFoundError, OSError) as exc:
+                raise RuntimeError(f"failed to sync docs from {repo_name}: {exc}") from exc
             print(f"  -> docs/repos/{rel_dest}")
 
     return 0

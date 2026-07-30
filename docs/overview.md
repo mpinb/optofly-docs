@@ -17,7 +17,7 @@ graph TD
     D[optotune-lens<br/>lens driver library] --> C
     D --> E[optofly<br/>main pipeline]
     C -->|z to diopter lookup table| E
-    B -->|live tracking over HTTP SSE| E
+    B -->|live tracking over HTTP Server-Sent Events (SSE)| E
 ```
 
 - **`optofly`** is the main pipeline that actually runs experiments. It

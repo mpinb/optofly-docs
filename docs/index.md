@@ -1,4 +1,4 @@
-# OptoFly Project Wiki
+# OptoFly Ecosystem Wiki
 
 This is the documentation hub for the **OptoFly** project: a real-time
 tracking and closed-loop optogenetic stimulation system for flying insects,
@@ -9,8 +9,8 @@ time, start here:
 
 1. Read [Overview](overview.md) to understand what the pieces are and how
    they fit together.
-2. Follow [Setup → Environment](setup/environment.md), then the setup page
-   for each tool in the order listed there.
+2. Follow [Setup → Environment](setup/environment.md) first, then see
+   [Workflow](workflow.md) for which tool to set up in which order.
 3. Read [Workflow](workflow.md) for the full calibration-to-experiment
    pipeline, in order.
 

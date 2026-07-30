@@ -1,6 +1,9 @@
-site_name: "NFC OptoFly Wiki"
+site_name: "OptoFly Ecosystem Wiki"
 site_url: "https://mpinb.github.io/optofly-docs/"
 repo_url: "https://github.com/mpinb/optofly-docs"
+
+exclude_docs: |
+  superpowers/
 
 theme:
   name: material
@@ -15,21 +18,26 @@ theme:
 markdown_extensions:
   - admonition          # enables !!! note / !!! warning callout boxes
   - pymdownx.details
-  - pymdownx.superfences   # needed for Mermaid diagrams
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
 nav:
   - Home: index.md
   - Overview: overview.md
   - Setup:
       - Environment: setup/environment.md
-      - OptoFly: setup/optofly-setup.md
-      - Liquid Lens Calibration: setup/liquid-lens-calibration-setup.md
       - Basler ChArUco Calibrator: setup/basler-charuco-calibrator-setup.md
+      - Liquid Lens Calibration: setup/liquid-lens-calibration-setup.md
+      - OptoFly: setup/optofly-setup.md
       - Optotune Lens: setup/optotune-lens-setup.md
   - Workflow: workflow.md
   - Troubleshooting: troubleshooting.md
   - Component Docs:
       - OptoFly:
+          - Overview: repos/optofly/index.md
           - Getting Started: repos/optofly/getting-started.md
           - Calibration: repos/optofly/calibration.md
           - Architecture: repos/optofly/architecture.md

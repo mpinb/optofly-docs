@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -19,10 +23,10 @@ jobs:
           python-version: "3.12"
 
       - name: Install MkDocs Material
-        run: pip install mkdocs-material
+        run: pip install "mkdocs-material~=9.6"
 
       - name: Sync component repo docs
         run: python3 scripts/sync_repo_docs.py
 
       - name: Deploy to GitHub Pages
-        run: mkdocs gh-deploy --force
+        run: mkdocs gh-deploy --force --strict

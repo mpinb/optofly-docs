@@ -26,8 +26,10 @@ Tests use a mock serial implementation — no physical lens hardware needed:
 uv run pytest
 ```
 
+You should see all tests pass, ending in a line like `X passed in Y s`.
+
 > ⚠️ **Common failure:** connecting to a real lens fails with a timeout —
-> double check the serial port (`/dev/ttyUSB0` on Linux, `COMx` on Windows`)
+> double check the serial port (`/dev/ttyUSB0` on Linux, `COMx` on Windows)
 > and that no other program (including another Claude Code or Python
 > session) already has that port open.
 
