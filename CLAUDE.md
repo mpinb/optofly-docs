@@ -1,13 +1,17 @@
-# Project Wiki
+# OptoFly Ecosystem Wiki
 
-Documentation hub for [PROJECT NAME] — covers the overall workflow, setup, and links
-out to the individual repos that make up the project.
+Documentation hub for the OptoFly project — covers the overall workflow, setup, and
+consolidates docs from the individual repos that make up the project.
 
 ## Purpose
 
-This repo is the map, not a mirror. It explains how the pieces (repo-a, repo-b, repo-c, ...)
-fit together and how to get a working environment set up. Implementation details stay
-in each repo's own README; don't duplicate them here — link out instead.
+This repo is a consolidated wiki, not just a map. `docs/overview.md`, `workflow.md`,
+`troubleshooting.md`, and `setup/*.md` are hand-written here and explain how the
+pieces fit together. Everything under `docs/repos/**` is pulled in automatically at
+build/preview time by `scripts/sync_repo_docs.py` from each component repo's own
+docs — it is never hand-edited here and never committed (see `.gitignore`). If a
+component repo's docs are wrong or out of date, fix them in that repo, not here;
+the next build picks up the fix automatically.
 
 ## Structure
 
@@ -16,11 +20,13 @@ docs/
 ├── overview.md            # what the project is, how the repos relate
 ├── setup/
 │   ├── environment.md      # shared env/dependencies
-│   ├── repo-a-setup.md
-│   └── repo-b-setup.md
+│   ├── optofly-setup.md
+│   ├── basler-charuco-calibrator-setup.md
+│   ├── liquid-lens-calibration-setup.md
+│   └── optotune-lens-setup.md
 ├── workflow.md              # end-to-end pipeline, data/control flow between repos
 ├── troubleshooting.md
-└── protocols/                # lab-specific step-by-step instructions, if any
+└── repos/                 # auto-synced component repo docs (never hand-edited, see .gitignore)
 ```
 
 Rendered as a static site via MkDocs Material (or browsed as plain Markdown on GitHub
@@ -28,16 +34,17 @@ if no site is set up yet).
 
 ## Related repos
 
-- `your-org/repo-a` — [one-line description]
-- `your-org/repo-b` — [one-line description]
-- `your-org/repo-c` — [one-line description]
+- [`mpinb/optofly`](https://github.com/mpinb/optofly) — the main real-time tracking and closed-loop optogenetic stimulation pipeline
+- [`mpinb/basler-charuco-calibrator`](https://github.com/mpinb/basler-charuco-calibrator) — Basler camera intrinsic calibration
+- [`mpinb/liquid-lens-calibration`](https://github.com/mpinb/liquid-lens-calibration) — builds the liquid lens's z → diopter lookup table
+- [`mpinb/optotune-lens`](https://github.com/mpinb/optotune-lens) — Python driver library for the Optotune liquid lens hardware
 
 ## Conventions
 
 - One topic per file. Split rather than let a page grow past ~1 screen of scrolling.
 - Use Mermaid for pipeline/workflow diagrams (renders natively on GitHub and in MkDocs Material).
 - Every setup doc should be copy-paste runnable — assume a new lab member with zero context.
-- Cross-link with relative paths (`[setup](setup/repo-a-setup.md)`), not hardcoded URLs.
+- Cross-link with relative paths (`[setup](setup/optofly-setup.md)`), not hardcoded URLs.
 - Keep `overview.md` and `workflow.md` as the entry points; everything else hangs off them.
 
 ## Writing style — audience is not tech-savvy
@@ -71,7 +78,7 @@ GitHub Pages on every push to `main` via `.github/workflows/deploy-docs.yml`.
 - Config lives in `mkdocs.yml` at repo root — nav structure must be kept in sync with
   any new/renamed files in `docs/`, or they won't show up in the sidebar.
 - Local preview: `pip install mkdocs-material` then `mkdocs serve` (site at `localhost:8000`).
-- Live site: `https://your-org.github.io/project-wiki` (update once repo is named/created).
+- Live site: `https://mpinb.github.io/optofly-docs/`.
 - First-time setup: enable Pages in repo Settings → Pages → Source: "GitHub Actions".
 - ⚠️ **Common failure:** page doesn't appear on the site — usually means it's missing from
   the `nav:` list in `mkdocs.yml`, not a build error. Check there first.
