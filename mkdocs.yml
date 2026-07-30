@@ -1,0 +1,28 @@
+site_name: "NFC OptoFly Wiki"
+site_url: "https://mpinb.github.io/optofly-docs/"
+repo_url: "https://github.com/mpinb/optofly-docs"
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - search.suggest
+    - content.code.copy
+  palette:
+    - scheme: default
+
+markdown_extensions:
+  - admonition          # enables !!! note / !!! warning callout boxes
+  - pymdownx.details
+  - pymdownx.superfences   # needed for Mermaid diagrams
+
+nav:
+  - Home: index.md
+  - Overview: overview.md
+  - Setup:
+      - Environment: setup/environment.md
+      - Repo A setup: setup/repo-a-setup.md
+      - Repo B setup: setup/repo-b-setup.md
+  - Workflow: workflow.md
+  - Troubleshooting: troubleshooting.md
