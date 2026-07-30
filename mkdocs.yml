@@ -22,7 +22,21 @@ nav:
   - Overview: overview.md
   - Setup:
       - Environment: setup/environment.md
-      - Repo A setup: setup/repo-a-setup.md
-      - Repo B setup: setup/repo-b-setup.md
+      - OptoFly: setup/optofly-setup.md
+      - Liquid Lens Calibration: setup/liquid-lens-calibration-setup.md
+      - Basler ChArUco Calibrator: setup/basler-charuco-calibrator-setup.md
+      - Optotune Lens: setup/optotune-lens-setup.md
   - Workflow: workflow.md
   - Troubleshooting: troubleshooting.md
+  - Component Docs:
+      - OptoFly:
+          - Getting Started: repos/optofly/getting-started.md
+          - Calibration: repos/optofly/calibration.md
+          - Architecture: repos/optofly/architecture.md
+          - Camera: repos/optofly/camera.md
+          - Opto Trigger: repos/optofly/opto-trigger.md
+          - Visual Stimuli (Panda3D): repos/optofly/visual-stimuli-panda3d.md
+          - Troubleshooting: repos/optofly/troubleshooting.md
+      - Liquid Lens Calibration: repos/liquid-lens-calibration/README.md
+      - Basler ChArUco Calibrator: repos/basler-charuco-calibrator/README.md
+      - Optotune Lens: repos/optotune-lens/README.md
