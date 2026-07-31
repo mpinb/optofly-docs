@@ -184,8 +184,26 @@ for what's inside a `.braidz` file.
 > here — check the CSV header once you have one before writing a plotting
 > script against it.
 
+### Testing the full pipeline with the laser
+
+Watching Braid's web UI only confirms tracking — it says nothing about
+whether `optofly` itself (recording, lens tracking, the optogenetic
+trigger, visual stimuli) is behaving correctly. To test that too, with
+`braid-run ~/braid-configs/laser.toml` still running from above, launch
+`optofly` itself in another terminal:
+
+```bash
+cd ~/src/OptoFly
+uv run main.py --skip-metadata
+```
+
+`--skip-metadata` skips the usual experiment-metadata prompt, since this
+is a quick test rather than a real recording. With the laser standing in
+for a fly, move its dot into `optofly`'s trigger zone and confirm the
+response you expect actually happens — recording starts, the lens
+tracks focus, the optogenetic trigger or a visual/light stimulus fires —
+whichever this rig has configured.
+
 Keep this trick in your back pocket beyond calibration, too: it's a
 convenient way to check later that the optogenetic trigger or a
-visual/light stimulus is actually firing — move the laser into the trigger
-zone and confirm the expected response happens, without needing a live
-fly.
+visual/light stimulus is actually firing, without needing a live fly.
