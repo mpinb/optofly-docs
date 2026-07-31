@@ -14,7 +14,7 @@ flowchart TD
 | # | Step | Tool | What it produces |
 |---|---|---|---|
 | 1 | Camera intrinsic calibration | [`basler-charuco-calibrator`](repos/basler-charuco-calibrator/README.md) | A per-camera YAML with focal length and distortion coefficients. Repeat once per tracking camera. |
-| 2 | Braid multi-camera (extrinsic) calibration | Braid's own tooling (not part of this ecosystem) | An XML describing where each camera sits relative to the others — what Braid uses to triangulate 3D fly positions. |
+| 2 | [Braid multi-camera (extrinsic) calibration](setup/braid-extrinsic-calibration.md) | Braid's own tooling (not part of this ecosystem) | An XML describing where each camera sits relative to the others — what Braid uses to triangulate 3D fly positions. |
 | 3 | Liquid lens calibration | [`liquid-lens-calibration`](repos/liquid-lens-calibration/README.md) (driving the lens via `optotune-lens` and reading focus frames via [`ximea-py`](repos/ximea-py/README.md)) | A `z → diopter` lookup table, using the same camera geometry from step 2 to triangulate a target's true distance. |
 | 4 | Run experiments | [`optofly`](repos/optofly/getting-started.md) | Live tracking, triggered recording, optogenetic stimulation, autofocus, visual stimuli. |
 

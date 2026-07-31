@@ -31,6 +31,7 @@ nav:
       - Environment: setup/environment.md
       - udev Rules: setup/udev-rules.md
       - Basler ChArUco Calibrator: setup/basler-charuco-calibrator-setup.md
+      - Braid Extrinsic Calibration: setup/braid-extrinsic-calibration.md
       - Liquid Lens Calibration: setup/liquid-lens-calibration-setup.md
       - OptoFly: setup/optofly-setup.md
       - Optotune Lens: setup/optotune-lens-setup.md
