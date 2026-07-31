@@ -23,6 +23,15 @@ flowchart TD
 > wrong file, or Braid isn't actually running and tracking yet. Confirm
 > Braid's own web UI shows live 3D tracks before starting step 3.
 
+**Step 4 above ("run experiments") isn't a single command — before flies
+can trigger anything correctly for the first time, `optofly` needs its
+own further calibration first: camera field of view, and (if using
+visual stimuli) Panda3D screen heading. These live entirely inside the
+`optofly` repo, so they're not separate rows in the table above — they're
+steps 4–6 in [`optofly`'s own Calibration
+doc](repos/optofly/calibration.md), which continues numbering where this
+page's steps 1–3 leave off.**
+
 ## Lighting during calibration
 
 Steps 1 and 2 (camera intrinsic and Braid extrinsic calibration) and the
@@ -101,9 +110,9 @@ ser.close()
 ## Full-pipeline dry run with a laser
 
 This is the last thing to do before running a real experiment — after
-steps 1–3 above, and after any of `optofly`'s own calibrations you've
-done (Camera FOV, Frustum FOV, Panda3D heading — see [`optofly`'s
-Calibration doc](repos/optofly/calibration.md)).
+steps 1–3 above, and after `optofly`'s own further calibration (Camera
+FOV, Frustum FOV, Panda3D heading — steps 4–6 in [`optofly`'s Calibration
+doc](repos/optofly/calibration.md)).
 
 Everything so far only confirms that individual pieces work: Braid
 tracks in 3D, the lens has a lookup table, the screens are aligned. It
@@ -144,8 +153,9 @@ visual/light stimulus is actually firing, without needing a live fly.
 
 ## Within step 4: what happens during a single experiment run
 
-Once calibration (steps 1–3) is done, everything below happens inside
-`optofly` itself every time an experiment runs — no separate repos involved:
+Once calibration is fully done — steps 1–3 here, plus `optofly`'s own
+steps 4–6 (see above) — everything below happens inside `optofly` itself
+every time an experiment runs — no separate repos involved:
 
 1. `optofly` connects to Braid's live tracking feed.
 2. When a tracked fly enters the outer trigger zone, video recording starts
