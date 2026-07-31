@@ -53,6 +53,16 @@ package instead of [this repo's driver](setup/ximea-py-setup.md).
 > `liquid-lens-calibration` itself (a `[tool.uv.sources]` entry pointing at
 > the local `ximea-py` clone), flagged here rather than worked around.
 
+## Calibration board or laser dot isn't detected cleanly
+
+Usually a lighting problem, not a hardware fault — see
+[Lighting during calibration](workflow.md#lighting-during-calibration) for
+the correct light setup per step, and how to switch the backlight on/off
+from the Arduino IDE or a Python REPL. If the laser's bright spot still
+isn't detected with both the backlight and overhead lights off, see the
+`calibrate_braid_ximea` troubleshooting notes in
+[`optofly`'s Calibration doc](repos/optofly/calibration.md).
+
 ## A calibration step gives obviously wrong numbers
 
 Each calibration step in [Workflow](workflow.md) depends on the one before

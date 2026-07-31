@@ -23,6 +23,68 @@ flowchart TD
 > wrong file, or Braid isn't actually running and tracking yet. Confirm
 > Braid's own web UI shows live 3D tracks before starting step 3.
 
+## Lighting during calibration
+
+Steps 1 and 2 (camera intrinsic and Braid extrinsic calibration) and the
+laser-based FOV calibration described in
+[`optofly`'s Calibration doc](repos/optofly/calibration.md) all need
+specific lighting in the arena. Get this wrong and the calibration board or
+laser dot can be hard for the camera to pick out cleanly.
+
+- **Intrinsic and extrinsic calibration** (steps 1–2, ChArUco board):
+  turn on only the lights mounted above the arena. The floor backlight
+  (driven by the Arduino, see below) is not needed for this — leaving it on
+  doesn't hurt, but there's no benefit to it either.
+- **Laser pointer calibration** (the FOV sweep in
+  [`optofly`'s Calibration doc](repos/optofly/calibration.md)): turn off
+  **both** the backlight and the overhead lights. Either light source can
+  wash out or be mistaken for the laser's bright spot by the detection
+  threshold.
+
+The overhead lights are powered by a benchtop power supply, already set to
+the correct voltage — don't change the voltage dial. Turn them on and off
+using the power supply's output on/off switch (or button), not the voltage
+knob. The backlight, however, is wired to the Arduino (pin 9, see
+[Optogenetic Trigger](repos/optofly/opto-trigger.md#hardware)) and can also
+be switched off (or on) in software instead of physically unplugging it.
+
+### Turning the backlight on/off from the Arduino IDE
+
+1. Connect the Arduino via USB and open the Arduino IDE.
+2. Go to **Tools > Port** and confirm the correct port is selected.
+3. Open **Tools > Serial Monitor**.
+4. Set the baud rate in the bottom-right of the Serial Monitor window to
+   **115200** — commands sent at the wrong baud rate are ignored or
+   garbled.
+5. In the send box at the top, type `[0]` and press **Send** to turn the
+   backlight off, or `[255]` to turn it fully on. Values in between (e.g.
+   `[128]`) set partial brightness.
+
+> ⚠️ **Common failure:** nothing happens when you send a command — the
+> Serial Monitor's line-ending setting (bottom-right dropdown) must not
+> mangle the brackets. "No line ending" or "Newline" both work; if it still
+> doesn't respond, re-check the baud rate first.
+
+### Turning the backlight on/off from a Python REPL
+
+This uses the same serial protocol, sent with the [`pyserial`](https://pyserial.readthedocs.io/)
+package instead of the Arduino IDE. Useful if you'd rather script it or
+you're already in a Python session.
+
+```python
+import serial
+
+ser = serial.Serial("/dev/opto_trigger", 115200)  # match your config.toml port
+ser.write(b"[0]")     # backlight off
+ser.write(b"[255]")   # backlight fully on
+ser.close()
+```
+
+> ⚠️ **Common failure:** `PermissionError` or `SerialException` opening the
+> port — another program (e.g. a running `optofly` experiment, or the
+> Arduino Serial Monitor) already has the port open. Only one process can
+> hold it at a time; close the other one first.
+
 ## Within step 4: what happens during a single experiment run
 
 Once calibration (steps 1–3) is done, everything below happens inside

@@ -22,6 +22,11 @@ uv run python -m basler_charuco_calibrator
 
 If more than one Basler camera is connected, you'll be asked to pick one.
 
+Before you start, set up the arena lighting: turn on only the lights
+mounted above the arena. The floor backlight isn't needed for this step —
+see [Lighting during calibration](../workflow.md#lighting-during-calibration)
+for why, and how to switch the backlight off if it's on.
+
 Move the ChArUco board around in front of the camera. A live overlay shows
 four coverage bars (horizontal position, vertical position, size, skew) —
 once all four reach 70%, press `c` to calibrate, then `q` to quit. The

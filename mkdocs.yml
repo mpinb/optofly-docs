@@ -29,6 +29,7 @@ nav:
   - Overview: overview.md
   - Setup:
       - Environment: setup/environment.md
+      - udev Rules: setup/udev-rules.md
       - Basler ChArUco Calibrator: setup/basler-charuco-calibrator-setup.md
       - Liquid Lens Calibration: setup/liquid-lens-calibration-setup.md
       - OptoFly: setup/optofly-setup.md

@@ -58,15 +58,44 @@ ls ~/src
 ## 3. Hardware SDKs
 
 Two repos need vendor SDKs installed system-wide (not through `uv`) before
-`uv sync` will fully work:
+`uv sync` will fully work. On a completely fresh machine, neither SDK is
+installed yet — do both of these before anything else in this section.
 
 - **Basler Pylon SDK** — required by `basler-charuco-calibrator` and
-  `liquid-lens-calibration` (both use Basler cameras). Install from Basler's
-  own site for your OS.
+  `liquid-lens-calibration` (both use Basler cameras).
+
+  [Braid](https://strawlab.org/braid/) (the tracking system this project
+  builds on) only supports up to **Pylon 7.3** — do not install a newer
+  version. Download it directly from
+  [Basler's downloads page, pinned to version 7.3.0](https://www.baslerweb.com/de-de/downloads/software/?downloadCategory.values.label.data=pylon&softwareVersion.data=7.3.0).
+
+  1. Download the Linux `.tar.gz` archive for your architecture.
+  2. Unzip it:
+     ```bash
+     tar -xzf basler_pylon_*.tar.gz
+     ```
+  3. Open the extracted folder and follow the steps in its `INSTALL` file
+     — Basler's installer is a script inside the archive, not a single
+     command documented here.
+
+  > ⚠️ **Common failure:** picking the newest Pylon version instead of
+  > 7.3 — Braid won't work with it. Double-check the version number on the
+  > downloaded filename before installing.
+
 - **XIMEA xiAPI runtime** (`libm3api.so.2`) — required by
   `liquid-lens-calibration` (uses a XIMEA camera to measure focus
   sharpness) and by `ximea-py`, the driver library it talks to that camera
-  through. Install from XIMEA's own site.
+  through. Install the latest driver using the install script shipped in
+  the `optofly` repo (not from XIMEA's site directly):
+
+  ```bash
+  cd ~/src/optofly/scripts
+  sudo ./install_ximea_driver.sh
+  ```
+
+  You need `optofly` already cloned first — see
+  [step 2 below](#2-set-up-a-shared-source-directory) if you haven't done
+  that yet.
 
 These are one-time, per-machine installs — you won't need to repeat them
 when setting up an individual repo below.
@@ -79,10 +108,19 @@ installed and running. Braid is a separate, external project — installing
 it is outside the scope of this wiki. See Braid's own documentation for
 setup instructions.
 
+## 5. udev rules (device permissions and names)
+
+Ubuntu doesn't let normal users access USB devices like the cameras or
+Arduino by default, and doesn't guarantee they get the same device name
+every time you plug them in. This machine already has the rules needed for
+every device this project uses — see [udev Rules](udev-rules.md) for what
+they do and how to add one if you swap in a replacement device.
+
 ## Next step
 
 Once this is done, follow the setup page for whichever tool you need:
 
+- [udev Rules](udev-rules.md) — device permissions, only needed if you're setting up a new machine or replacing hardware
 - [Basler ChArUco Calibrator](basler-charuco-calibrator-setup.md) — camera calibration (do this first)
 - [Liquid Lens Calibration](liquid-lens-calibration-setup.md) — lens calibration (after Braid is tracking)
 - [OptoFly](optofly-setup.md) — running experiments (set up last)
