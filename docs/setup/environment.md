@@ -21,8 +21,9 @@ uv --version
 You should see something like `uv 0.x.y`.
 
 > ⚠️ **Common failure:** `uv: command not found` right after installing —
-> the installer added `uv` to a directory not yet on your shell's `PATH`.
-> Close and reopen your terminal, or run `source ~/.bashrc` (or
+> the installer added `uv` to a directory not yet on your shell's `PATH`
+> (the list of folders your terminal searches when you type a command
+> name). Close and reopen your terminal, or run `source ~/.bashrc` (or
 > `~/.zshrc` if you use zsh).
 
 ## 2. Set up a shared source directory
@@ -69,14 +70,27 @@ installed yet — do both of these before anything else in this section.
   version. Download it directly from
   [Basler's downloads page, pinned to version 7.3.0](https://www.baslerweb.com/de-de/downloads/software/?downloadCategory.values.label.data=pylon&softwareVersion.data=7.3.0).
 
-  1. Download the Linux `.tar.gz` archive for your architecture.
-  2. Unzip it:
+  1. Download the Linux `.tar.gz` file. If you're offered a choice of
+     "architecture," pick **x86-64** (also written `amd64`) — that's what
+     this project's machines use, unless you know yours is different.
+  2. Open a terminal in the folder you downloaded it to (in most Ubuntu
+     file managers: right-click the empty space in the folder → **Open
+     Terminal Here**), then unzip (extract) the archive — `tar` is
+     Linux's built-in tool for this, `-xzf` means "extract, and the file
+     is gzip-compressed":
      ```bash
      tar -xzf basler_pylon_*.tar.gz
      ```
-  3. Open the extracted folder and follow the steps in its `INSTALL` file
-     — Basler's installer is a script inside the archive, not a single
-     command documented here.
+  3. This creates a new folder. Move into it and read the install
+     instructions file it contains:
+     ```bash
+     cd pylon-*                # the folder tar just created
+     ls                        # confirm you see a file named INSTALL
+     cat INSTALL                # prints the instructions to follow
+     ```
+     Basler's own `INSTALL` file has the exact steps for your system —
+     follow those rather than a single command documented here, since they
+     can change between Pylon releases.
 
   > ⚠️ **Common failure:** picking the newest Pylon version instead of
   > 7.3 — Braid won't work with it. Double-check the version number on the
@@ -92,6 +106,11 @@ installed yet — do both of these before anything else in this section.
   cd ~/src/optofly/scripts
   sudo ./install_ximea_driver.sh
   ```
+
+  `sudo` runs the command with administrator privileges — required here
+  because the script installs files outside your home folder. It will
+  prompt for your account password; nothing appears on screen as you
+  type it, which is normal, not an error.
 
   You need `optofly` already cloned first — see
   [step 2 below](#2-set-up-a-shared-source-directory) if you haven't done

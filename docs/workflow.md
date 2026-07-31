@@ -67,9 +67,22 @@ be switched off (or on) in software instead of physically unplugging it.
 
 ### Turning the backlight on/off from a Python REPL
 
-This uses the same serial protocol, sent with the [`pyserial`](https://pyserial.readthedocs.io/)
-package instead of the Arduino IDE. Useful if you'd rather script it or
-you're already in a Python session.
+A **REPL** is an interactive Python prompt — you type one line of Python
+at a time and see its result immediately, instead of running a whole
+script file. Open one from inside the `optofly` repo, so the `pyserial`
+package used below is already installed:
+
+```bash
+cd ~/src/optofly
+uv run python
+```
+
+You'll see a `>>>` prompt waiting for input.
+
+This uses the same serial protocol as the Arduino IDE method above, sent
+with the [`pyserial`](https://pyserial.readthedocs.io/) package instead.
+Useful if you'd rather script it or you're already in a Python session.
+Type (or paste) these lines one at a time at the `>>>` prompt:
 
 ```python
 import serial

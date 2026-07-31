@@ -38,9 +38,9 @@ memory that doesn't need to be repeated in every prompt: build commands,
 conventions, gotchas, architecture notes. Think of it as a briefing you'd
 give a new contractor before they touch the code.
 
-Repos in this project with a `CLAUDE.md` today: `optofly`,
-`basler-charuco-calibrator`, `liquid-lens-calibration`, `optotune-lens`.
-`ximea-py` doesn't have one yet.
+All five component repos in this project have a `CLAUDE.md` today:
+`optofly`, `basler-charuco-calibrator`, `liquid-lens-calibration`,
+`optotune-lens`, and `ximea-py`.
 
 ## Best practices
 
@@ -74,12 +74,6 @@ Repos in this project with a `CLAUDE.md` today: `optofly`,
   permission modes — don't reflexively approve when the change could
   fire a laser, LED stimulus, or move a lens; read what it's about to do
   first.
-- **Add a `CLAUDE.md` to `ximea-py`** if you start using Claude Code there
-  regularly — the other four component repos already benefit from one,
-  and a driver library with hardware-specific quirks (see
-  [Ximea Py Setup](setup/ximea-py-setup.md)) is exactly the kind of repo
-  where undocumented gotchas cost the most to rediscover.
-
 ## Checking whether a repo's `CLAUDE.md` is stale
 
 There's no automatic check for this — periodically confirm by hand:
