@@ -98,6 +98,50 @@ ser.close()
 > Arduino Serial Monitor) already has the port open. Only one process can
 > hold it at a time; close the other one first.
 
+## Full-pipeline dry run with a laser
+
+This is the last thing to do before running a real experiment — after
+steps 1–3 above, and after any of `optofly`'s own calibrations you've
+done (Camera FOV, Frustum FOV, Panda3D heading — see [`optofly`'s
+Calibration doc](repos/optofly/calibration.md)).
+
+Everything so far only confirms that individual pieces work: Braid
+tracks in 3D, the lens has a lookup table, the screens are aligned. It
+doesn't confirm that `optofly` itself — recording, lens tracking, the
+optogenetic trigger, visual stimuli — reacts correctly when something
+moves through the arena. A laser pointer's dot is a controllable
+stand-in for a fly for this check, the same trick used to sanity-check
+tracking during extrinsic calibration (see [Braid Extrinsic
+Calibration](setup/braid-extrinsic-calibration.md#optional-verify-tracking-with-a-laser)),
+taken one step further to exercise the whole pipeline instead of just
+Braid.
+
+Turn off the arena lights first — see [Lighting during
+calibration](#lighting-during-calibration) above — then launch Braid
+tracking the laser:
+
+```bash
+braid-run ~/braid-configs/laser.toml
+```
+
+In another terminal, launch `optofly` itself:
+
+```bash
+cd ~/src/OptoFly
+uv run main.py --skip-metadata
+```
+
+`--skip-metadata` skips the usual experiment-metadata prompt, since this
+is a quick test rather than a real recording. With the laser standing in
+for a fly, move its dot into `optofly`'s trigger zone and confirm the
+response you expect actually happens — recording starts, the lens
+tracks focus, the optogenetic trigger or a visual/light stimulus fires —
+whichever this rig has configured.
+
+Keep this trick in your back pocket beyond calibration, too: it's a
+convenient way to check later that the optogenetic trigger or a
+visual/light stimulus is actually firing, without needing a live fly.
+
 ## Within step 4: what happens during a single experiment run
 
 Once calibration (steps 1–3) is done, everything below happens inside
