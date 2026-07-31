@@ -153,3 +153,39 @@ in 3D using the new calibration: open Braid's own web UI and look for live
 3D tracks. This is also the check the next step in the pipeline (Liquid
 Lens Calibration) assumes has already passed — see
 [Workflow](../workflow.md).
+
+### Optional: verify tracking with a laser
+
+A laser pointer's bright dot is an easier, more controllable target than a
+fly for sanity-checking that tracking looks right — you can move it
+exactly where you want, whenever you want:
+
+```bash
+braid-run ~/braid-configs/laser.toml
+```
+
+This config uses `DetectLight` polarity (bright-object detection) instead
+of the `DetectDark` polarity the fly-tracking configs
+(`multi_fly.toml`/`single_fly.toml`) use. Turn off both the backlight and
+the overhead arena lights first — same as for the laser-based FOV
+calibration, see [Lighting during
+calibration](../workflow.md#lighting-during-calibration) — otherwise
+either light source can wash out or be mistaken for the laser dot.
+
+Move the laser dot around the arena and watch Braid's web UI for a live 3D
+track following it. If you want a plotted trajectory instead of just the
+live view, record a short session, unzip the resulting `.braidz` file, and
+load `kalman_estimates.csv.gz` with pandas to plot the tracked position
+over time — see [Braid crashed while recording, leaving a `.braid` folder
+behind](../troubleshooting.md#braid-crashed-while-recording-leaving-a-braid-folder-behind)
+for what's inside a `.braidz` file.
+
+> **Note:** exact `kalman_estimates.csv.gz` column names aren't verified
+> here — check the CSV header once you have one before writing a plotting
+> script against it.
+
+Keep this trick in your back pocket beyond calibration, too: it's a
+convenient way to check later that the optogenetic trigger or a
+visual/light stimulus is actually firing — move the laser into the trigger
+zone and confirm the expected response happens, without needing a live
+fly.
