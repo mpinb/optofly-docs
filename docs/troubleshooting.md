@@ -36,22 +36,23 @@ the XIMEA xiAPI runtime. `uv sync` succeeding does not mean these are
 installed — they're OS-level installs, not Python packages. See
 [Environment Setup](setup/environment.md).
 
-## `liquid-lens-calibration` behaves as though the XIMEA driver isn't installed
+## `liquid-lens-calibration` used to silently install the wrong `ximea` package
 
-`liquid-lens-calibration`'s `pyproject.toml` depends on a package named
-`ximea-py`, but [`ximea-py`](https://github.com/mpinb/ximea-py) actually
-builds a package named **`ximea`** — and `ximea-py` also happens to be an
-unrelated, pre-existing package on PyPI. Unlike `optotune-lens` (which is
-pinned via a `[tool.uv.sources]` path entry), there is currently no such
-override for `ximea-py`, so `uv sync` silently installs the unrelated PyPI
-package instead of [this repo's driver](setup/ximea-py-setup.md).
+`liquid-lens-calibration` previously depended on a package named
+`ximea-py`, which is also the name of an unrelated, pre-existing package on
+PyPI. `uv sync` silently installed that unrelated PyPI package instead of
+[this org's driver](setup/ximea-py-setup.md), which builds a package named
+**`ximea`** (not `ximea-py`). Both `liquid-lens-calibration` and `optofly`
+now depend directly on `ximea @ git+https://github.com/mpinb/ximea-py.git`,
+so this collision no longer happens.
 
-> ⚠️ **Common failure:** camera calls fail or behave unexpectedly in
-> `liquid-lens-calibration` despite `uv sync` succeeding — run
-> `uv pip show ximea-py` inside that repo; if it reports the PyPI package
-> rather than this org's driver, that's the cause. This needs a fix inside
-> `liquid-lens-calibration` itself (a `[tool.uv.sources]` entry pointing at
-> the local `ximea-py` clone), flagged here rather than worked around.
+> ⚠️ **Common failure (older checkouts):** camera calls fail or behave
+> unexpectedly in `liquid-lens-calibration` despite `uv sync` succeeding —
+> run `uv pip show ximea` inside that repo; if it reports a version that
+> doesn't match [`mpinb/ximea-py`](https://github.com/mpinb/ximea-py)'s
+> latest release, or `uv pip show ximea-py` still resolves to something,
+> pull the latest `pyproject.toml`/`uv.lock` from this repo and re-run
+> `uv sync`.
 
 ## Calibration board or laser dot isn't detected cleanly
 

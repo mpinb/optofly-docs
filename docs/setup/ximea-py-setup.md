@@ -29,20 +29,17 @@ uv run pytest
 
 You should see all tests pass, ending in a line like `X passed in Y s`.
 
-> ⚠️ **Common failure:** package name collision. This repo builds a Python
-> package named **`ximea`**, but
-> [`liquid-lens-calibration`](https://github.com/mpinb/liquid-lens-calibration)'s
-> `pyproject.toml` currently depends on a package named **`ximea-py`** with
-> no `[tool.uv.sources]` override — unlike its `optotune-lens` dependency,
-> which does pin to a local path. `ximea-py` also happens to be the name of
-> an unrelated, pre-existing package on PyPI, so `uv sync` silently
-> resolves that one instead of this repo. If lens calibration behaves as
-> though this driver isn't installed at all, check
-> `uv pip show ximea-py` inside `liquid-lens-calibration` — if it reports
-> the PyPI package instead of this repo, that's the mismatch. This needs a
-> fix in `liquid-lens-calibration` itself (e.g. a `[tool.uv.sources]` entry
-> pointing at this repo, same pattern used for `optotune-lens`) —
-> flagged here, not silently worked around.
+This repo builds a Python package named **`ximea`** (not `ximea-py` — that
+name belongs to an unrelated, pre-existing package on PyPI). Both
+`liquid-lens-calibration` and `optofly` depend directly on
+`ximea @ git+https://github.com/mpinb/ximea-py.git`, so `uv sync` in either
+repo always resolves this driver, not the PyPI package.
+
+> ⚠️ **Common failure (older checkouts):** if lens calibration behaves as
+> though this driver isn't installed at all, check `uv pip show ximea`
+> inside `liquid-lens-calibration` — if it reports a stale version, or
+> `uv pip show ximea-py` resolves to anything, pull the latest
+> `pyproject.toml`/`uv.lock` from that repo and re-run `uv sync`.
 
 ## Full documentation
 
