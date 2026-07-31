@@ -37,6 +37,7 @@ nav:
       - Ximea Py: setup/ximea-py-setup.md
   - Workflow: workflow.md
   - Troubleshooting: troubleshooting.md
+  - Using Claude Code: claude-code.md
   - Component Docs:
       - OptoFly:
           - Overview: repos/optofly/index.md
