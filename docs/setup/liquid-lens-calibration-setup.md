@@ -26,11 +26,11 @@ uv run lens-calibrate
 ```
 
 1. Place an AprilTag somewhere in view of the Basler rig.
-2. Press **Enter** in the preview window — it triangulates the tag, sweeps
+2. Press **SPACE** in the preview window — it triangulates the tag, sweeps
    the lens, and records the best-focus diopter for that position.
-3. Move the tag to a new distance, press **Enter** again. Repeat for
+3. Move the tag to a new distance, press **SPACE** again. Repeat for
    ~10–15 positions.
-4. Press **q** then **Enter** to quit — this fits the `z → diopter` curve
+4. Press **Q** to quit — this fits the `z → diopter` curve
    and writes it to the location `optofly` reads from.
 
 > ⚠️ **Common failure:** the tool errors out immediately on start, refusing
