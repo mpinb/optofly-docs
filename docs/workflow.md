@@ -115,3 +115,8 @@ Once calibration (steps 1–3) is done, everything below happens inside
 
 See [`optofly`'s own Calibration doc](repos/optofly/calibration.md) for the
 full technical detail behind each step, including exact commands.
+
+If Braid itself (or the whole computer) crashes partway through a
+recording, see [Braid crashed while recording, leaving a `.braid` folder
+behind](troubleshooting.md#braid-crashed-while-recording-leaving-a-braid-folder-behind)
+to recover the data by hand.
