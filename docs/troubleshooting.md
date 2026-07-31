@@ -6,7 +6,7 @@ itself once it's running, see
 
 ## `git clone` fails or points at the wrong place
 
-All 4 repos moved to the `mpinb` GitHub organization. If you have an old
+All 5 repos moved to the `mpinb` GitHub organization. If you have an old
 clone that still points at a personal account, check and fix it:
 
 ```bash
@@ -35,6 +35,23 @@ installs: the Basler Pylon SDK, and (for `liquid-lens-calibration` only)
 the XIMEA xiAPI runtime. `uv sync` succeeding does not mean these are
 installed — they're OS-level installs, not Python packages. See
 [Environment Setup](setup/environment.md).
+
+## `liquid-lens-calibration` behaves as though the XIMEA driver isn't installed
+
+`liquid-lens-calibration`'s `pyproject.toml` depends on a package named
+`ximea-py`, but [`ximea-py`](https://github.com/mpinb/ximea-py) actually
+builds a package named **`ximea`** — and `ximea-py` also happens to be an
+unrelated, pre-existing package on PyPI. Unlike `optotune-lens` (which is
+pinned via a `[tool.uv.sources]` path entry), there is currently no such
+override for `ximea-py`, so `uv sync` silently installs the unrelated PyPI
+package instead of [this repo's driver](setup/ximea-py-setup.md).
+
+> ⚠️ **Common failure:** camera calls fail or behave unexpectedly in
+> `liquid-lens-calibration` despite `uv sync` succeeding — run
+> `uv pip show ximea-py` inside that repo; if it reports the PyPI package
+> rather than this org's driver, that's the cause. This needs a fix inside
+> `liquid-lens-calibration` itself (a `[tool.uv.sources]` entry pointing at
+> the local `ximea-py` clone), flagged here rather than worked around.
 
 ## A calibration step gives obviously wrong numbers
 

@@ -33,6 +33,7 @@ nav:
       - Liquid Lens Calibration: setup/liquid-lens-calibration-setup.md
       - OptoFly: setup/optofly-setup.md
       - Optotune Lens: setup/optotune-lens-setup.md
+      - Ximea Py: setup/ximea-py-setup.md
   - Workflow: workflow.md
   - Troubleshooting: troubleshooting.md
   - Component Docs:
@@ -48,3 +49,4 @@ nav:
       - Liquid Lens Calibration: repos/liquid-lens-calibration/README.md
       - Basler ChArUco Calibrator: repos/basler-charuco-calibrator/README.md
       - Optotune Lens: repos/optotune-lens/README.md
+      - Ximea Py: repos/ximea-py/README.md

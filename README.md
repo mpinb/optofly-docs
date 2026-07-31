@@ -23,6 +23,7 @@ Live site: **https://mpinb.github.io/optofly-docs/**
 - [`mpinb/basler-charuco-calibrator`](https://github.com/mpinb/basler-charuco-calibrator) — Basler camera intrinsic calibration
 - [`mpinb/liquid-lens-calibration`](https://github.com/mpinb/liquid-lens-calibration) — builds the liquid lens's z → diopter lookup table
 - [`mpinb/optotune-lens`](https://github.com/mpinb/optotune-lens) — Python driver library for the Optotune liquid lens hardware
+- [`mpinb/ximea-py`](https://github.com/mpinb/ximea-py) — Python driver library for XIMEA camera hardware
 
 ## Local preview
 

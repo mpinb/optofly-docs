@@ -6,9 +6,9 @@ OptoFly is a lab setup, not a single program. Flies are tracked in 3D in
 real time by a multi-camera system, and when a fly enters a defined zone,
 the system can: start recording video of it, fire an LED for optogenetic
 stimulation, show it a visual stimulus, and keep a liquid lens focused on it
-as it moves. Four separate pieces of software make that possible.
+as it moves. Five separate pieces of software make that possible.
 
-## The four repos, and how they relate
+## The five repos, and how they relate
 
 ```mermaid
 graph TD
@@ -16,6 +16,7 @@ graph TD
     B -->|multi-camera calibration XML| C[liquid-lens-calibration]
     D[optotune-lens<br/>lens driver library] --> C
     D --> E[optofly<br/>main pipeline]
+    F[ximea-py<br/>XIMEA camera driver library] --> C
     C -->|z to diopter lookup table| E
     B -->|live tracking over HTTP Server-Sent Events (SSE)| E
 ```
@@ -37,12 +38,15 @@ graph TD
   (serial-port driver for the Optotune lens hardware) that both `optofly`
   and `liquid-lens-calibration` depend on directly. Both expect it checked
   out as a sibling directory (`../optotune-lens`).
+- **`ximea-py`** is also not a standalone tool — it's a Python wrapper
+  around the XIMEA camera vendor SDK. `liquid-lens-calibration` uses it to
+  read frames from the XIMEA focus camera during lens calibration.
 
 ## Who needs which repo
 
 - Setting up tracking cameras for the first time: `basler-charuco-calibrator`.
-- Setting up (or re-calibrating) the liquid lens for a rig: `optotune-lens`
-  and `liquid-lens-calibration`.
+- Setting up (or re-calibrating) the liquid lens for a rig: `optotune-lens`,
+  `ximea-py`, and `liquid-lens-calibration`.
 - Running day-to-day experiments once the rig is calibrated: `optofly` only.
 
 See [Workflow](workflow.md) for the exact order these steps happen in.

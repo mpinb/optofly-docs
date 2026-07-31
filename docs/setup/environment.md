@@ -38,13 +38,14 @@ git clone git@github.com:mpinb/optofly.git
 git clone git@github.com:mpinb/optotune-lens.git
 git clone git@github.com:mpinb/liquid-lens-calibration.git
 git clone git@github.com:mpinb/basler-charuco-calibrator.git
+git clone git@github.com:mpinb/ximea-py.git
 ```
 
-After this, you should see all four as sibling folders:
+After this, you should see all five as sibling folders:
 
 ```bash
 ls ~/src
-# basler-charuco-calibrator  liquid-lens-calibration  optofly  optotune-lens
+# basler-charuco-calibrator  liquid-lens-calibration  optofly  optotune-lens  ximea-py
 ```
 
 > ⚠️ **Common failure:** `git clone` asks for a username and password, then
@@ -62,8 +63,10 @@ Two repos need vendor SDKs installed system-wide (not through `uv`) before
 - **Basler Pylon SDK** — required by `basler-charuco-calibrator` and
   `liquid-lens-calibration` (both use Basler cameras). Install from Basler's
   own site for your OS.
-- **XIMEA xiAPI runtime** — required by `liquid-lens-calibration` (uses a
-  XIMEA camera to measure focus sharpness). Install from XIMEA's own site.
+- **XIMEA xiAPI runtime** (`libm3api.so.2`) — required by
+  `liquid-lens-calibration` (uses a XIMEA camera to measure focus
+  sharpness) and by `ximea-py`, the driver library it talks to that camera
+  through. Install from XIMEA's own site.
 
 These are one-time, per-machine installs — you won't need to repeat them
 when setting up an individual repo below.
@@ -84,3 +87,4 @@ Once this is done, follow the setup page for whichever tool you need:
 - [Liquid Lens Calibration](liquid-lens-calibration-setup.md) — lens calibration (after Braid is tracking)
 - [OptoFly](optofly-setup.md) — running experiments (set up last)
 - [Optotune Lens](optotune-lens-setup.md) — the lens driver library (usually installed automatically as a dependency of the two tools above, not run standalone)
+- [Ximea Py](ximea-py-setup.md) — the XIMEA camera driver library used by `liquid-lens-calibration` (usually installed automatically as a dependency, not run standalone)

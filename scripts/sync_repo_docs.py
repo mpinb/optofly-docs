@@ -23,6 +23,8 @@ SYNC_TARGETS = [
     ("liquid-lens-calibration", "README.md", "liquid-lens-calibration/README.md", None),
     ("basler-charuco-calibrator", "README.md", "basler-charuco-calibrator/README.md", None),
     ("optotune-lens", "README.md", "optotune-lens/README.md", None),
+    ("ximea-py", "README.md", "ximea-py/README.md", None),
+    ("ximea-py", "examples", "ximea-py/examples", None),
 ]
 
 
@@ -60,11 +62,14 @@ def main() -> int:
 
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
+        cloned: set[str] = set()
         for repo_name, rel_src, rel_dest, exclude_dirs in SYNC_TARGETS:
             clone_dest = tmp_path / repo_name
-            print(f"Cloning {repo_name}...")
             try:
-                clone_shallow(repo_name, clone_dest)
+                if repo_name not in cloned:
+                    print(f"Cloning {repo_name}...")
+                    clone_shallow(repo_name, clone_dest)
+                    cloned.add(repo_name)
                 copy_target(clone_dest, rel_src, Path(rel_dest), exclude_dirs)
             except (subprocess.CalledProcessError, FileNotFoundError, OSError) as exc:
                 raise RuntimeError(f"failed to sync docs from {repo_name}: {exc}") from exc
