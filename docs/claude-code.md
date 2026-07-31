@@ -4,7 +4,7 @@
 run from your terminal, inside a repo, to help write and review code.
 Several repos in this project already use it and ship a `CLAUDE.md` file —
 this page covers installing it and best practices for using it across the
-six repos that make up this project.
+five component repos that make up this project.
 
 ## Install
 

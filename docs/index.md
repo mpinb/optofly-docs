@@ -24,6 +24,7 @@ If something isn't working, check [Troubleshooting](troubleshooting.md) first.
 | [`basler-charuco-calibrator`](https://github.com/mpinb/basler-charuco-calibrator) | One-time camera intrinsic calibration for each Basler tracking camera |
 | [`liquid-lens-calibration`](https://github.com/mpinb/liquid-lens-calibration) | Builds the lookup table the liquid lens uses to autofocus at a given distance |
 | [`optotune-lens`](https://github.com/mpinb/optotune-lens) | The low-level driver library both `optofly` and `liquid-lens-calibration` use to talk to the liquid lens hardware |
+| [`ximea-py`](https://github.com/mpinb/ximea-py) | The driver library `liquid-lens-calibration` uses to talk to the XIMEA focus camera |
 
 Full docs for each are under [Component Docs](repos/optofly/getting-started.md)
 in the sidebar — this wiki pulls them in automatically so they're always

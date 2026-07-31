@@ -5,7 +5,7 @@ machine, before setting up any individual tool.
 
 ## 1. Install `uv`
 
-`uv` is the tool all 4 repos use to install their Python dependencies. It
+`uv` is the tool all 5 repos use to install their Python dependencies. It
 replaces `pip` and virtual environment management with one command.
 
 ```bash
