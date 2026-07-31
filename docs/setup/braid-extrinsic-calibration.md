@@ -55,14 +55,16 @@ won't move again until calibration is finished.
 
 ## Step 2: launch Braid
 
-From a terminal, run:
+Double-click `~/apriltag_calibration/launch_calibration.sh`, or run it from
+a terminal:
 
 ```bash
 ~/apriltag_calibration/launch_calibration.sh
 ```
 
-Run it from a terminal you can leave open and Ctrl+C later — don't
-double-click it from a file manager, unlike `run_calibration.sh` below.
+Either way, it opens (or runs in) a terminal window attached to
+`braid-run`. Leave that window open — you'll come back to it in Step 5 to
+press Ctrl+C.
 
 This script:
 
@@ -117,7 +119,8 @@ cameras to converge on a stable result.
 
 ## Step 6: run the calibration
 
-From a terminal:
+Double-click `~/apriltag_calibration/run_calibration.sh`, or run it from a
+terminal:
 
 ```bash
 cd ~/apriltag_calibration
