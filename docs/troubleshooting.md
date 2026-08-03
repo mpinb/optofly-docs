@@ -6,8 +6,10 @@ itself once it's running, see
 
 ## `git clone` fails or points at the wrong place
 
-All 5 repos moved to the `mpinb` GitHub organization. If you have an old
-clone that still points at a personal account, check and fix it:
+5 of the 6 repos moved to the `mpinb` GitHub organization
+(`braid-opto-power-measure` is the exception — still under a personal
+account). If you have an old clone of one of the other 5 that still points
+at a personal account, check and fix it:
 
 ```bash
 cd ~/src/<repo>
@@ -90,7 +92,7 @@ recording is still running, that last step never happens — you're left
 with the raw `.braid` folder and no `.braidz` file.
 
 Braid's own code (a separate project called `strand-braid`, **not** one of
-the 5 repos this wiki otherwise covers — see
+the 6 repos this wiki otherwise covers — see
 [Environment Setup](setup/environment.md#4-braid)) includes a small Rust
 tool that does exactly this compression step by hand:
 `braidz-writer-cli`. `optofly` also ships a pure-Python script,

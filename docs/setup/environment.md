@@ -5,7 +5,7 @@ machine, before setting up any individual tool.
 
 ## 1. Install `uv`
 
-`uv` is the tool all 5 repos use to install their Python dependencies. It
+`uv` is the tool all 6 repos use to install their Python dependencies. It
 replaces `pip` and virtual environment management with one command.
 
 ```bash
@@ -40,14 +40,21 @@ git clone git@github.com:mpinb/optotune-lens.git
 git clone git@github.com:mpinb/liquid-lens-calibration.git
 git clone git@github.com:mpinb/basler-charuco-calibrator.git
 git clone git@github.com:mpinb/ximea-py.git
+git clone git@github.com:elhananby/braid-opto-power-measure.git
 ```
 
-After this, you should see all five as sibling folders:
+After this, you should see all six as sibling folders:
 
 ```bash
 ls ~/src
-# basler-charuco-calibrator  liquid-lens-calibration  optofly  optotune-lens  ximea-py
+# basler-charuco-calibrator  braid-opto-power-measure  liquid-lens-calibration  optofly  optotune-lens  ximea-py
 ```
+
+> **Note:** unlike the other five, `braid-opto-power-measure` still lives
+> under a personal GitHub account (`elhananby`), not the `mpinb`
+> organization — it hasn't been moved there yet. It also doesn't need to be
+> a sibling directory for any dependency to resolve (it has no local path
+> dependencies); cloning it alongside the rest here is just for consistency.
 
 > ⚠️ **Common failure:** `git clone` asks for a username and password, then
 > fails — you're using the HTTPS URL without credentials set up. Use the
@@ -116,6 +123,21 @@ installed yet — do both of these before anything else in this section.
   [step 2 below](#2-set-up-a-shared-source-directory) if you haven't done
   that yet.
 
+- **NI-VISA** — required by `braid-opto-power-measure` to talk to the
+  Thorlabs PM100D power meter. The Python driver it uses
+  (`pyThorlabsPM100x`) only supports the console's NI-VISA mode, not its
+  other "TLPM" USB mode — the PM100D's own front-panel menu has a setting
+  to switch between the two.
+
+  > **Not verified:** this wiki hasn't confirmed NI-VISA is installed on
+  > any of this project's machines yet, or documented the install steps for
+  > it — the `braid-opto-power-measure` README doesn't mention NI-VISA at
+  > all. Before relying on this, check whether NI-VISA is already present
+  > (`python3 -c "import pyvisa; pyvisa.ResourceManager()"` inside that
+  > repo's `uv` environment will raise a clear error naming the missing
+  > backend if not), and confirm the PM100D's mode from its own front-panel
+  > menu. Update this section once verified.
+
 These are one-time, per-machine installs — you won't need to repeat them
 when setting up an individual repo below.
 
@@ -145,3 +167,4 @@ Once this is done, follow the setup page for whichever tool you need:
 - [OptoFly](optofly-setup.md) — running experiments (set up last)
 - [Optotune Lens](optotune-lens-setup.md) — the lens driver library (usually installed automatically as a dependency of the two tools above, not run standalone)
 - [Ximea Py](ximea-py-setup.md) — the XIMEA camera driver library used by `liquid-lens-calibration` (usually installed automatically as a dependency, not run standalone)
+- [Braid Opto-Power Measure](braid-opto-power-measure-setup.md) — occasional QC check of arena light power, not part of the required calibration sequence

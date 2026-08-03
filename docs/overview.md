@@ -6,9 +6,9 @@ OptoFly is a lab setup, not a single program. Flies are tracked in 3D in
 real time by a multi-camera system, and when a fly enters a defined zone,
 the system can: start recording video of it, fire an LED for optogenetic
 stimulation, show it a visual stimulus, and keep a liquid lens focused on it
-as it moves. Five separate pieces of software make that possible.
+as it moves. Six separate pieces of software make that possible.
 
-## The five repos, and how they relate
+## The six repos, and how they relate
 
 ```mermaid
 graph TD
@@ -19,6 +19,8 @@ graph TD
     F[ximea-py<br/>XIMEA camera driver library] --> C
     C -->|z to diopter lookup table| E
     B -->|live tracking over HTTP Server-Sent Events (SSE)| E
+    B -->|live tracking, same SSE feed| G[braid-opto-power-measure]
+    G -->|arena power/irradiance heatmaps| Q[QC check, no file feeds into optofly]
 ```
 
 - **`optofly`** is the main pipeline that actually runs experiments. It
@@ -41,6 +43,12 @@ graph TD
 - **`ximea-py`** is also not a standalone tool — it's a Python wrapper
   around the XIMEA camera vendor SDK. `liquid-lens-calibration` uses it to
   read frames from the XIMEA focus camera during lens calibration.
+- **`braid-opto-power-measure`** is an occasional QC (quality control) tool:
+  it maps how optical power is distributed across the arena, and separately
+  measures the optogenetic (red LED) stimulus intensity, both ON and OFF, at
+  each position. It reads Braid's live tracking feed the same way `optofly`
+  does, but its output (heatmap images) is for a human to check by eye — it
+  doesn't feed a file into any other repo the way the calibration tools do.
 
 ## Who needs which repo
 
@@ -48,5 +56,7 @@ graph TD
 - Setting up (or re-calibrating) the liquid lens for a rig: `optotune-lens`,
   `ximea-py`, and `liquid-lens-calibration`.
 - Running day-to-day experiments once the rig is calibrated: `optofly` only.
+- Checking that optogenetic light power is even and correctly timed across
+  the arena (e.g. after moving LEDs or changing intensity): `braid-opto-power-measure`.
 
 See [Workflow](workflow.md) for the exact order these steps happen in.

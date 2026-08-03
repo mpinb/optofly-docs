@@ -25,7 +25,8 @@ docs/
 │   ├── basler-charuco-calibrator-setup.md
 │   ├── liquid-lens-calibration-setup.md
 │   ├── optotune-lens-setup.md
-│   └── ximea-py-setup.md
+│   ├── ximea-py-setup.md
+│   └── braid-opto-power-measure-setup.md
 ├── workflow.md              # end-to-end pipeline, data/control flow between repos
 ├── troubleshooting.md
 └── repos/                 # auto-synced component repo docs (never hand-edited, see .gitignore)
@@ -45,6 +46,7 @@ component docs.
 - [`mpinb/liquid-lens-calibration`](https://github.com/mpinb/liquid-lens-calibration) — builds the liquid lens's z → diopter lookup table
 - [`mpinb/optotune-lens`](https://github.com/mpinb/optotune-lens) — Python driver library for the Optotune liquid lens hardware
 - [`mpinb/ximea-py`](https://github.com/mpinb/ximea-py) — Python driver library for XIMEA camera hardware
+- [`elhananby/braid-opto-power-measure`](https://github.com/elhananby/braid-opto-power-measure) — measures the spatial distribution of optogenetic LED power/irradiance across the arena (not yet moved to the `mpinb` org)
 
 ## Conventions
 

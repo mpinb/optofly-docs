@@ -156,6 +156,19 @@ Keep this trick in your back pocket beyond calibration, too: it's a
 convenient way to check later that the optogenetic trigger or a
 visual/light stimulus is actually firing, without needing a live fly.
 
+## Measuring optogenetic light power across the arena
+
+This is a QC (quality control) check, not one of the six pipeline steps
+above — run it occasionally rather than before every experiment: after
+moving or replacing LEDs, changing stimulus intensity, or if flies in one
+part of the arena seem to respond differently than flies in another.
+
+[`braid-opto-power-measure`](setup/braid-opto-power-measure-setup.md) sweeps
+a power meter by hand through the arena while Braid tracks its position,
+and produces heatmaps of both the ambient light level and the optogenetic
+LED's ON-state intensity at every position — showing whether the stimulus
+is even across the arena or stronger in some spots than others.
+
 ## What happens during step 6: a single experiment run
 
 Once calibration is fully done — steps 1–5 in the table above —

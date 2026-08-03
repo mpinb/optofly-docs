@@ -17,19 +17,21 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DOCS_REPOS = REPO_ROOT / "docs" / "repos"
 
-# (github repo name, relative source path to copy, relative dest path under docs/repos/)
+# (github repo name, relative source path to copy, relative dest path under docs/repos/, exclude dirs, github org)
+# org defaults to "mpinb" — pass it explicitly only for repos still under a personal account.
 SYNC_TARGETS = [
-    ("optofly", "docs", "optofly", {"superpowers"}),
-    ("liquid-lens-calibration", "README.md", "liquid-lens-calibration/README.md", None),
-    ("basler-charuco-calibrator", "README.md", "basler-charuco-calibrator/README.md", None),
-    ("optotune-lens", "README.md", "optotune-lens/README.md", None),
-    ("ximea-py", "README.md", "ximea-py/README.md", None),
-    ("ximea-py", "examples", "ximea-py/examples", None),
+    ("optofly", "docs", "optofly", {"superpowers"}, "mpinb"),
+    ("liquid-lens-calibration", "README.md", "liquid-lens-calibration/README.md", None, "mpinb"),
+    ("basler-charuco-calibrator", "README.md", "basler-charuco-calibrator/README.md", None, "mpinb"),
+    ("optotune-lens", "README.md", "optotune-lens/README.md", None, "mpinb"),
+    ("ximea-py", "README.md", "ximea-py/README.md", None, "mpinb"),
+    ("ximea-py", "examples", "ximea-py/examples", None, "mpinb"),
+    ("braid-opto-power-measure", "README.md", "braid-opto-power-measure/README.md", None, "elhananby"),
 ]
 
 
-def clone_shallow(repo_name: str, dest: Path) -> None:
-    url = f"https://github.com/mpinb/{repo_name}.git"
+def clone_shallow(org: str, repo_name: str, dest: Path) -> None:
+    url = f"https://github.com/{org}/{repo_name}.git"
     subprocess.run(
         ["git", "clone", "--depth", "1", url, str(dest)],
         check=True,
@@ -63,12 +65,12 @@ def main() -> int:
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
         cloned: set[str] = set()
-        for repo_name, rel_src, rel_dest, exclude_dirs in SYNC_TARGETS:
+        for repo_name, rel_src, rel_dest, exclude_dirs, org in SYNC_TARGETS:
             clone_dest = tmp_path / repo_name
             try:
                 if repo_name not in cloned:
-                    print(f"Cloning {repo_name}...")
-                    clone_shallow(repo_name, clone_dest)
+                    print(f"Cloning {org}/{repo_name}...")
+                    clone_shallow(org, repo_name, clone_dest)
                     cloned.add(repo_name)
                 copy_target(clone_dest, rel_src, Path(rel_dest), exclude_dirs)
             except (subprocess.CalledProcessError, FileNotFoundError, OSError) as exc:
