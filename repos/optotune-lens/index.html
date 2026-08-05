@@ -1,0 +1,2361 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mpinb.github.io/optofly-docs/repos/optotune-lens/">
+      
+      
+        <link rel="prev" href="../basler-charuco-calibrator/">
+      
+      
+        <link rel="next" href="../ximea-py/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Optotune Lens - OptoFly Ecosystem Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#optotune-lens" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OptoFly Ecosystem Wiki" class="md-header__button md-logo" aria-label="OptoFly Ecosystem Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OptoFly Ecosystem Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Optotune Lens
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mpinb/optofly-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OptoFly Ecosystem Wiki" class="md-nav__button md-logo" aria-label="OptoFly Ecosystem Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OptoFly Ecosystem Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mpinb/optofly-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Setup
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/udev-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    udev Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/basler-charuco-calibrator-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basler ChArUco Calibrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/braid-extrinsic-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Extrinsic Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/liquid-lens-calibration-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liquid Lens Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/optofly-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/optotune-lens-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optotune Lens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/ximea-py-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ximea Py
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/braid-opto-power-measure-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Opto-Power Measure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/optofly-analysis-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../claude-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Claude Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Component Docs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Component Docs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OptoFly
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optofly/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optofly/getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optofly/calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optofly/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optofly/camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camera
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optofly/opto-trigger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opto Trigger
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optofly/visual-stimuli-panda3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Stimuli (Panda3D)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optofly/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../liquid-lens-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liquid Lens Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basler-charuco-calibrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basler ChArUco Calibrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optotune Lens
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optotune Lens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-a-development-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting Up a Development Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage-with-context-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage with Context Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#icc-1c-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ICC-1C Controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-lens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class: Lens
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Class: Lens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init__port-str-debug-bool-false" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__(port: str, debug: bool = False)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_focal_power_mode-tuplefloat-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_focal_power_mode() -&gt; Tuple[float, float]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_current_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_current_mode()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_diopterdiopter-float-get_diopter-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_diopter(diopter: float) / get_diopter() -&gt; float
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_currentcurrent-float-get_current-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_current(current: float) / get_current() -&gt; float
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_temperature-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_temperature() -&gt; float
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_temperature_limitslower-float-upper-float-tupleint-float-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_temperature_limits(lower: float, upper: float) -&gt; Tuple[int, float, float]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eeprom_dump-listint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eeprom_dump() -&gt; List[int]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eeprom_print" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eeprom_print()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eeprom_write_byteaddress-int-byte-int-int" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eeprom_write_byte(address: int, byte: int) -&gt; int
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-operatingmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enum: OperatingMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-crc_16data-bytes-int" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Function: crc_16(data: bytes) -&gt; int
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exceptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-icc1c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class: ICC1C
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Class: ICC1C">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init__port-str-baudrate-int-115200-debug-bool-false" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__(port: str, baudrate: int = 115200, debug: bool = False)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_focal_power_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_focal_power_mode()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_current_mode_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_current_mode()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_diopterdiopter-float-get_diopter-optionalfloat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_diopter(diopter: float) / get_diopter() -&gt; Optional[float]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_diopter_min-get_diopter_max-optionalfloat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_diopter_min() / get_diopter_max() -&gt; Optional[float]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_currentcurrent_ma-float-get_current-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_current(current_mA: float) / get_current() -&gt; float
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_temperature-float_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_temperature() -&gt; float
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_temperature_limitlimit-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_temperature_limit(limit: float)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-firmwareversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class: FirmwareVersion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-and-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development and Testing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development and Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ximea-py/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ximea Py
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../braid-opto-power-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Opto-Power Measure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optofly-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-a-development-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting Up a Development Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage-with-context-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage with Context Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#icc-1c-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ICC-1C Controller
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Documentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#class-lens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class: Lens
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Class: Lens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init__port-str-debug-bool-false" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__(port: str, debug: bool = False)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_focal_power_mode-tuplefloat-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_focal_power_mode() -&gt; Tuple[float, float]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_current_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_current_mode()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_diopterdiopter-float-get_diopter-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_diopter(diopter: float) / get_diopter() -&gt; float
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_currentcurrent-float-get_current-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_current(current: float) / get_current() -&gt; float
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_temperature-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_temperature() -&gt; float
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_temperature_limitslower-float-upper-float-tupleint-float-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_temperature_limits(lower: float, upper: float) -&gt; Tuple[int, float, float]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eeprom_dump-listint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eeprom_dump() -&gt; List[int]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eeprom_print" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eeprom_print()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eeprom_write_byteaddress-int-byte-int-int" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eeprom_write_byte(address: int, byte: int) -&gt; int
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enum-operatingmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enum: OperatingMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-crc_16data-bytes-int" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Function: crc_16(data: bytes) -&gt; int
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exceptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-icc1c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class: ICC1C
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Class: ICC1C">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init__port-str-baudrate-int-115200-debug-bool-false" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __init__(port: str, baudrate: int = 115200, debug: bool = False)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_focal_power_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_focal_power_mode()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_current_mode_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_current_mode()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_diopterdiopter-float-get_diopter-optionalfloat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_diopter(diopter: float) / get_diopter() -&gt; Optional[float]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_diopter_min-get_diopter_max-optionalfloat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_diopter_min() / get_diopter_max() -&gt; Optional[float]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_currentcurrent_ma-float-get_current-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_current(current_mA: float) / get_current() -&gt; float
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_temperature-float_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_temperature() -&gt; float
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_temperature_limitlimit-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_temperature_limit(limit: float)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-firmwareversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class: FirmwareVersion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-and-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development and Testing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development and Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="optotune-lens">optotune-lens</h1>
+<p>A robust, modern Python SDK for interacting with <strong>Optotune electrically tunable lenses</strong> over a serial (RS-232/USB COM port) interface. Supports both the <strong>Lens Driver 4</strong> (<code>Lens</code>) and the <strong>ICC-1C</strong> industrial controller (<code>ICC1C</code>).</p>
+<hr />
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Context Manager Support</strong>: Safely and automatically open and close serial connections.</li>
+<li><strong>Robust Exception Hierarchy</strong>: Specialized exceptions (<code>LensConnectionError</code>, <code>LensCRCError</code>, <code>LensTimeoutError</code>, etc.) replace generic Python <code>Exception</code>s.</li>
+<li><strong>Input Validation</strong>: Safeguard hardware with diopter and current bounds checking prior to sending commands.</li>
+<li><strong>Logging Integration</strong>: Uses Python's standard <code>logging</code> library instead of verbose print flags.</li>
+<li><strong>Lens Driver 4</strong> (<code>Lens</code>): binary protocol with CRC-16 Modbus verification on all TX/RX commands, plus EEPROM read/write/dump access.</li>
+<li><strong>ICC-1C</strong> (<code>ICC1C</code>): ASCII "Simple Mode" protocol; the controller does its own raw-current↔diopter conversion from the lens's onboard calibration.</li>
+<li><strong>Modern Packaging</strong>: Conforms to modern PEP 517/518 build standards using <code>pyproject.toml</code>.</li>
+</ul>
+<hr />
+<h2 id="installation">Installation</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Python &gt;= 3.8</li>
+<li><a href="https://docs.astral.sh/uv/"><code>uv</code></a></li>
+</ul>
+<h3 id="setting-up-a-development-environment">Setting Up a Development Environment</h3>
+<p>From the root of the project, create the virtual environment and install the
+package with its dev dependencies (<code>pytest</code>, etc.) from <code>uv.lock</code>:
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>sync<span class="w"> </span>--extra<span class="w"> </span>dev
+</code></pre></div></p>
+<p>Run any command inside that environment with <code>uv run</code>, e.g. <code>uv run pytest</code>
+or <code>uv run python example.py</code>.</p>
+<hr />
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="basic-usage-with-context-manager">Basic Usage with Context Manager</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">optotune_lens</span><span class="w"> </span><span class="kn">import</span> <span class="n">Lens</span>
+
+<span class="c1"># Set logging to see debug TX/RX logs</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="c1"># Use context manager to guarantee connection cleanup</span>
+<span class="k">with</span> <span class="n">Lens</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="s1">&#39;COM7&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">lens</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connected to Lens Serial: </span><span class="si">{</span><span class="n">lens</span><span class="o">.</span><span class="n">lens_serial</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Firmware Version: </span><span class="si">{</span><span class="n">lens</span><span class="o">.</span><span class="n">firmware_version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current Temperature: </span><span class="si">{</span><span class="n">lens</span><span class="o">.</span><span class="n">get_temperature</span><span class="p">()</span><span class="si">}</span><span class="s2"> °C&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 1. Focal Power (Diopter) Mode Example</span>
+    <span class="n">min_fp</span><span class="p">,</span> <span class="n">max_fp</span> <span class="o">=</span> <span class="n">lens</span><span class="o">.</span><span class="n">to_focal_power_mode</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Focal Power Limits: </span><span class="si">{</span><span class="n">min_fp</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">max_fp</span><span class="si">}</span><span class="s2"> diopters&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Validate temperature limits (adjusts diopter range mapping)</span>
+    <span class="n">lens</span><span class="o">.</span><span class="n">set_temperature_limits</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">45.0</span><span class="p">)</span>
+
+    <span class="c1"># Set optical power (raises LensValidationError if outside min_fp / max_fp)</span>
+    <span class="n">lens</span><span class="o">.</span><span class="n">set_diopter</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+    <span class="n">lens</span><span class="o">.</span><span class="n">set_diopter</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">)</span>
+
+    <span class="c1"># 2. Current Mode Example</span>
+    <span class="n">lens</span><span class="o">.</span><span class="n">to_current_mode</span><span class="p">()</span>
+    <span class="n">lens</span><span class="o">.</span><span class="n">set_current</span><span class="p">(</span><span class="mf">100.0</span><span class="p">)</span>  <span class="c1"># set target current in mA</span>
+</code></pre></div>
+<h3 id="icc-1c-controller">ICC-1C Controller</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">optotune_lens</span><span class="w"> </span><span class="kn">import</span> <span class="n">ICC1C</span>
+
+<span class="k">with</span> <span class="n">ICC1C</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="s1">&#39;COM7&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">icc</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connected to: </span><span class="si">{</span><span class="n">icc</span><span class="o">.</span><span class="n">device_type</span><span class="si">}</span><span class="s2"> (Serial: </span><span class="si">{</span><span class="n">icc</span><span class="o">.</span><span class="n">device_serial</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperature: </span><span class="si">{</span><span class="n">icc</span><span class="o">.</span><span class="n">get_temperature</span><span class="p">()</span><span class="si">}</span><span class="s2"> °C&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Focal power mode — no explicit mode switch needed, SETFP is</span>
+    <span class="c1"># always available; this just validates the lens has calibration data.</span>
+    <span class="n">icc</span><span class="o">.</span><span class="n">to_focal_power_mode</span><span class="p">()</span>
+    <span class="n">icc</span><span class="o">.</span><span class="n">set_diopter</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>  <span class="c1"># raises LensValidationError if outside the lens&#39;s range</span>
+
+    <span class="c1"># Current mode — SETCURRENT is independent of SETFP, no mode switch needed.</span>
+    <span class="n">icc</span><span class="o">.</span><span class="n">set_current</span><span class="p">(</span><span class="mf">100.0</span><span class="p">)</span>  <span class="c1"># mA</span>
+</code></pre></div>
+<hr />
+<h2 id="api-documentation">API Documentation</h2>
+<h3 id="class-lens">Class: <code>Lens</code></h3>
+<h4 id="__init__port-str-debug-bool-false"><code>__init__(port: str, debug: bool = False)</code></h4>
+<p>Initializes the serial connection at 115200 baud, performs the handshake, and loads device metadata (Max Current, Serial, Firmware). If <code>debug=True</code>, sets the logger level to <code>DEBUG</code> and routes output to stdout.</p>
+<h4 id="to_focal_power_mode-tuplefloat-float"><code>to_focal_power_mode() -&gt; Tuple[float, float]</code></h4>
+<p>Switches the lens to Focal Power mode (Mode 5) and updates/returns the diopter physical range <code>(min_diopter, max_diopter)</code>.</p>
+<h4 id="to_current_mode"><code>to_current_mode()</code></h4>
+<p>Switches the lens to Current mode (Mode 1).</p>
+<h4 id="set_diopterdiopter-float-get_diopter-float"><code>set_diopter(diopter: float)</code> / <code>get_diopter() -&gt; float</code></h4>
+<p>Sets/reads the target focal power in diopters. Validates input against safety bounds.</p>
+<h4 id="set_currentcurrent-float-get_current-float"><code>set_current(current: float)</code> / <code>get_current() -&gt; float</code></h4>
+<p>Sets/reads the target current in mA. Validates against the device's maximum output current.</p>
+<h4 id="get_temperature-float"><code>get_temperature() -&gt; float</code></h4>
+<p>Reads the internal temperature sensor (resolution 0.0625 °C).</p>
+<h4 id="set_temperature_limitslower-float-upper-float-tupleint-float-float"><code>set_temperature_limits(lower: float, upper: float) -&gt; Tuple[int, float, float]</code></h4>
+<p>Configures safety temperature limits. Returns new focal power limits at those temperatures.</p>
+<h4 id="eeprom_dump-listint"><code>eeprom_dump() -&gt; List[int]</code></h4>
+<p>Dumps the complete 256-byte internal EEPROM contents.</p>
+<h4 id="eeprom_print"><code>eeprom_print()</code></h4>
+<p>Helper method to dump and pretty-print the EEPROM in a 16x16 hex grid.</p>
+<h4 id="eeprom_write_byteaddress-int-byte-int-int"><code>eeprom_write_byte(address: int, byte: int) -&gt; int</code></h4>
+<p>Writes a single byte to the given EEPROM address (0–255). Returns the device's error code.</p>
+<h3 id="enum-operatingmode">Enum: <code>OperatingMode</code></h3>
+<p>An <code>IntEnum</code> with two members:
+- <code>CURRENT = 1</code> — current control mode
+- <code>FOCAL_POWER = 5</code> — focal power (diopter) control mode</p>
+<h3 id="function-crc_16data-bytes-int">Function: <code>crc_16(data: bytes) -&gt; int</code></h3>
+<p>Computes the CRC-16 Modbus checksum (polynomial 0xA001) for the given <code>data</code> bytes.</p>
+<h3 id="exceptions">Exceptions</h3>
+<p>All exceptions derive from <code>LensError</code>. The hierarchy:</p>
+<ul>
+<li><strong><code>LensError</code></strong> — base exception for all package errors</li>
+<li><strong><code>LensConnectionError(LensError)</code></strong> — serial connection issues</li>
+<li><strong><code>LensTimeoutError(LensConnectionError)</code></strong> — read/write timeouts</li>
+<li><strong><code>LensCRCError(LensError)</code></strong> — CRC-16 checksum mismatch</li>
+<li><strong><code>LensCommandError(LensError)</code></strong> — hardware error codes or unexpected responses</li>
+<li><strong><code>LensValidationError(LensError, ValueError)</code></strong> — out-of-range parameter validation</li>
+</ul>
+<h3 id="class-icc1c">Class: <code>ICC1C</code></h3>
+<h4 id="__init__port-str-baudrate-int-115200-debug-bool-false"><code>__init__(port: str, baudrate: int = 115200, debug: bool = False)</code></h4>
+<p>Opens the serial connection, performs the <code>START</code> handshake, and confirms a lens is detected via <code>DETECTDEVICE</code>. The ICC-1C auto-detects baud rate, so <code>baudrate</code> is arbitrary.</p>
+<h4 id="to_focal_power_mode"><code>to_focal_power_mode()</code></h4>
+<p>Validates the connected lens has focal power calibration data (<code>GETFPMIN</code> not <code>NO</code>). Simple Mode has no real mode-switch command — <code>SETFP</code>/<code>SETCURRENT</code> are independent and always available.</p>
+<h4 id="to_current_mode_1"><code>to_current_mode()</code></h4>
+<p>No-op compatibility shim; <code>SETCURRENT</code> is always available.</p>
+<h4 id="set_diopterdiopter-float-get_diopter-optionalfloat"><code>set_diopter(diopter: float)</code> / <code>get_diopter() -&gt; Optional[float]</code></h4>
+<p>Sets/reads the target focal power in diopters. The device converts to/from raw current using the lens's own EEPROM calibration.</p>
+<h4 id="get_diopter_min-get_diopter_max-optionalfloat"><code>get_diopter_min()</code> / <code>get_diopter_max() -&gt; Optional[float]</code></h4>
+<p>Reads the lower/upper focal power limit of the connected lens in diopters, or <code>None</code> if no lens is detected.</p>
+<h4 id="set_currentcurrent_ma-float-get_current-float"><code>set_current(current_mA: float)</code> / <code>get_current() -&gt; float</code></h4>
+<p>Sets/reads the target current in mA.</p>
+<h4 id="get_temperature-float_1"><code>get_temperature() -&gt; float</code></h4>
+<p>Reads the connected device's temperature sensor.</p>
+<h4 id="set_temperature_limitlimit-float"><code>set_temperature_limit(limit: float)</code></h4>
+<p>Sets the operational temperature limit in Celsius.</p>
+<p><strong>Note:</strong> Pro Mode features (Smart Step, the signal generator, vectors) are not covered by this class — they're binary register-protocol only and are configured once via Optotune Cockpit, then persisted on the device across power cycles.</p>
+<h3 id="class-firmwareversion">Class: <code>FirmwareVersion</code></h3>
+<p>NamedTuple <code>(major, minor, build, patch)</code> returned in <code>Lens.firmware_version</code>; <code>str()</code> renders it as <code>"major.minor.build.patch"</code>.</p>
+<hr />
+<h2 id="development-and-testing">Development and Testing</h2>
+<p>Unit tests are written with <code>pytest</code> and use a mock serial implementation.</p>
+<h3 id="running-tests">Running Tests</h3>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>pytest
+</code></pre></div>
+<hr />
+<h2 id="license">License</h2>
+<p>This project is licensed under the BSD 3-Clause License - see the LICENSE file for details.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

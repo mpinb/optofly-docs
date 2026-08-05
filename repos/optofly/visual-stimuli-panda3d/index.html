@@ -1,0 +1,2526 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mpinb.github.io/optofly-docs/repos/optofly/visual-stimuli-panda3d/">
+      
+      
+        <link rel="prev" href="../opto-trigger/">
+      
+      
+        <link rel="next" href="../troubleshooting/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Visual Stimuli (Panda3D) - OptoFly Ecosystem Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#visual-stimuli-panda3d-pipeline" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="OptoFly Ecosystem Wiki" class="md-header__button md-logo" aria-label="OptoFly Ecosystem Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OptoFly Ecosystem Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Visual Stimuli (Panda3D)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mpinb/optofly-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="OptoFly Ecosystem Wiki" class="md-nav__button md-logo" aria-label="OptoFly Ecosystem Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OptoFly Ecosystem Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mpinb/optofly-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Setup
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/udev-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    udev Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/basler-charuco-calibrator-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basler ChArUco Calibrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/braid-extrinsic-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Extrinsic Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/liquid-lens-calibration-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liquid Lens Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/optofly-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/optotune-lens-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optotune Lens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/ximea-py-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ximea Py
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/braid-opto-power-measure-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Opto-Power Measure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/optofly-analysis-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../claude-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Claude Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Component Docs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Component Docs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OptoFly
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camera
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../opto-trigger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opto Trigger
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Stimuli (Panda3D)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Stimuli (Panda3D)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-scene-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Scene Graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#angular-coordinate-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Angular Coordinate System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billboards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Billboards
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        State Machines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-geometry-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Geometry Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-display-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No-Display Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#included-stimuli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Included Stimuli
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Included Stimuli">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backgroundstimulus-srcvisualstimulibackgroundpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BackgroundStimulus (src/visual/stimuli/background.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loomingstimulus-srcvisualstimuliloomingpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LoomingStimulus (src/visual/stimuli/looming.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-creating-an-oscillatingsquare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial: Creating an OscillatingSquare
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial: Creating an OscillatingSquare">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-the-stimulus-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create the stimulus class
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-register-in-visualprocess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Register in VisualProcess
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-add-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Add config
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-run-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Run it
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-write-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Write tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Topics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#position-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Position Balancing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duration-precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Duration Precision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basestimulus-interface-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BaseStimulus Interface Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BaseStimulus Interface Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-visualprocess-does-with-the-return-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What VisualProcess does with the return value
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../liquid-lens-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liquid Lens Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basler-charuco-calibrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basler ChArUco Calibrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../optotune-lens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optotune Lens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ximea-py/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ximea Py
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../braid-opto-power-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Opto-Power Measure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../optofly-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-scene-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Scene Graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#angular-coordinate-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Angular Coordinate System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billboards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Billboards
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        State Machines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-geometry-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Geometry Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-display-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No-Display Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#included-stimuli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Included Stimuli
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Included Stimuli">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backgroundstimulus-srcvisualstimulibackgroundpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BackgroundStimulus (src/visual/stimuli/background.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loomingstimulus-srcvisualstimuliloomingpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LoomingStimulus (src/visual/stimuli/looming.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-creating-an-oscillatingsquare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tutorial: Creating an OscillatingSquare
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial: Creating an OscillatingSquare">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-the-stimulus-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create the stimulus class
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-register-in-visualprocess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Register in VisualProcess
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-add-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Add config
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-run-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Run it
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-write-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Write tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Topics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#position-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Position Balancing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duration-precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Duration Precision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basestimulus-interface-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BaseStimulus Interface Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BaseStimulus Interface Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-visualprocess-does-with-the-return-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What VisualProcess does with the return value
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="visual-stimuli-panda3d-pipeline">Visual Stimuli — Panda3D Pipeline</h1>
+<p>Developer guide for the Panda3D visual stimulus rendering system (<code>src/visual/</code>).</p>
+<h2 id="overview">Overview</h2>
+<p>The Panda3D pipeline renders visual stimuli in a true 3D panoramic arena. Four perspective cameras split a 7680×1080 window into four 1920×1080 display regions, each covering a 90° quadrant around the fly. The fly is at origin; stimuli are placed on a virtual cylinder wall surrounding it.</p>
+<h2 id="architecture">Architecture</h2>
+<div class="highlight"><pre><span></span><code>VisualProcess (ZMQ subscriber, process.py)
+    |-- ArenaScene(ShowBase)              # 4-camera panoramic window
+    |   |-- render                        # Root scene-graph node
+    |   |   |-- BackgroundCylinder        # Textured cylinder (background.py)
+    |   |   |-- LoomingDisk               # Billboard disk (looming.py)
+    |   |   `-- OscillatingSquare         # Billboard square (tutorial)
+    |   |-- camera[0..3]                  # Perspective cameras, 90° FOV each
+    |   `-- taskMgr:
+    |       |-- zmq_poll (sort=0)         # Non-blocking ZMQ receive
+    |       `-- stimulus_update (sort=1)  # stim.update(dt) each frame
+    |
+    `-- _stimuli[]                        # List of BaseStimulus instances
+        |-- BackgroundStimulus
+        |-- LoomingStimulus
+        `-- OscillatingSquare
+</code></pre></div>
+<p><strong>Initialization (once at startup):</strong>
+1. <code>VisualProcess._run()</code> loads config, creates <code>ArenaScene</code>
+2. <code>_initialize_stimuli()</code> instantiates each enabled stimulus, calls <code>stim.setup()</code>, appends to <code>self._stimuli</code>
+3. Two Panda3D task manager tasks are registered: <code>zmq_poll</code> and <code>stimulus_update</code></p>
+<p><strong>Per-frame loop (runs at display refresh rate):</strong>
+1. <code>zmq_poll_task</code>: non-blocking ZMQ receive → <code>stim.on_trigger(world_heading, data)</code> on ZONE_ENTER
+2. <code>stimulus_update_task</code>: <code>stim.update(dt)</code> for each stimulus
+3. Panda3D automatically renders the scene graph — no explicit draw call</p>
+<p><strong>Key classes:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BaseStimulus</code></td>
+<td><code>src/visual/base.py</code></td>
+<td>ABC with <code>setup()</code>, <code>on_trigger()</code>, <code>update()</code>, angular helpers</td>
+</tr>
+<tr>
+<td><code>ArenaScene</code></td>
+<td><code>src/visual/scene.py</code></td>
+<td>4-camera <code>ShowBase</code> window, fly at origin</td>
+</tr>
+<tr>
+<td><code>VisualProcess</code></td>
+<td><code>src/visual/process.py</code></td>
+<td>ZMQ subscriber, heading conversion, render loop</td>
+</tr>
+<tr>
+<td><code>BackgroundStimulus</code></td>
+<td><code>src/visual/stimuli/background.py</code></td>
+<td>Always-visible textured cylinder</td>
+</tr>
+<tr>
+<td><code>LoomingStimulus</code></td>
+<td><code>src/visual/stimuli/looming.py</code></td>
+<td>Expanding disk with L/V ratio dynamics</td>
+</tr>
+</tbody>
+</table>
+<h2 id="core-concepts">Core Concepts</h2>
+<h3 id="the-scene-graph">The Scene Graph</h3>
+<p>Panda3D manages a tree of <code>NodePath</code> objects rooted at <code>self.scene.render</code>. You attach geometry to this tree, and Panda3D walks it every frame to render all visible nodes. There is no per-frame batch — adding or removing nodes changes what appears on screen.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Attach a node to the scene</span>
+<span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">geom_node</span><span class="p">)</span>
+<span class="c1"># Hide it without removing</span>
+<span class="n">node</span><span class="o">.</span><span class="n">stash</span><span class="p">()</span>
+<span class="c1"># Show it again</span>
+<span class="n">node</span><span class="o">.</span><span class="n">unstash</span><span class="p">()</span>
+<span class="c1"># Remove permanently</span>
+<span class="n">node</span><span class="o">.</span><span class="n">removeNode</span><span class="p">()</span>
+</code></pre></div>
+<p>Use <code>stash()</code>/<code>unstash()</code> for temporary visibility (e.g., stimulus on/off). Use <code>removeNode()</code> when a node will never be used again.</p>
+<h3 id="angular-coordinate-system">Angular Coordinate System</h3>
+<p>The fly sits at the origin. World: North = +Y, East = +X, Z = up. Heading is a compass bearing (0° = North, 90° = East, 180° = South, 270° = West).</p>
+<p>Module-level helpers in <code>src/visual/base.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">src.visual.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">angular_to_world_pos</span><span class="p">,</span> <span class="n">angular_size_to_radius</span>
+
+<span class="c1"># Convert (heading, elevation, distance) to world (x, y, z) in cm</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">angular_to_world_pos</span><span class="p">(</span><span class="n">heading_deg</span><span class="o">=</span><span class="mf">45.0</span><span class="p">,</span> <span class="n">elevation_deg</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">distance_cm</span><span class="o">=</span><span class="mf">25.0</span><span class="p">)</span>
+
+<span class="c1"># Convert angular size to physical radius at a given distance</span>
+<span class="n">radius</span> <span class="o">=</span> <span class="n">angular_size_to_radius</span><span class="p">(</span><span class="n">size_deg</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">distance_cm</span><span class="o">=</span><span class="mf">25.0</span><span class="p">)</span>
+</code></pre></div>
+<p><code>angular_size_to_radius</code> uses the formula <code>R = tan(angle / 2) * distance</code>. For a unit disk (radius=1), <code>node.setScale(R)</code> makes it subtend exactly <code>size_deg</code>. For a unit square (half-side=1), <code>node.setScale(R)</code> makes the half-side subtend <code>size_deg/2</code>.</p>
+<h3 id="billboards">Billboards</h3>
+<p>A billboard node always faces the fly (at origin), even when placed off-axis:</p>
+<div class="highlight"><pre><span></span><code><span class="n">node</span><span class="o">.</span><span class="n">setBillboardPointWorld</span><span class="p">()</span>   <span class="c1"># Face the origin</span>
+<span class="n">node</span><span class="o">.</span><span class="n">setTwoSided</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>          <span class="c1"># Visible from both sides</span>
+</code></pre></div>
+<p>The <code>add_disk</code> helper in <code>BaseStimulus</code> applies both automatically. For custom geometry, you must set them yourself.</p>
+<h3 id="state-machines">State Machines</h3>
+<p>Closed-loop stimuli use a simple state machine:</p>
+<div class="highlight"><pre><span></span><code>IDLE --[on_trigger()]--&gt; ACTIVE --[elapsed &gt; duration]--&gt; IDLE
+</code></pre></div>
+<p><code>update(dt)</code> advances elapsed time and applies state transitions. The <code>LoomingStimulus</code> uses a three-state variant (IDLE, EXPANDING, HOLDING).</p>
+<h3 id="custom-geometry-pattern">Custom Geometry Pattern</h3>
+<p>When the built-in <code>add_disk</code> helper isn't the right shape, create a module-level factory function following the <code>_make_unit_disk</code> convention from <code>src/visual/base.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">_make_unit_square</span><span class="p">(</span><span class="n">color</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a flat square (half-side=1) in the XZ plane as a GeomNode.&quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">panda3d.core</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+        <span class="n">Geom</span><span class="p">,</span> <span class="n">GeomNode</span><span class="p">,</span> <span class="n">GeomTriangles</span><span class="p">,</span>
+        <span class="n">GeomVertexData</span><span class="p">,</span> <span class="n">GeomVertexFormat</span><span class="p">,</span> <span class="n">GeomVertexWriter</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="c1"># Convert 0-255 colors to 0-1 floats</span>
+    <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">,</span> <span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">,</span> <span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">/</span> <span class="mf">255.0</span>
+    <span class="c1"># ... build vertices and triangles ...</span>
+    <span class="k">return</span> <span class="n">node</span>
+</code></pre></div>
+<p>Key points:
+- Create geometry in the <strong>XZ plane</strong> (same as <code>_make_unit_disk</code>) so billboard rotation works correctly
+- Scale the returned node with <code>setScale(angular_size_to_radius(...))</code>
+- Defer <code>panda3d.core</code> imports inside the function body to avoid import errors in non-Panda3D environments</p>
+<h3 id="no-display-testing">No-Display Testing</h3>
+<p>Pure math functions (config parsing, state logic, coordinate helpers) can be tested without a display. Only tests that create an <code>ArenaScene</code> need <code>@pytest.mark.display</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># No display needed — pass scene=None, test __init__ and state logic</span>
+<span class="n">stim</span> <span class="o">=</span> <span class="n">OscillatingSquare</span><span class="p">({},</span> <span class="n">scene</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">stim</span><span class="o">.</span><span class="n">_size_deg</span> <span class="o">==</span> <span class="mf">10.0</span>
+
+<span class="c1"># Display needed</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">display</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_integration</span><span class="p">():</span>
+    <span class="n">scene</span> <span class="o">=</span> <span class="n">ArenaScene</span><span class="p">(</span><span class="n">standalone</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">stim</span> <span class="o">=</span> <span class="n">OscillatingSquare</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">scene</span><span class="p">)</span>
+    <span class="n">stim</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+    <span class="c1"># ...</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="included-stimuli">Included Stimuli</h2>
+<h3 id="backgroundstimulus-srcvisualstimulibackgroundpy">BackgroundStimulus (<code>src/visual/stimuli/background.py</code>)</h3>
+<p>Open-loop. Textured cylinder at <code>viewing_distance_cm</code> radius with a procedural random-square pattern. Always visible. No trigger/update logic — demonstrates the simplest possible <code>setup()</code>-only stimulus. Uses <code>_build_cylinder_geom</code> factory and loads textures via the Panda3D API directly.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[visual_stimuli.background]</span>
+<span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">square_size_px</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">40</span>
+<span class="n">density</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span>
+<span class="n">background_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">]</span>
+<span class="n">foreground_color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span>
+<span class="n">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span>
+<span class="n">cylinder_height_cm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">80</span>
+</code></pre></div>
+<h3 id="loomingstimulus-srcvisualstimuliloomingpy">LoomingStimulus (<code>src/visual/stimuli/looming.py</code>)</h3>
+<p>Closed-loop. Expanding billboard disk simulating an approaching object. Demonstrates: three-state machine (IDLE → EXPANDING → HOLDING), <code>add_disk</code> with explicit <code>distance_cm</code>, <code>set_angular_size</code> each frame, <code>remove_node</code> on completion, <code>PositionBalancer</code> for balanced position offsets, sham trials. The primary reference for closed-loop stimuli.</p>
+<div class="highlight"><pre><span></span><code><span class="k">[visual_stimuli.looming]</span>
+<span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">initial_size_deg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.0</span>
+<span class="n">final_size_deg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">72.0</span>
+<span class="n">expansion_duration_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">300</span>
+<span class="n">hold_time_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span>
+<span class="n">expansion_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;exponential&quot;</span><span class="w">     </span><span class="c1"># &quot;lv_ratio&quot;, &quot;exponential&quot;, or &quot;linear&quot;</span>
+<span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span>
+<span class="n">positions_deg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">-90</span><span class="p">,</span><span class="w"> </span><span class="mi">-45</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">]</span>
+<span class="n">sham_probability</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="n">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span>
+</code></pre></div>
+<h2 id="tutorial-creating-an-oscillatingsquare">Tutorial: Creating an OscillatingSquare</h2>
+<p>We'll build a closed-loop stimulus step by step: a small square billboard that appears in front of the fly when a ZONE_ENTER fires, then oscillates left and right for a fixed duration and disappears.</p>
+<p>The complete implementation lives at <code>src/visual/stimuli/oscillating_square.py</code>. This tutorial shows the key parts inline; see that file for the full source.</p>
+<h3 id="step-1-create-the-stimulus-class">Step 1: Create the stimulus class</h3>
+<p>Create <code>src/visual/stimuli/oscillating_square.py</code>.</p>
+<p><strong>Custom geometry factory.</strong> Since <code>add_disk</code> creates circles, we need a square. Write a module-level factory following the <code>_make_unit_disk</code> pattern from <code>src/visual/base.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.visual.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseStimulus</span><span class="p">,</span> <span class="n">angular_to_world_pos</span><span class="p">,</span> <span class="n">angular_size_to_radius</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_make_unit_square</span><span class="p">(</span><span class="n">color</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a flat square (half-side=1) in the XZ plane as a GeomNode.&quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">panda3d.core</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+        <span class="n">Geom</span><span class="p">,</span> <span class="n">GeomNode</span><span class="p">,</span> <span class="n">GeomTriangles</span><span class="p">,</span>
+        <span class="n">GeomVertexData</span><span class="p">,</span> <span class="n">GeomVertexFormat</span><span class="p">,</span> <span class="n">GeomVertexWriter</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">,</span> <span class="n">color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">,</span> <span class="n">color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">/</span> <span class="mf">255.0</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">color</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">/</span> <span class="mf">255.0</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">color</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span> <span class="k">else</span> <span class="mf">1.0</span>
+
+    <span class="c1"># Declare the per-vertex attribute layout: 3D position (V3) + RGBA color (C4).</span>
+    <span class="c1"># getV3c4() is a built-in Panda3D format; custom layouts are possible but rarely needed.</span>
+    <span class="n">vformat</span> <span class="o">=</span> <span class="n">GeomVertexFormat</span><span class="o">.</span><span class="n">getV3c4</span><span class="p">()</span>
+
+    <span class="c1"># Allocate the vertex buffer. &quot;square&quot; is just a debug name; UHStatic tells the</span>
+    <span class="c1"># GPU this data won&#39;t change after upload (enables optimization).</span>
+    <span class="n">vdata</span> <span class="o">=</span> <span class="n">GeomVertexData</span><span class="p">(</span><span class="s2">&quot;square&quot;</span><span class="p">,</span> <span class="n">vformat</span><span class="p">,</span> <span class="n">Geom</span><span class="o">.</span><span class="n">UHStatic</span><span class="p">)</span>
+    <span class="n">vdata</span><span class="o">.</span><span class="n">setNumRows</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># pre-allocate exactly 4 rows (one per corner)</span>
+
+    <span class="c1"># GeomVertexWriter is a cursor into the vertex buffer for a specific column.</span>
+    <span class="c1"># Each addData* call writes one value and advances the cursor by one row.</span>
+    <span class="n">vertex</span> <span class="o">=</span> <span class="n">GeomVertexWriter</span><span class="p">(</span><span class="n">vdata</span><span class="p">,</span> <span class="s2">&quot;vertex&quot;</span><span class="p">)</span>
+    <span class="n">color_w</span> <span class="o">=</span> <span class="n">GeomVertexWriter</span><span class="p">(</span><span class="n">vdata</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Write the four corners in XZ plane (Y=0), half-side = 1.</span>
+    <span class="c1"># Each vertex.addData3 + color_w.addData4 pair writes one complete vertex.</span>
+    <span class="c1"># The two writers advance in lockstep: row 0, row 1, row 2, row 3.</span>
+    <span class="n">vertex</span><span class="o">.</span><span class="n">addData3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>    <span class="c1"># corner 0: +X, +Z (top-right)</span>
+    <span class="n">color_w</span><span class="o">.</span><span class="n">addData4</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="n">vertex</span><span class="o">.</span><span class="n">addData3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># corner 1: +X, -Z (bottom-right)</span>
+    <span class="n">color_w</span><span class="o">.</span><span class="n">addData4</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="n">vertex</span><span class="o">.</span><span class="n">addData3</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># corner 2: -X, -Z (bottom-left)</span>
+    <span class="n">color_w</span><span class="o">.</span><span class="n">addData4</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="n">vertex</span><span class="o">.</span><span class="n">addData3</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># corner 3: -X, +Z (top-left)</span>
+    <span class="n">color_w</span><span class="o">.</span><span class="n">addData4</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+    <span class="c1"># A rectangle needs two triangles. addVertices(i, j, k) references corners by</span>
+    <span class="c1"># their row index in the vertex buffer (counter-clockwise winding = front face).</span>
+    <span class="c1"># Triangle 0-1-2 covers the bottom-right half; 0-2-3 covers the top-left half.</span>
+    <span class="n">tris</span> <span class="o">=</span> <span class="n">GeomTriangles</span><span class="p">(</span><span class="n">Geom</span><span class="o">.</span><span class="n">UHStatic</span><span class="p">)</span>
+    <span class="n">tris</span><span class="o">.</span><span class="n">addVertices</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">tris</span><span class="o">.</span><span class="n">addVertices</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">tris</span><span class="o">.</span><span class="n">closePrimitive</span><span class="p">()</span>  <span class="c1"># signals that the index list is complete</span>
+
+    <span class="c1"># Geom bundles a vertex buffer with one or more index primitives (our triangles).</span>
+    <span class="n">geom</span> <span class="o">=</span> <span class="n">Geom</span><span class="p">(</span><span class="n">vdata</span><span class="p">)</span>
+    <span class="n">geom</span><span class="o">.</span><span class="n">addPrimitive</span><span class="p">(</span><span class="n">tris</span><span class="p">)</span>
+
+    <span class="c1"># GeomNode is a scene-graph node that holds renderable Geom objects.</span>
+    <span class="c1"># addGeom attaches our geometry; the node can then be attached to the scene with</span>
+    <span class="c1"># render.attachNewNode(node) or NodePath(node).</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">GeomNode</span><span class="p">(</span><span class="s2">&quot;square&quot;</span><span class="p">)</span>
+    <span class="n">node</span><span class="o">.</span><span class="n">addGeom</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">node</span>
+</code></pre></div>
+<p>The square has half-side = 1 in the XZ plane. Scaling it by <code>angular_size_to_radius(size_deg, dist)</code> makes the half-side subtend <code>size_deg / 2</code> from the fly, so the full square subtends <code>size_deg</code>.</p>
+<p><strong>Stimulus class skeleton:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">OscillatingSquare</span><span class="p">(</span><span class="n">BaseStimulus</span><span class="p">):</span>
+
+    <span class="n">IDLE</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ACTIVE</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">scene</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">scene</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_size_deg</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;size_deg&quot;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_amplitude_deg</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;amplitude_deg&quot;</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_frequency_hz</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;frequency_hz&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_duration_ms</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;duration_ms&quot;</span><span class="p">,</span> <span class="mf">2000.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_color</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_positions_deg</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;positions_deg&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">45</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;seed&quot;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rng</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">Random</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_seed</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">IDLE</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_square</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_elapsed_ms</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_base_heading</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_offset_deg</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
+</code></pre></div>
+<p><strong>Implement <code>setup()</code>.</strong> Create the square geometry once, stash it. It will be repositioned and unstashed on each trigger:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">square_geom</span> <span class="o">=</span> <span class="n">_make_unit_square</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_color</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_square</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="o">.</span><span class="n">attachNewNode</span><span class="p">(</span><span class="n">square_geom</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_square</span><span class="o">.</span><span class="n">setBillboardPointWorld</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_square</span><span class="o">.</span><span class="n">setTwoSided</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_square</span><span class="o">.</span><span class="n">stash</span><span class="p">()</span>
+</code></pre></div>
+<p>Creating geometry in <code>setup()</code> and toggling with <code>stash()</code>/<code>unstash()</code> is more efficient than creating/destroying nodes on each trigger.</p>
+<p><strong>Implement <code>on_trigger()</code>.</strong> Pick a random offset from <code>positions_deg</code>, compute the world heading, and place the square. Return a dict of the parameters used — <code>VisualProcess</code> merges it into the <code>stim.csv</code> row for this trigger (return <code>None</code> when the stimulus doesn't activate):</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">on_trigger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">heading_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">trigger_data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">IDLE</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ACTIVE</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_base_heading</span> <span class="o">=</span> <span class="n">heading_deg</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_offset_deg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_positions_deg</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_elapsed_ms</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_place_square</span><span class="p">(</span><span class="n">heading_deg</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_offset_deg</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;square_stimulus_heading_deg&quot;</span><span class="p">:</span> <span class="n">heading_deg</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_offset_deg</span><span class="p">,</span>
+        <span class="s2">&quot;square_offset_deg&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_offset_deg</span><span class="p">,</span>
+        <span class="s2">&quot;square_size_deg&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size_deg</span><span class="p">,</span>
+        <span class="s2">&quot;square_amplitude_deg&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_amplitude_deg</span><span class="p">,</span>
+        <span class="s2">&quot;square_frequency_hz&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_frequency_hz</span><span class="p">,</span>
+        <span class="s2">&quot;square_duration_ms&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_duration_ms</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre></div>
+<p><strong>Helper: <code>_place_square()</code>.</strong> Converts heading to world position, scales the square to the correct angular size, un-stashes it:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">_place_square</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">heading_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">viewing_distance_cm</span> <span class="o">-</span> <span class="mf">1.0</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">angular_to_world_pos</span><span class="p">(</span><span class="n">heading_deg</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span>
+    <span class="n">radius</span> <span class="o">=</span> <span class="n">angular_size_to_radius</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_size_deg</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_square</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_square</span><span class="o">.</span><span class="n">setScale</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_square</span><span class="o">.</span><span class="n">unstash</span><span class="p">()</span>
+</code></pre></div>
+<p>The distance is 1 cm inside the cylinder wall so the square renders in front of the background.</p>
+<p><strong>Implement <code>update()</code>.</strong> Advance elapsed time; if duration exceeded, stash and return to IDLE. Otherwise oscillate the heading with a sine wave:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ACTIVE</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">_elapsed_ms</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="mf">1000.0</span>
+
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_elapsed_ms</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_duration_ms</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_square</span><span class="o">.</span><span class="n">stash</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">IDLE</span>
+        <span class="k">return</span>
+
+    <span class="n">t_sec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_elapsed_ms</span> <span class="o">/</span> <span class="mf">1000.0</span>
+    <span class="n">oscillation</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t_sec</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_frequency_hz</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_amplitude_deg</span>
+    <span class="p">)</span>
+    <span class="n">current_heading</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_base_heading</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_offset_deg</span> <span class="o">+</span> <span class="n">oscillation</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_place_square</span><span class="p">(</span><span class="n">current_heading</span><span class="p">)</span>
+</code></pre></div>
+<p>The square's position is updated every frame. Angular size stays constant — only heading changes.</p>
+<h3 id="step-2-register-in-visualprocess">Step 2: Register in VisualProcess</h3>
+<p>In <code>src/visual/process.py</code>, add the import:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">src.visual.stimuli.oscillating_square</span><span class="w"> </span><span class="kn">import</span> <span class="n">OscillatingSquare</span>
+</code></pre></div>
+<p>Then add a registration block to <code>_initialize_stimuli()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;oscillating_square&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;enabled&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="n">stim</span> <span class="o">=</span> <span class="n">OscillatingSquare</span><span class="p">(</span>
+        <span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;oscillating_square&quot;</span><span class="p">,</span> <span class="p">{}),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scene</span>
+    <span class="p">)</span>
+    <span class="n">stim</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_stimuli</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stim</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Registered: OscillatingSquare&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>The <code>cfg.get("oscillating_square", {})</code> call reads the <code>[visual_stimuli.oscillating_square]</code> config subsection. The pattern is identical to <code>BackgroundStimulus</code> and <code>LoomingStimulus</code>.</p>
+<h3 id="step-3-add-config">Step 3: Add config</h3>
+<p>In <code>configs/visual_stimuli.toml</code> (or the example file):</p>
+<div class="highlight"><pre><span></span><code><span class="k">[visual_stimuli.oscillating_square]</span>
+<span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+
+<span class="c1"># Square appearance</span>
+<span class="n">size_deg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10.0</span>
+<span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Oscillation parameters</span>
+<span class="n">amplitude_deg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">30.0</span><span class="w">          </span><span class="c1"># Peak left/right displacement</span>
+<span class="n">frequency_hz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0</span><span class="w">            </span><span class="c1"># Oscillation cycles per second</span>
+
+<span class="c1"># Timing</span>
+<span class="n">duration_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="w">            </span><span class="c1"># Total presentation time</span>
+
+<span class="c1"># Position offsets from fly heading (randomly chosen)</span>
+<span class="c1"># 0 = ahead, 90 = right, -90 = left, 180 = behind</span>
+<span class="n">positions_deg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">-45</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">45</span><span class="p">]</span>
+
+<span class="n">seed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span>
+</code></pre></div>
+<h3 id="step-4-run-it">Step 4: Run it</h3>
+<p>Standalone test mode (small 1280×320 window, no hardware):</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<span class="s2">from direct.task import Task</span>
+<span class="s2">from panda3d.core import ClockObject</span>
+<span class="s2">from src.visual.scene import ArenaScene</span>
+<span class="s2">from src.visual.stimuli.oscillating_square import OscillatingSquare</span>
+
+<span class="s2">scene = ArenaScene(standalone=True)</span>
+<span class="s2">stim = OscillatingSquare({</span>
+<span class="s2">    &#39;size_deg&#39;: 10.0,</span>
+<span class="s2">    &#39;amplitude_deg&#39;: 30.0,</span>
+<span class="s2">    &#39;frequency_hz&#39;: 2.0,</span>
+<span class="s2">    &#39;duration_ms&#39;: 2000.0,</span>
+<span class="s2">    &#39;color&#39;: [0, 0, 0],</span>
+<span class="s2">    &#39;positions_deg&#39;: [0],</span>
+<span class="s2">}, scene)</span>
+<span class="s2">stim.setup()</span>
+<span class="s2">stim.on_trigger(0.0, {&#39;obj_id&#39;: 1})</span>
+
+<span class="s2"># Panda3D&#39;s render loop does NOT call stim.update() automatically.</span>
+<span class="s2"># Register a per-frame task so the oscillation advances each frame.</span>
+<span class="s2"># (VisualProcess does this via _stimulus_update_task in the full rig.)</span>
+<span class="s2">def update_task(task):</span>
+<span class="s2">    stim.update(ClockObject.getGlobalClock().getDt())</span>
+<span class="s2">    return Task.cont</span>
+
+<span class="s2">scene.taskMgr.add(update_task, &#39;update_stim&#39;)</span>
+<span class="s2">scene.run()  # blocks; close the window to exit</span>
+</code></pre></div>
+<p>In the full rig, the stimulus triggers automatically on ZONE_ENTER from the Braid tracker. Run with the main process:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>main.py
+</code></pre></div>
+<h3 id="step-5-write-tests">Step 5: Write tests</h3>
+<p>Create <code>tests/visual/test_oscillating_square.py</code>.</p>
+<p><strong>Unit tests (no display needed).</strong> Test config parsing, state machine, and the geometry factory:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">src.visual.stimuli.oscillating_square</span><span class="w"> </span><span class="kn">import</span> <span class="n">OscillatingSquare</span><span class="p">,</span> <span class="n">_make_unit_square</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_default_config</span><span class="p">():</span>
+    <span class="n">stim</span> <span class="o">=</span> <span class="n">OscillatingSquare</span><span class="p">({},</span> <span class="n">scene</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">stim</span><span class="o">.</span><span class="n">_size_deg</span> <span class="o">==</span> <span class="mf">10.0</span>
+    <span class="k">assert</span> <span class="n">stim</span><span class="o">.</span><span class="n">_amplitude_deg</span> <span class="o">==</span> <span class="mf">30.0</span>
+    <span class="k">assert</span> <span class="n">stim</span><span class="o">.</span><span class="n">_frequency_hz</span> <span class="o">==</span> <span class="mf">1.0</span>
+    <span class="k">assert</span> <span class="n">stim</span><span class="o">.</span><span class="n">_duration_ms</span> <span class="o">==</span> <span class="mf">2000.0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_custom_config</span><span class="p">():</span>
+    <span class="n">stim</span> <span class="o">=</span> <span class="n">OscillatingSquare</span><span class="p">(</span>
+        <span class="p">{</span><span class="s2">&quot;size_deg&quot;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">],</span> <span class="s2">&quot;positions_deg&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">]},</span>
+        <span class="n">scene</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="n">stim</span><span class="o">.</span><span class="n">_size_deg</span> <span class="o">==</span> <span class="mf">20.0</span>
+    <span class="k">assert</span> <span class="n">stim</span><span class="o">.</span><span class="n">_color</span> <span class="o">==</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_state_starts_idle</span><span class="p">():</span>
+    <span class="n">stim</span> <span class="o">=</span> <span class="n">OscillatingSquare</span><span class="p">({},</span> <span class="n">scene</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">stim</span><span class="o">.</span><span class="n">_state</span> <span class="o">==</span> <span class="n">OscillatingSquare</span><span class="o">.</span><span class="n">IDLE</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_double_trigger_ignored</span><span class="p">():</span>
+    <span class="n">stim</span> <span class="o">=</span> <span class="n">OscillatingSquare</span><span class="p">({</span><span class="s2">&quot;positions_deg&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">]},</span> <span class="n">scene</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">stim</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="n">OscillatingSquare</span><span class="o">.</span><span class="n">ACTIVE</span>
+    <span class="n">stim</span><span class="o">.</span><span class="n">_base_heading</span> <span class="o">=</span> <span class="mf">90.0</span>
+    <span class="n">stim</span><span class="o">.</span><span class="n">on_trigger</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="k">assert</span> <span class="n">stim</span><span class="o">.</span><span class="n">_base_heading</span> <span class="o">==</span> <span class="mf">90.0</span>  <span class="c1"># unchanged</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_make_unit_square_creates_geomnode</span><span class="p">():</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">_make_unit_square</span><span class="p">((</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">node</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;square&quot;</span>
+    <span class="k">assert</span> <span class="n">node</span><span class="o">.</span><span class="n">getNumGeoms</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span>
+</code></pre></div>
+<p><strong>Integration test (needs display).</strong> Test the full lifecycle with a real <code>ArenaScene</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">display</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_setup_and_trigger_cycle</span><span class="p">():</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">src.visual.scene</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArenaScene</span>
+
+    <span class="n">scene</span> <span class="o">=</span> <span class="n">ArenaScene</span><span class="p">(</span><span class="n">standalone</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">stim</span> <span class="o">=</span> <span class="n">OscillatingSquare</span><span class="p">(</span>
+        <span class="p">{</span><span class="s2">&quot;size_deg&quot;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span> <span class="s2">&quot;amplitude_deg&quot;</span><span class="p">:</span> <span class="mf">30.0</span><span class="p">,</span> <span class="s2">&quot;frequency_hz&quot;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
+         <span class="s2">&quot;duration_ms&quot;</span><span class="p">:</span> <span class="mf">2000.0</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;positions_deg&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">]},</span>
+        <span class="n">scene</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">stim</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">stim</span><span class="o">.</span><span class="n">_square</span><span class="o">.</span><span class="n">isStashed</span><span class="p">()</span>
+
+    <span class="n">stim</span><span class="o">.</span><span class="n">on_trigger</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;obj_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+    <span class="k">assert</span> <span class="n">stim</span><span class="o">.</span><span class="n">_state</span> <span class="o">==</span> <span class="n">OscillatingSquare</span><span class="o">.</span><span class="n">ACTIVE</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">stim</span><span class="o">.</span><span class="n">_square</span><span class="o">.</span><span class="n">isStashed</span><span class="p">()</span>
+
+    <span class="c1"># Run 2000ms of updates</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">80</span><span class="p">):</span>
+        <span class="n">stim</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mf">0.025</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">stim</span><span class="o">.</span><span class="n">_state</span> <span class="o">==</span> <span class="n">OscillatingSquare</span><span class="o">.</span><span class="n">IDLE</span>
+    <span class="k">assert</span> <span class="n">stim</span><span class="o">.</span><span class="n">_square</span><span class="o">.</span><span class="n">isStashed</span><span class="p">()</span>
+
+    <span class="n">scene</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+</code></pre></div>
+<p>Run tests:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>tests/visual/test_oscillating_square.py<span class="w"> </span>-v<span class="w">          </span><span class="c1"># unit tests</span>
+uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>tests/visual/test_oscillating_square.py<span class="w"> </span>-v<span class="w"> </span>-m<span class="w"> </span>display<span class="w">  </span><span class="c1"># integration test</span>
+</code></pre></div>
+<h2 id="advanced-topics">Advanced Topics</h2>
+<h3 id="position-balancing">Position Balancing</h3>
+<p>For balanced presentation across positions, use the <code>PositionBalancer</code> class from <code>src/visual/stimuli/looming.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">src.visual.stimuli.looming</span><span class="w"> </span><span class="kn">import</span> <span class="n">PositionBalancer</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyStimulus</span><span class="p">(</span><span class="n">BaseStimulus</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_balancer</span> <span class="o">=</span> <span class="n">PositionBalancer</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;positions_deg&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">45</span><span class="p">])</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_trigger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">heading_deg</span><span class="p">,</span> <span class="n">trigger_data</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_offset_deg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balancer</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+</code></pre></div>
+<p>It shuffles the position list each cycle, so every position is used once before any repeats — unlike <code>random.choice</code> which can repeat positions by chance.</p>
+<h3 id="duration-precision">Duration Precision</h3>
+<p><code>update(dt)</code> accumulates elapsed time using the Panda3D frame delta. The stimulus lasts until the first frame after <code>duration_ms</code> has been exceeded, so actual duration may be up to one frame longer. For exact timing requirements, use a HOLDING phase (like <code>LoomingStimulus</code>) to guarantee a minimum hold after expansion.</p>
+<h3 id="performance">Performance</h3>
+<ul>
+<li>Billboards are one draw call each — efficient even at scale</li>
+<li>Prefer <code>stash()</code>/<code>unstash()</code> over <code>removeNode()</code>/<code>attachNewNode()</code> for repeated show/hide cycles</li>
+<li>Keep <code>update(dt)</code> math simple — no per-frame allocations, no <code>sqrt</code> unless needed</li>
+<li>Pre-calculate constants in <code>setup()</code> or <code>__init__()</code>, not in <code>update()</code></li>
+</ul>
+<h2 id="basestimulus-interface-reference">BaseStimulus Interface Reference</h2>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BaseStimulus</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">scene</span><span class="p">:</span> <span class="s2">&quot;ArenaScene&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;config is the subsection for this stimulus (e.g., cfg.get(&quot;looming&quot;, {})).</span>
+<span class="sd">           scene is the ArenaScene instance (access .render, .viewing_distance_cm, etc.)&quot;&quot;&quot;</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Called once at startup. Create scene nodes using attachNewNode().</span>
+<span class="sd">        Stash nodes that start invisible.&quot;&quot;&quot;</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_trigger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">heading_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">trigger_data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Called on VISUAL_ZONE_ENTER. heading_deg is Braid→world converted (0=North, 90=East).</span>
+<span class="sd">        trigger_data has: obj_id, frame, record_frame, timestamp, braid_timestamp,</span>
+<span class="sd">        handler_timestamp, x, y, z, xvel, yvel, zvel, mean_heading (Braid radians).</span>
+
+<span class="sd">        Return a dict of stimulus parameters to log (merged into the stim.csv row</span>
+<span class="sd">        for this trigger), or None if the stimulus didn&#39;t activate.&quot;&quot;&quot;</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Called every frame. dt is seconds since last frame. Animate geometry here.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Angular API helpers (all use self.scene.render internally)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">heading_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">size_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                 <span class="n">elevation_deg</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">color</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                 <span class="n">distance_cm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;NodePath&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Place a billboard disk. Returns the NodePath.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_angular_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="s2">&quot;NodePath&quot;</span><span class="p">,</span> <span class="n">size_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update an existing billboard&#39;s angular size in-place.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">remove_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="s2">&quot;NodePath&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove a node from the scene graph.&quot;&quot;&quot;</span>
+
+<span class="c1"># Module-level helpers in src/visual/base.py</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">angular_to_world_pos</span><span class="p">(</span><span class="n">heading_deg</span><span class="p">,</span> <span class="n">elevation_deg</span><span class="p">,</span> <span class="n">distance_cm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert angular position to world (x, y, z) in centimeters.&quot;&quot;&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">angular_size_to_radius</span><span class="p">(</span><span class="n">size_deg</span><span class="p">,</span> <span class="n">distance_cm</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert angular diameter to physical radius in centimeters.&quot;&quot;&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_make_unit_disk</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">num_segments</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GeomNode</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a flat disk (radius=1) in the XZ plane. Returns a GeomNode.&quot;&quot;&quot;</span>
+</code></pre></div>
+<h3 id="what-visualprocess-does-with-the-return-value">What VisualProcess does with the return value</h3>
+<p>On each <code>VISUAL_ZONE_ENTER</code>, <code>VisualProcess</code> calls every registered stimulus's <code>on_trigger</code> and merges the returned dicts into one <code>stim.csv</code> row (plus <code>timestamp</code>, <code>obj_id</code>, <code>frame</code>, <code>braid_heading_rad</code>, <code>world_heading_deg</code>). <code>stim.csv</code> is only written when at least one stimulus returns a non-empty dict — an always-on stimulus like <code>BackgroundStimulus</code> returns <code>None</code>, so a background-only setup produces no file at all. The same "did anything activate" verdict feeds the <code>LATENCY</code> message <code>VisualProcess</code> pushes to <code>LatencyLogger</code>: with no activation, <code>activation_timestamp</code> is <code>None</code> and the row is recorded as <code>sham</code>.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p><strong>Stimulus not appearing:</strong>
+- Check <code>enabled = true</code> in the config section (<code>[visual_stimuli.my_stimulus]</code>)
+- Verify the registration log: <code>"Registered: MyStimulus"</code> appears in startup logs
+- Ensure <code>setup()</code> creates geometry and the node is attached to <code>self.scene.render</code>
+- Check that <code>unstash()</code> is called in <code>on_trigger()</code> (stashed nodes are invisible)
+- For large angular sizes, the square/disk may be behind the cylinder wall — pass <code>distance_cm</code> explicitly (see LoomingStimulus for the formula)</p>
+<p><strong>Wrong position:</strong>
+- North = +Y, East = +X, Z = up
+- Camera heading is negated internally (<code>setH(-heading_deg)</code>) because Panda3D H is counter-clockwise while compass bearings are clockwise
+- The offset is added to the fly's heading: <code>base_heading + offset_deg + oscillation</code></p>
+<p><strong>No oscillation:</strong>
+- Check <code>amplitude_deg</code> is nonzero
+- Verify <code>frequency_hz</code> produces visible motion (1–5 Hz recommended at 60fps)
+- The sine argument is <code>t * frequency * 2π</code>, not <code>t * frequency</code></p>
+<p><strong>Square flickers or disappears at edges:</strong>
+- <code>setBillboardPointWorld()</code> should keep it facing the fly
+- If the square crosses a camera boundary, check that it sits at the correct distance from origin
+- <code>setTwoSided(True)</code> ensures both faces render</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.expand", "search.suggest", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

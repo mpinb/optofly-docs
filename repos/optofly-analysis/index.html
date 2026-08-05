@@ -1,0 +1,1977 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mpinb.github.io/optofly-docs/repos/optofly-analysis/">
+      
+      
+        <link rel="prev" href="../braid-opto-power-measure/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>OptoFly Analysis - OptoFly Ecosystem Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#optofly-analysis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OptoFly Ecosystem Wiki" class="md-header__button md-logo" aria-label="OptoFly Ecosystem Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OptoFly Ecosystem Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OptoFly Analysis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mpinb/optofly-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OptoFly Ecosystem Wiki" class="md-nav__button md-logo" aria-label="OptoFly Ecosystem Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OptoFly Ecosystem Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mpinb/optofly-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Setup
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/udev-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    udev Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/basler-charuco-calibrator-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basler ChArUco Calibrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/braid-extrinsic-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Extrinsic Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/liquid-lens-calibration-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liquid Lens Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/optofly-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/optotune-lens-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optotune Lens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/ximea-py-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ximea Py
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/braid-opto-power-measure-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Opto-Power Measure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/optofly-analysis-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../claude-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Claude Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Component Docs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Component Docs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OptoFly
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optofly/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optofly/getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optofly/calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optofly/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optofly/camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camera
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optofly/opto-trigger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opto Trigger
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optofly/visual-stimuli-panda3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Stimuli (Panda3D)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optofly/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../liquid-lens-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liquid Lens Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basler-charuco-calibrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basler ChArUco Calibrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optotune-lens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optotune Lens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ximea-py/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ximea Py
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../braid-opto-power-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Opto-Power Measure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly Analysis
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparing-groups-eg-control-vs-mutant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparing groups (e.g. control vs mutant)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works-in-plain-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it works, in plain terms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-ways-to-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two ways to use it
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Two ways to use it">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-batch-cli-recommended-for-most-runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Batch CLI — recommended for most runs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-notebooks-for-exploring-one-recording-interactively" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Notebooks — for exploring one recording interactively
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output layout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#library-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Library API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Package layout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparing-groups-eg-control-vs-mutant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparing groups (e.g. control vs mutant)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works-in-plain-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it works, in plain terms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-ways-to-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two ways to use it
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Two ways to use it">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-batch-cli-recommended-for-most-runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Batch CLI — recommended for most runs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-notebooks-for-exploring-one-recording-interactively" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Notebooks — for exploring one recording interactively
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output layout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#library-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Library API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Package layout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="optofly-analysis">optofly-analysis</h1>
+<p>Analyzes fly flight-tracking recordings (<code>.braidz</code> files) to answer two
+questions, without writing any code:</p>
+<ol>
+<li><strong>Do the flies behave normally?</strong> — velocity and saccade (fast-turn)
+   statistics.</li>
+<li><strong>Did they respond to the stimulus</strong> (a looming visual threat, or an
+   optogenetic light activation), <strong>and how?</strong> — % responsive, turn direction,
+   turn size, broken down by the condition that varied (stimulus angle, light
+   intensity, …).</li>
+</ol>
+<p>It also compares groups of recordings side by side (e.g. control vs mutant).</p>
+<p>If you just want to run an analysis and get plots, skip to
+<strong><a href="#quick-start">Quick start</a></strong>. If something goes wrong, jump to
+<strong><a href="#troubleshooting">Troubleshooting</a></strong>.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li><strong><a href="https://docs.astral.sh/uv/getting-started/installation/">uv</a></strong> — the only
+  thing you need to install yourself. It manages Python and all dependencies
+  for you.</li>
+<li>One or more <code>.braidz</code> recording files.</li>
+</ul>
+<p>You do <strong>not</strong> need to install Python separately, and you do not need to
+<code>pip install</code> anything.</p>
+<h2 id="quick-start">Quick start</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. From the optofly-analysis folder, install everything (once, or after an update):</span>
+uv<span class="w"> </span>sync
+
+<span class="c1"># 2. Run the analysis on your recording(s):</span>
+uv<span class="w"> </span>run<span class="w"> </span>optofly-analyze<span class="w"> </span>/path/to/your_recording.braidz<span class="w"> </span>-o<span class="w"> </span>results/
+</code></pre></div>
+<p>That's it. When it finishes, open the newest folder inside <code>results/</code> — it's
+named after the date and time of the run (e.g. <code>results/20260805_143022/</code>) —
+and look at <code>summary.txt</code> plus the <code>.png</code> plots inside.</p>
+<p>Every run gets its own timestamped subfolder, so re-running never overwrites
+a previous result. It's safe to point <code>-o</code> at the same folder every time.</p>
+<h3 id="comparing-groups-eg-control-vs-mutant">Comparing groups (e.g. control vs mutant)</h3>
+<p>To analyze several recordings together and get a side-by-side comparison,
+list them in a "runs" TOML file instead of passing paths directly:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># runs/my_experiment.toml</span>
+<span class="k">[groups.control]</span>
+<span class="n">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/data/control_1.braidz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/data/control_2.braidz&quot;</span><span class="p">]</span>
+
+<span class="k">[groups.mutant]</span>
+<span class="n">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/data/mutant_1.braidz&quot;</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>optofly-analyze<span class="w"> </span>-r<span class="w"> </span>runs/my_experiment.toml<span class="w"> </span>-o<span class="w"> </span>results/
+</code></pre></div>
+<p>Two or more groups automatically get extra overlay plots under
+<code>results/&lt;timestamp&gt;/comparison/</code>.</p>
+<h2 id="how-it-works-in-plain-terms">How it works, in plain terms</h2>
+<p>For each recording, the pipeline:</p>
+<ol>
+<li>Loads the tracked flight paths and keeps only the "real" ones (drops short,
+   stationary, or out-of-arena trajectories — these are almost always tracking
+   noise, not real flies).</li>
+<li>Computes heading, linear velocity, and angular velocity for each remaining
+   trajectory.</li>
+<li>Detects saccades (fast turns) from angular velocity spikes.</li>
+<li>If the file contains a looming-stimulus or optogenetics log, matches each
+   stimulus/activation event to what the fly did just after it, and scores
+   whether that counts as a "response."</li>
+<li>Saves one PNG per plot, plus a <code>summary.txt</code> with the headline numbers
+   (object counts, saccade counts, % responsive).</li>
+</ol>
+<p>Nothing is guessed or invented for missing data: if a recording has no
+stimulus log, the stimulus plots are simply skipped for that file (see
+<a href="#troubleshooting">Troubleshooting</a> for the most common surprise here).</p>
+<h2 id="two-ways-to-use-it">Two ways to use it</h2>
+<h3 id="1-batch-cli-recommended-for-most-runs">1. Batch CLI — recommended for most runs</h3>
+<p>Run the whole pipeline hands-off and get a folder of plots. See
+<a href="#quick-start">Quick start</a> above and the <a href="#cli-reference">full reference</a>
+below.</p>
+<h3 id="2-notebooks-for-exploring-one-recording-interactively">2. Notebooks — for exploring one recording interactively</h3>
+<p>The <code>notebooks/</code> directory holds thin driver notebooks. Open one, edit the
+<strong>Parameters</strong> cell near the top (just the file path, and optionally which
+config preset to use), then run the notebook top to bottom:</p>
+<ul>
+<li><code>notebooks/analysis.ipynb</code> — trajectories, kinematics, and saccade stats</li>
+<li><code>notebooks/stim_analysis.ipynb</code> — looming-stimulus responses</li>
+<li><code>notebooks/opto_analysis.ipynb</code> — optogenetic-activation responses</li>
+</ul>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>jupyter<span class="w"> </span>lab
+</code></pre></div>
+<p>Use notebooks when you want to inspect intermediate results (e.g. "show me
+this fly's trajectory") rather than just the final plots.</p>
+<h2 id="cli-reference">CLI reference</h2>
+<div class="highlight"><pre><span></span><code>optofly-analyze [files ...] [-p PARAMS] [-r RUNS] [--only {stim,opto,both,none}] [-o OUTPUT]
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>files</code> (positional)</td>
+<td>One or more <code>.braidz</code> paths for a quick single-group run. Treated as one group named <code>data</code>. Cannot be combined with <code>-r</code>.</td>
+</tr>
+<tr>
+<td><code>-p, --params PATH</code></td>
+<td>TOML file with a <code>[parameters]</code> table (tuning). Optional — sensible defaults are used if omitted.</td>
+</tr>
+<tr>
+<td><code>-r, --runs PATH</code></td>
+<td>TOML file with <code>[groups.&lt;name&gt;]</code> tables (which files to analyze, and how to group them for comparison). Cannot be combined with positional <code>files</code>.</td>
+</tr>
+<tr>
+<td><code>--only {stim,opto,both,none}</code></td>
+<td>Force which event analyses run, overriding auto-detection. Behavioral plots always run regardless.</td>
+</tr>
+<tr>
+<td><code>-o, --output DIR</code></td>
+<td>Output directory (default <code>./optofly_results</code>). Each run writes its own timestamped subfolder inside it — safe to reuse across runs.</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Quick single-group run with default parameters</span>
+uv<span class="w"> </span>run<span class="w"> </span>optofly-analyze<span class="w"> </span>exp1.braidz<span class="w"> </span>exp2.braidz<span class="w"> </span>-o<span class="w"> </span>results/
+
+<span class="c1"># Preset parameters + a file list with named groups</span>
+uv<span class="w"> </span>run<span class="w"> </span>optofly-analyze<span class="w"> </span>-p<span class="w"> </span>configs/stimulus.toml<span class="w"> </span>-r<span class="w"> </span>runs/my_experiment.toml<span class="w"> </span>-o<span class="w"> </span>results/
+
+<span class="c1"># Only look at the optogenetics response, even if the file also has a stim log</span>
+uv<span class="w"> </span>run<span class="w"> </span>optofly-analyze<span class="w"> </span>exp1.braidz<span class="w"> </span>--only<span class="w"> </span>opto<span class="w"> </span>-o<span class="w"> </span>results/
+</code></pre></div>
+<p>Two kinds of TOML config are kept separate, because they change at different
+rates:</p>
+<ul>
+<li><strong>Parameter presets</strong> (<code>configs/</code>) — tuning tied to your rig and analysis
+  type (<code>behavior.toml</code>, <code>stimulus.toml</code>, <code>opto.toml</code>). A <code>[parameters]</code> table
+  only; edited rarely. Every field is documented inline in those files.</li>
+<li><strong>File lists</strong> (<code>runs/</code>) — which recordings to analyze, grouped for
+  comparison. <code>[groups.&lt;name&gt;]</code> tables only; edited every run.</li>
+</ul>
+<p>They can also live in one combined file if you prefer — pass it to both <code>-p</code>
+and <code>-r</code>.</p>
+<h2 id="output-layout">Output layout</h2>
+<div class="highlight"><pre><span></span><code>results/
+  20260805_143022/                     &lt;- one timestamped folder per run
+    &lt;group&gt;/
+      behavior/   velocity_distributions.png, saccade_amplitude.png,
+                  saccade_rate.png, saccade_locations.png, saccade_traces.png
+      stim/       responsiveness.png, evoked_rate.png, response_angular.png,
+                  response_angular_signed.png, response_linear.png,
+                  heading_difference.png, turn_direction.png
+                  (only if the file has a real looming-stimulus log)
+                  + responsiveness_subtracted.png (only if the data has sham trials)
+      opto/       same plot set as stim/                 (only if opto.csv present)
+      opto_effect/ responsiveness.png, evoked_rate.png, response_angular.png
+                  (only if both stim and opto data are present and enabled --
+                  compares the loom response with real opto vs. opto-sham vs.
+                  no-opto-nearby, using each fly&#39;s nearest opto event within
+                  opto_stim_match_window_s seconds as the trial&#39;s pairing)
+    comparison/   velocity.png, saccade_amplitude.png,
+                  stim_responsiveness.png, opto_responsiveness.png
+                  (only if you defined 2+ groups)
+    summary.txt   object/saccade/event counts and % responsive, per group
+</code></pre></div>
+<p><code>stim/</code> and <code>opto/</code> folders only appear when the corresponding data was found
+<em>and usable</em> — see the first item in Troubleshooting below.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p><strong><code>command not found: uv</code></strong>
+uv isn't installed. Follow the <a href="https://docs.astral.sh/uv/getting-started/installation/">install instructions</a>,
+then re-open your terminal.</p>
+<p><strong><code>ModuleNotFoundError: No module named 'optofly_analysis'</code></strong>
+You ran <code>python3 ...</code> instead of <code>uv run ...</code> (or forgot <code>uv run</code> in front of
+<code>optofly-analyze</code>). Always prefix commands with <code>uv run</code> — that's what puts
+you in the right Python environment. Run <code>uv sync</code> first if you haven't yet.</p>
+<p><strong><code>[&lt;group&gt;] no usable files, skipping group</code></strong>
+The <code>.braidz</code> path is wrong, or the file doesn't actually contain tracking
+data (<code>kalman_estimates.csv.gz</code> inside the zip). Double-check the path and
+that the file finished writing/copying correctly.</p>
+<p><strong><code>[&lt;group&gt;] no objects passed filtering, skipping group</code></strong>
+Every trajectory in the file was filtered out — usually because the arena
+box (<code>x_range</code> / <code>y_range</code> / <code>z_range</code> in your parameter preset) doesn't
+match your rig's coordinates, or <code>min_frames</code> / <code>min_distance</code> are too strict
+for a short recording. Open <code>configs/behavior.toml</code> (or whichever preset you
+used) and loosen these for a test run to confirm.</p>
+<p><strong>Stim (or opto) plots didn't show up, and I know the file has that data</strong>
+Some acquisition setups write a generic <code>stim.csv</code> trigger log even for
+opto-only recordings — it exists but has no real looming parameters, so it's
+correctly skipped by default. You'll see a printed line like:
+<code>stim.csv found but has no stim-specific data; skipping stim analysis</code>.
+If you're sure it should run anyway, force it: add <code>run_stim = true</code> (or
+<code>run_opto = true</code>) to your <code>[parameters]</code> table, or pass <code>--only stim</code> /
+<code>--only opto</code> / <code>--only both</code> on the command line.</p>
+<p><strong>I have both stim and opto data but no <code>opto_effect/</code> folder</strong>
+Either only one of stim/opto actually ran for that file (see the entry
+above), or every looming-stimulus event ended up classified the same way
+(e.g. opto always fired near every loom, so there's no <code>loom_only</code> baseline
+to compare against) -- you'll see a printed line like <code>stim and opto both
+present but every stim event matched the same opto_condition; skipping
+opto_effect comparison</code>. If events that should have paired are ending up
+<code>loom_only</code>, your rig's FOV offset may exceed the matching tolerance --
+raise <code>opto_stim_match_window_s</code> (default <code>0.5</code> seconds) in your
+<code>[parameters]</code> table. (This check, like the plots themselves, only counts
+non-looming-sham trials -- looming-sham trials are pooled into their own
+grey <code>"sham"</code> bar in these plots, a different concept from opto-sham /
+<code>loom_sham_opto</code>.)</p>
+<p><strong>I passed 2+ groups but don't see comparison plots</strong>
+Comparison overlays are only written for an analysis kind (stim or opto) if
+<em>more than one</em> group actually produced results for it — e.g. if only one
+group has a real stim log, there's nothing to compare it against.</p>
+<p><strong><code>Could not read --params/--runs '...': ...</code></strong>
+Something's wrong with the config file itself — a typo'd path, broken TOML
+syntax, or (for <code>--params</code>) an unknown parameter name. The message after the
+colon says which: <code>No such file or directory</code> means the path is wrong;
+<code>Unknown parameter(s) in config: ...</code> means a key in <code>[parameters]</code> is
+misspelled — check the exact field names in <code>configs/behavior.toml</code> /
+<code>stimulus.toml</code> / <code>opto.toml</code>, or see <code>AnalysisConfig</code> in
+<code>optofly_analysis/config.py</code>.</p>
+<p><strong><code>Provide either files or --runs, not both.</code></strong>
+Pick one input mode: either list <code>.braidz</code> paths directly on the command
+line, or put them in a <code>-r/--runs</code> TOML file — not both at once.</p>
+<p><strong>Where are my results?</strong>
+Inside a timestamped subfolder of whatever you passed to <code>-o</code> (default
+<code>./optofly_results/</code>) — not directly in it. Look for the most recent
+<code>YYYYMMDD_HHMMSS</code> folder.</p>
+<h2 id="library-api">Library API</h2>
+<p>For custom analysis in your own script or notebook:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">optofly_analysis</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">read_braidz</span><span class="p">,</span> <span class="n">filter_objects</span><span class="p">,</span> <span class="n">calculate_kinematics</span><span class="p">,</span>
+    <span class="n">detect_saccades</span><span class="p">,</span> <span class="n">filter_saccades</span><span class="p">,</span>
+    <span class="n">extract_stim_responses</span><span class="p">,</span> <span class="n">extract_opto_responses</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">read_braidz</span><span class="p">(</span><span class="s2">&quot;exp.braidz&quot;</span><span class="p">)</span>              <span class="c1"># -&gt; BraidzData(df, stim, opto)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">filter_objects</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">df</span><span class="p">)</span>                   <span class="c1"># length / distance / arena filters</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">calculate_kinematics</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>         <span class="c1"># heading + angular/linear velocity</span>
+<span class="n">saccades</span> <span class="o">=</span> <span class="n">detect_saccades</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>        <span class="c1"># -&gt; SaccadeResults</span>
+<span class="n">saccades</span> <span class="o">=</span> <span class="n">filter_saccades</span><span class="p">(</span><span class="n">saccades</span><span class="p">)</span>           <span class="c1"># drop edge-of-arena events</span>
+<span class="n">responses</span> <span class="o">=</span> <span class="n">extract_stim_responses</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">stim</span><span class="p">,</span> <span class="n">saccades</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="package-layout">Package layout</h2>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>io.py</code></td>
+<td>Load braidz files (<code>read_braidz</code> → <code>BraidzData</code>)</td>
+</tr>
+<tr>
+<td><code>filtering.py</code></td>
+<td>Select valid object trajectories</td>
+</tr>
+<tr>
+<td><code>kinematics.py</code></td>
+<td>Heading, angular and linear velocity</td>
+</tr>
+<tr>
+<td><code>saccades.py</code></td>
+<td>Saccade detection and edge filtering (<code>SaccadeResults</code>)</td>
+</tr>
+<tr>
+<td><code>responses.py</code></td>
+<td>Generic event-response engine (<code>EventResponses</code>)</td>
+</tr>
+<tr>
+<td><code>stimulus.py</code> / <code>opto.py</code></td>
+<td>Looming-stimulus / optogenetic response extraction</td>
+</tr>
+<tr>
+<td><code>plotting.py</code></td>
+<td>All figures (each returns a <code>matplotlib</code> <code>Figure</code>)</td>
+</tr>
+<tr>
+<td><code>config.py</code></td>
+<td><code>AnalysisConfig</code> + TOML loading</td>
+</tr>
+<tr>
+<td><code>pipeline.py</code> / <code>cli.py</code></td>
+<td>Batch pipeline and <code>optofly-analyze</code> entry point</td>
+</tr>
+</tbody>
+</table>
+<h2 id="development">Development</h2>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w">        </span><span class="c1"># tests in tests/</span>
+uv<span class="w"> </span>run<span class="w"> </span>ruff<span class="w"> </span>check<span class="w">    </span><span class="c1"># lint</span>
+</code></pre></div>
+<p>See <code>docs/SPEC.md</code> for the batch-pipeline design notes (background for
+contributors, not needed to just run an analysis).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
