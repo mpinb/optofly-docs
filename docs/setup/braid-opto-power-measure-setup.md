@@ -74,6 +74,7 @@ url = "http://127.0.0.1:8397/"
 
 [power_meter]
 wavelength_nm = 625          # match the LED color you're measuring
+device_address = ""          # blank = auto-select the first connected PM100D that supports wavelength_nm
 sensor_diameter_mm = 9.5
 
 [leds]
@@ -82,8 +83,10 @@ square_side_mm = 100.0        # distance between adjacent IR LEDs
 [light]
 enabled = true
 port = "/dev/opto_trigger"
+baud_rate = 115200
+color = "red"
 intensity = 128               # 0-255
-on_duration_ms = 300
+on_duration_ms = 300           # firmware clamps to 0-3000
 period_s = 10.0                # time between the start of successive pulses
 ```
 
@@ -128,8 +131,12 @@ Useful flags for both commands above:
 |---|---|---|
 | `--session-name` | *(required)* | Used in the output folder's name |
 | `--duration` | run until Ctrl+C | Stop automatically after this many seconds |
+| `--output-dir` | `sessions/` | Where session folders are created |
+| `--config` | `config.toml` | Path to a different rig config file |
 | `--virtual` | off | Simulate the power meter — no real PM100D needed, for a dry run |
 | `--no-light` | off | Skip light cycling — ambient-only sweep, no Arduino needed |
+| `--virtual-light` | off | Simulate the light controller — no real Arduino needed, for a dry run |
+| `--power-interval` | `0.01` | Minimum seconds between power meter reads |
 
 > ⚠️ **Common failure:** the recorder starts but every power reading is
 > zero, or the LEDs aren't tracked. Confirm Braid's own web interface shows

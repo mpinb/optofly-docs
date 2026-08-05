@@ -27,6 +27,7 @@ SYNC_TARGETS = [
     ("ximea-py", "README.md", "ximea-py/README.md", None, "mpinb"),
     ("ximea-py", "examples", "ximea-py/examples", None, "mpinb"),
     ("braid-opto-power-measure", "README.md", "braid-opto-power-measure/README.md", None, "elhananby"),
+    ("optofly-analysis", "README.md", "optofly-analysis/README.md", None, "elhananby"),
 ]
 
 

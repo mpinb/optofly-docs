@@ -5,7 +5,7 @@ machine, before setting up any individual tool.
 
 ## 1. Install `uv`
 
-`uv` is the tool all 6 repos use to install their Python dependencies. It
+`uv` is the tool all 7 repos use to install their Python dependencies. It
 replaces `pip` and virtual environment management with one command.
 
 ```bash
@@ -41,20 +41,22 @@ git clone git@github.com:mpinb/liquid-lens-calibration.git
 git clone git@github.com:mpinb/basler-charuco-calibrator.git
 git clone git@github.com:mpinb/ximea-py.git
 git clone git@github.com:elhananby/braid-opto-power-measure.git
+git clone git@github.com:elhananby/optofly-analysis.git
 ```
 
-After this, you should see all six as sibling folders:
+After this, you should see all seven as sibling folders:
 
 ```bash
 ls ~/src
-# basler-charuco-calibrator  braid-opto-power-measure  liquid-lens-calibration  optofly  optotune-lens  ximea-py
+# basler-charuco-calibrator  braid-opto-power-measure  liquid-lens-calibration  optofly  optofly-analysis  optotune-lens  ximea-py
 ```
 
-> **Note:** unlike the other five, `braid-opto-power-measure` still lives
-> under a personal GitHub account (`elhananby`), not the `mpinb`
-> organization — it hasn't been moved there yet. It also doesn't need to be
-> a sibling directory for any dependency to resolve (it has no local path
-> dependencies); cloning it alongside the rest here is just for consistency.
+> **Note:** unlike the other five, `braid-opto-power-measure` and
+> `optofly-analysis` still live under a personal GitHub account
+> (`elhananby`), not the `mpinb` organization — neither has been moved there
+> yet. Neither needs to be a sibling directory for any dependency to
+> resolve either (both have no local path dependencies); cloning them
+> alongside the rest here is just for consistency.
 
 > ⚠️ **Common failure:** `git clone` asks for a username and password, then
 > fails — you're using the HTTPS URL without credentials set up. Use the
@@ -168,3 +170,4 @@ Once this is done, follow the setup page for whichever tool you need:
 - [Optotune Lens](optotune-lens-setup.md) — the lens driver library (usually installed automatically as a dependency of the two tools above, not run standalone)
 - [Ximea Py](ximea-py-setup.md) — the XIMEA camera driver library used by `liquid-lens-calibration` (usually installed automatically as a dependency, not run standalone)
 - [Braid Opto-Power Measure](braid-opto-power-measure-setup.md) — occasional QC check of arena light power, not part of the required calibration sequence
+- [OptoFly Analysis](optofly-analysis-setup.md) — post-hoc analysis of finished recordings, not part of the required calibration sequence

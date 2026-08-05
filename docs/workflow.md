@@ -192,3 +192,14 @@ If Braid itself (or the whole computer) crashes partway through a
 recording, see [Braid crashed while recording, leaving a `.braid` folder
 behind](troubleshooting.md#braid-crashed-while-recording-leaving-a-braid-folder-behind)
 to recover the data by hand.
+
+## Analyzing a finished experiment
+
+This runs after step 6, once you have one or more finished `.braidz` files —
+it's not part of the calibration sequence and needs no hardware.
+
+[`optofly-analysis`](setup/optofly-analysis-setup.md) reads a `.braidz` file
+(or several, grouped for comparison) and produces behavior statistics
+(velocity, saccades) and — if the recording has a looming-stimulus or
+optogenetic log — response plots (percent responsive, turn direction and
+size), without writing any code.

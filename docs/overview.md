@@ -6,9 +6,9 @@ OptoFly is a lab setup, not a single program. Flies are tracked in 3D in
 real time by a multi-camera system, and when a fly enters a defined zone,
 the system can: start recording video of it, fire an LED for optogenetic
 stimulation, show it a visual stimulus, and keep a liquid lens focused on it
-as it moves. Six separate pieces of software make that possible.
+as it moves. Seven separate pieces of software make that possible.
 
-## The six repos, and how they relate
+## The seven repos, and how they relate
 
 ```mermaid
 graph TD
@@ -21,6 +21,8 @@ graph TD
     B -->|live tracking over HTTP Server-Sent Events (SSE)| E
     B -->|live tracking, same SSE feed| G[braid-opto-power-measure]
     G -->|arena power/irradiance heatmaps| Q[QC check, no file feeds into optofly]
+    E -->|finished .braidz recordings| H[optofly-analysis]
+    H -->|behavior/response plots| R[post-hoc analysis, no file feeds back into optofly]
 ```
 
 - **`optofly`** is the main pipeline that actually runs experiments. It
@@ -49,6 +51,12 @@ graph TD
   each position. It reads Braid's live tracking feed the same way `optofly`
   does, but its output (heatmap images) is for a human to check by eye — it
   doesn't feed a file into any other repo the way the calibration tools do.
+- **`optofly-analysis`** is a post-hoc (after the fact) analysis tool: it
+  reads the finished `.braidz` file(s) `optofly` produces during an
+  experiment and computes behavior statistics (velocity, saccades) and
+  stimulus/optogenetic response rates, with plots. Like
+  `braid-opto-power-measure`, its output is for a human to look at — nothing
+  it produces feeds back into `optofly`.
 
 ## Who needs which repo
 
@@ -58,5 +66,7 @@ graph TD
 - Running day-to-day experiments once the rig is calibrated: `optofly` only.
 - Checking that optogenetic light power is even and correctly timed across
   the arena (e.g. after moving LEDs or changing intensity): `braid-opto-power-measure`.
+- Analyzing a finished experiment's recordings for behavior and stimulus
+  response: `optofly-analysis`.
 
 See [Workflow](workflow.md) for the exact order these steps happen in.
