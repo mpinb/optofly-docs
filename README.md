@@ -46,4 +46,4 @@ auto-synced `docs/repos/**` content works.
 
 ## License
 
-BSD 3-Clause — see [LICENSE](LICENSE).
+GPLv3 — see [LICENSE](LICENSE).
