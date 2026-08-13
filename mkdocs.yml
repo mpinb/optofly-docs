@@ -38,6 +38,9 @@ nav:
       - Ximea Py: setup/ximea-py-setup.md
       - Braid Opto-Power Measure: setup/braid-opto-power-measure-setup.md
       - OptoFly Analysis: setup/optofly-analysis-setup.md
+  - Hardware:
+      - Storage: hardware/storage.md
+      - Backups: hardware/backups.md
   - Workflow: workflow.md
   - Troubleshooting: troubleshooting.md
   - Using Claude Code: claude-code.md

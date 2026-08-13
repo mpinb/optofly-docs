@@ -193,6 +193,11 @@ recording, see [Braid crashed while recording, leaving a `.braid` folder
 behind](troubleshooting.md#braid-crashed-while-recording-leaving-a-braid-folder-behind)
 to recover the data by hand.
 
+Finished recordings land in `/mnt/data/experiments` and `/mnt/data/videos`
+on the machine running `optofly`. See [Storage](hardware/storage.md) for
+what's stored where on that machine, and [Backups](hardware/backups.md)
+for how (and how well) that data is currently protected.
+
 ## Analyzing a finished experiment
 
 This runs after step 6, once you have one or more finished `.braidz` files —
