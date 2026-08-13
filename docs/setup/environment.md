@@ -40,8 +40,8 @@ git clone git@github.com:mpinb/optotune-lens.git
 git clone git@github.com:mpinb/liquid-lens-calibration.git
 git clone git@github.com:mpinb/basler-charuco-calibrator.git
 git clone git@github.com:mpinb/ximea-py.git
-git clone git@github.com:elhananby/braid-opto-power-measure.git
-git clone git@github.com:elhananby/optofly-analysis.git
+git clone git@github.com:mpinb/braid-opto-power-measure.git
+git clone git@github.com:mpinb/optofly-analysis.git
 ```
 
 After this, you should see all seven as sibling folders:
@@ -50,13 +50,6 @@ After this, you should see all seven as sibling folders:
 ls ~/src
 # basler-charuco-calibrator  braid-opto-power-measure  liquid-lens-calibration  optofly  optofly-analysis  optotune-lens  ximea-py
 ```
-
-> **Note:** unlike the other five, `braid-opto-power-measure` and
-> `optofly-analysis` still live under a personal GitHub account
-> (`elhananby`), not the `mpinb` organization — neither has been moved there
-> yet. Neither needs to be a sibling directory for any dependency to
-> resolve either (both have no local path dependencies); cloning them
-> alongside the rest here is just for consistency.
 
 > ⚠️ **Common failure:** `git clone` asks for a username and password, then
 > fails — you're using the HTTPS URL without credentials set up. Use the

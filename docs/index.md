@@ -25,8 +25,8 @@ If something isn't working, check [Troubleshooting](troubleshooting.md) first.
 | [`liquid-lens-calibration`](https://github.com/mpinb/liquid-lens-calibration) | Builds the lookup table the liquid lens uses to autofocus at a given distance |
 | [`optotune-lens`](https://github.com/mpinb/optotune-lens) | The low-level driver library both `optofly` and `liquid-lens-calibration` use to talk to the liquid lens hardware |
 | [`ximea-py`](https://github.com/mpinb/ximea-py) | The driver library `liquid-lens-calibration` uses to talk to the XIMEA focus camera |
-| [`braid-opto-power-measure`](https://github.com/elhananby/braid-opto-power-measure) | Occasional QC check: maps optogenetic LED power/irradiance across the arena |
-| [`optofly-analysis`](https://github.com/elhananby/optofly-analysis) | Post-hoc analysis of finished recordings: behavior stats and stimulus/optogenetic response |
+| [`braid-opto-power-measure`](https://github.com/mpinb/braid-opto-power-measure) | Occasional QC check: maps optogenetic LED power/irradiance across the arena |
+| [`optofly-analysis`](https://github.com/mpinb/optofly-analysis) | Post-hoc analysis of finished recordings: behavior stats and stimulus/optogenetic response |
 
 Full docs for each are under [Component Docs](repos/optofly/getting-started.md)
 in the sidebar — this wiki pulls them in automatically so they're always
