@@ -108,7 +108,7 @@ Rust toolchain — use that unless you have a reason to prefer the Rust tool
     `optofly` (replace the folder name with your own):
 
     ```bash
-    cd ~/src/OptoFly
+    cd ~/src/optofly
     uv run python scripts/braidz_writer.py /mnt/data/experiments/20260731_143022.braid
     ```
 

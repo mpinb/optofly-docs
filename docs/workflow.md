@@ -141,7 +141,7 @@ braid-run ~/braid-configs/laser.toml
 In another terminal, launch `optofly` itself:
 
 ```bash
-cd ~/src/OptoFly
+cd ~/src/optofly
 uv run main.py --skip-metadata
 ```
 
