@@ -74,7 +74,7 @@ Anyone working directly on `nfc3008` can see the real values by running
 
 > ⚠️ **Common failure — this job is currently broken.** Every run ends
 > with `Permission denied` in its log
-> (`/home/nfc/rsync-storage-to-soma.log`). This is a known, existing issue
+> (`/home/nfc/rsync-storage-to-<remote-host>.log`). This is a known, existing issue
 > as of 2026-08-13, not something wrong with your setup — it hasn't been
 > fixed yet. Until it is, **`/mnt/storage` is the only backup this
 > machine's data has** — there is currently no true offsite copy.
@@ -124,7 +124,7 @@ it's easy to get wrong.
 ## Common failures
 
 > ⚠️ **Common failure:** the offsite mirror is currently broken — see
-> above. Check `/home/nfc/rsync-storage-to-soma.log` if you want to
+> above. Check `/home/nfc/rsync-storage-to-<remote-host>.log` if you want to
 > confirm it's still failing.
 
 > ⚠️ **Common failure:** a backup job silently doesn't run because the
@@ -135,7 +135,7 @@ it's easy to get wrong.
 > happen, with no error or notification anywhere. If you're not sure the
 > backups are current, check the log files' timestamps:
 > ```bash
-> ls -l /home/nfc/rsync-data-to-storage.log /home/nfc/rsync-storage-to-soma.log
+> ls -l /home/nfc/rsync-data-to-storage.log /home/nfc/rsync-storage-to-<remote-host>.log
 > ```
 
 > ⚠️ **Common failure:** a backup job appears to stop running entirely,
@@ -148,7 +148,7 @@ it's easy to get wrong.
 > file (see above) hasn't grown in several days, check whether its lock
 > file still exists:
 > ```bash
-> ls -l /tmp/rsync-data-to-storage.lock /tmp/rsync-storage-to-soma.lock
+> ls -l /tmp/rsync-data-to-storage.lock /tmp/rsync-storage-to-<remote-host>.lock
 > ```
 > Only delete one of these files after confirming (`ps aux | grep rsync`)
 > that the job genuinely isn't still running — deleting the marker while
