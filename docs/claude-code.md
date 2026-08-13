@@ -4,7 +4,7 @@
 run from your terminal, inside a repo, to help write and review code.
 Several repos in this project already use it and ship a `CLAUDE.md` file —
 this page covers installing it and best practices for using it across the
-five component repos that make up this project.
+component repos that make up this project.
 
 ## Install
 
@@ -38,9 +38,14 @@ memory that doesn't need to be repeated in every prompt: build commands,
 conventions, gotchas, architecture notes. Think of it as a briefing you'd
 give a new contractor before they touch the code.
 
-All five component repos in this project have a `CLAUDE.md` today:
+At last check, these component repos have a `CLAUDE.md`:
 `optofly`, `basler-charuco-calibrator`, `liquid-lens-calibration`,
 `optotune-lens`, and `ximea-py`.
+
+> ⚠️ **Unverified:** whether `braid-opto-power-measure` and
+> `optofly-analysis` have picked up a `CLAUDE.md` since this page was last
+> checked isn't confirmed — check those repos directly rather than
+> assuming either way.
 
 ## Best practices
 

@@ -21,15 +21,21 @@ docs/
 ├── overview.md            # what the project is, how the repos relate
 ├── setup/
 │   ├── environment.md      # shared env/dependencies
+│   ├── udev-rules.md
 │   ├── optofly-setup.md
 │   ├── basler-charuco-calibrator-setup.md
+│   ├── braid-extrinsic-calibration.md
 │   ├── liquid-lens-calibration-setup.md
 │   ├── optotune-lens-setup.md
 │   ├── ximea-py-setup.md
 │   ├── braid-opto-power-measure-setup.md
 │   └── optofly-analysis-setup.md
+├── hardware/                # the physical machine: storage, backups
+│   ├── storage.md
+│   └── backups.md
 ├── workflow.md              # end-to-end pipeline, data/control flow between repos
 ├── troubleshooting.md
+├── claude-code.md           # using Claude Code across this project's repos
 └── repos/                 # auto-synced component repo docs (never hand-edited, see .gitignore)
 ```
 

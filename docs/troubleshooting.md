@@ -6,10 +6,10 @@ itself once it's running, see
 
 ## `git clone` fails or points at the wrong place
 
-5 of the 7 repos moved to the `mpinb` GitHub organization
-(`braid-opto-power-measure` and `optofly-analysis` are the exceptions —
-still under a personal account). If you have an old clone of one of the
-other 5 that still points at a personal account, check and fix it:
+All 7 repos now live under the `mpinb` GitHub organization
+(`braid-opto-power-measure` and `optofly-analysis` moved there most
+recently). If you have an old clone of any of them that still points at a
+personal account, check and fix it:
 
 ```bash
 cd ~/src/<repo>

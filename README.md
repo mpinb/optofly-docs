@@ -24,6 +24,8 @@ Live site: **https://mpinb.github.io/optofly-docs/**
 - [`mpinb/liquid-lens-calibration`](https://github.com/mpinb/liquid-lens-calibration) — builds the liquid lens's z → diopter lookup table
 - [`mpinb/optotune-lens`](https://github.com/mpinb/optotune-lens) — Python driver library for the Optotune liquid lens hardware
 - [`mpinb/ximea-py`](https://github.com/mpinb/ximea-py) — Python driver library for XIMEA camera hardware
+- [`mpinb/braid-opto-power-measure`](https://github.com/mpinb/braid-opto-power-measure) — measures the spatial distribution of optogenetic LED power/irradiance across the arena
+- [`mpinb/optofly-analysis`](https://github.com/mpinb/optofly-analysis) — post-hoc analysis of finished `.braidz` recordings: behavior stats, stimulus/optogenetic response, group comparisons
 
 ## Local preview
 
