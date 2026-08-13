@@ -16,6 +16,9 @@ time, start here:
 
 If something isn't working, check [Troubleshooting](troubleshooting.md) first.
 
+For the physical machine this all runs on — disks, mount points, and
+backups — see [Hardware](hardware/storage.md).
+
 ## The repos
 
 | Repo | What it does |

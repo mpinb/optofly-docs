@@ -17,8 +17,8 @@ A computer's storage is split across separate physical disks, and each disk
 is attached to the file system at a **mount point** — the folder name Linux
 uses as the "front door" into that disk. When you look inside a mount
 point's folder, you're looking at files on that specific physical disk, not
-the computer's main disk. This machine has four disks, described below in
-the order you're likely to care about them.
+the computer's main disk. This machine has four storage areas, described
+below in the order you're likely to care about them.
 
 ### The main drive (`/`)
 
@@ -117,11 +117,13 @@ The `Use%` column is the one to watch — it's how full that disk currently is.
 > cat /proc/mdstat
 > ```
 > A healthy mirror shows `[UU]` (both drives Up). A failed drive shows
-> something like `[U_]` (one drive missing) instead. Nothing on this
-> machine automatically alerts anyone when this happens — recognizing it
-> requires someone to run this command and look. If you see anything
-> other than `[UU]`, treat it as urgent: with one drive already down, a
-> second failure would lose everything on `/mnt/storage`.
+> something like `[U_]` (one drive missing) instead. This machine does
+> try to alert about it automatically — mdadm (the tool that runs the
+> RAID1 mirror) emails the machine's `root` account when a drive fails —
+> but in practice nobody reads that mailbox, so treat this as something
+> a person has to actively check rather than wait to be told about. If
+> you see anything other than `[UU]`, treat it as urgent: with one drive
+> already down, a second failure would lose everything on `/mnt/storage`.
 
 > ⚠️ **Common failure:** after a reboot, one of the `/mnt/*` disks seems to
 > be "missing" — but the machine boots up normally with no error message

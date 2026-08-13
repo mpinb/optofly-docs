@@ -11,6 +11,11 @@ Each job protects against a different kind of loss — read the "protects
 against" column below carefully, since none of them protects against
 everything.
 
+("Mirror" here means a job that copies files to another disk on a
+schedule — a different use of the word than the RAID1 disk mirror
+described on the [Storage](storage.md) page, where "mirror" means two
+drives holding identical copies at all times.)
+
 ## At a glance
 
 | Job | Copies | Schedule | Protects against | Status |
@@ -69,15 +74,21 @@ rsync -a --no-owner --no-group --include="*.braidz" --exclude="*" \
   /mnt/storage/experiments/ <remote-user>@<remote-host>:<remote-path>/experiments/
 ```
 
+A second, near-identical command (not shown) does the same for
+`/mnt/storage/videos/`.
+
 Anyone working directly on `nfc3008` can see the real values by running
 `crontab -l` in a terminal.
 
 > ⚠️ **Common failure — this job is currently broken.** Every run ends
-> with `Permission denied` in its log
-> (`/home/nfc/rsync-storage-to-<remote-host>.log`). This is a known, existing issue
-> as of 2026-08-13, not something wrong with your setup — it hasn't been
-> fixed yet. Until it is, **`/mnt/storage` is the only backup this
-> machine's data has** — there is currently no true offsite copy.
+> with `Permission denied` in its log, `/home/nfc/rsync-storage-to-*.log`
+> (the offsite job's log and lock files are named after the remote
+> server, whose real name isn't published on this public wiki — the `*`
+> matches whatever it's actually called on this machine). This is a
+> known, existing issue as of 2026-08-13, not something wrong with your
+> setup — it hasn't been fixed yet. Until it is, **`/mnt/storage` is the
+> only backup this machine's data has** — there is currently no true
+> offsite copy.
 
 ## Home folder backup: `/home/nfc` → `/mnt/system_backups`
 
@@ -96,12 +107,19 @@ less disk space, than a fresh full copy every time.
 > ```bash
 > sudo crontab -l -u root
 > ```
-> and update this page once confirmed.
+> and update this page once confirmed. Not knowing the trigger doesn't
+> mean the backup itself is unreliable, though: the job demonstrably has
+> been running on schedule, roughly weekly, based on the timestamps of
+> the backup files already sitting in `/mnt/system_backups` — this is a
+> documentation gap, not evidence of a broken job.
 
 ## Restoring a file
 
-**From the local or offsite mirror** (`/mnt/storage`): these are just
-plain folders, so getting a file back is a plain copy:
+**From the long-term storage disk** (`/mnt/storage`): these are just
+plain folders, so getting a file back is a plain copy. (The offsite
+copy is a separate copy on a remote server — and per the section above,
+it isn't currently being kept up to date, so `/mnt/storage` is
+effectively the only real backup right now.)
 
 ```bash
 cp /mnt/storage/experiments/some_experiment.braidz ~/Desktop/
@@ -115,17 +133,40 @@ where to put the restored files:
 duplicity restore file:///mnt/system_backups ~/restored_home
 ```
 
-This creates a new folder, `~/restored_home`, with a full copy of
-`/home/nfc` as of the most recent backup — it won't overwrite anything
-that's already there. If you need an older version specifically, ask a
-labmate for help — `duplicity` supports restoring to a specific date, but
-it's easy to get wrong.
+This creates a new folder, `~/restored_home`, with a full copy of the
+backup as of the most recent run. The backup was made of `/home/nfc`'s
+full path from the filesystem root, so the restored files actually land
+under `~/restored_home/home/nfc/...` — not directly inside
+`~/restored_home/` itself — look one level deeper than you might
+expect. This also restores the *entire* ~159GB backup, so it can take a
+while and use a lot of disk space.
+
+To restore just a single file instead, add `--path-to-restore` with the
+file's path as it's stored inside the backup (starting with
+`home/nfc/...`):
+
+```bash
+duplicity restore --path-to-restore home/nfc/some/file.txt \
+  file:///mnt/system_backups ~/restored_file
+```
+
+This restores only that one file, saving you from restoring everything
+just to get it back.
+
+Either command refuses to run — with an error, rather than silently
+overwriting anything — if its destination folder (`~/restored_home` or
+`~/restored_file` above) already exists. Pick a different destination
+folder name if you need to restore more than once.
+
+If you need an older version specifically, ask a labmate for help —
+`duplicity` supports restoring to a specific date, but it's easy to get
+wrong.
 
 ## Common failures
 
 > ⚠️ **Common failure:** the offsite mirror is currently broken — see
-> above. Check `/home/nfc/rsync-storage-to-<remote-host>.log` if you want to
-> confirm it's still failing.
+> above. Check `/home/nfc/rsync-storage-to-*.log` if you want to confirm
+> it's still failing.
 
 > ⚠️ **Common failure:** a backup job silently doesn't run because the
 > computer was turned off, asleep, or restarting at its scheduled time
@@ -135,7 +176,7 @@ it's easy to get wrong.
 > happen, with no error or notification anywhere. If you're not sure the
 > backups are current, check the log files' timestamps:
 > ```bash
-> ls -l /home/nfc/rsync-data-to-storage.log /home/nfc/rsync-storage-to-<remote-host>.log
+> ls -l /home/nfc/rsync-*.log
 > ```
 
 > ⚠️ **Common failure:** a backup job appears to stop running entirely,
@@ -148,7 +189,7 @@ it's easy to get wrong.
 > file (see above) hasn't grown in several days, check whether its lock
 > file still exists:
 > ```bash
-> ls -l /tmp/rsync-data-to-storage.lock /tmp/rsync-storage-to-<remote-host>.lock
+> ls -l /tmp/rsync-*.lock
 > ```
 > Only delete one of these files after confirming (`ps aux | grep rsync`)
 > that the job genuinely isn't still running — deleting the marker while
