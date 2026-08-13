@@ -21,7 +21,7 @@ drives holding identical copies at all times.)
 | Job | Copies | Schedule | Protects against | Status |
 |---|---|---|---|---|
 | Local mirror | `/mnt/data` → `/mnt/storage` | Daily, 12:00 | The working disk failing, or a finished file being accidentally deleted before it's archived | Working |
-| Offsite mirror | `/mnt/storage` → a remote server | Daily, 13:00 | Losing the entire machine (theft, fire, complete hardware failure) | **Broken — see below** |
+| Offsite mirror | `/mnt/storage` → a remote server | Daily, 13:00 | Losing the entire machine (theft, fire, complete hardware failure) | Working |
 | Home folder backup | `/home/nfc` → `/mnt/system_backups` | Weekly | Losing installed software, configuration, and code on the main drive | Working, but see note below |
 
 ## Local mirror: `/mnt/data` → `/mnt/storage`
@@ -80,15 +80,24 @@ A second, near-identical command (not shown) does the same for
 Anyone working directly on `nfc3008` can see the real values by running
 `crontab -l` in a terminal.
 
-> ⚠️ **Common failure — this job is currently broken.** Every run ends
-> with `Permission denied` in its log, `/home/nfc/rsync-storage-to-*.log`
-> (the offsite job's log and lock files are named after the remote
-> server, whose real name isn't published on this public wiki — the `*`
-> matches whatever it's actually called on this machine). This is a
-> known, existing issue as of 2026-08-13, not something wrong with your
-> setup — it hasn't been fixed yet. Until it is, **`/mnt/storage` is the
-> only backup this machine's data has** — there is currently no true
-> offsite copy.
+> ⚠️ **Common failure: `Permission denied` in this job's log.** This job
+> logs in to the remote server over SSH — a way for one computer to
+> securely control another over the network — using a saved login key
+> instead of typing a password. If the remote server stops trusting that
+> key, every run ends with `Permission denied` in this job's log,
+> `/home/nfc/rsync-storage-to-*.log` (the offsite job's log and lock
+> files are named after the remote server, whose real name isn't
+> published on this public wiki — the `*` matches whatever it's actually
+> called on this machine). This actually happened on this machine: every
+> run failed this way up through 2026-08-02, then started working again
+> on its own a day or two later — most likely because something changed
+> on the remote server's side, since nothing on this machine's own setup
+> was touched. As of 2026-08-13, this job is confirmed working: the files
+> it copies match the remote server's copy exactly. If you see
+> `Permission denied` in this job's log again, it means the remote server
+> has stopped trusting this machine's login key — ask whoever manages
+> accounts on that remote server to check it's still authorized there.
+> This isn't something you can fix from `nfc3008` alone.
 
 ## Home folder backup: `/home/nfc` → `/mnt/system_backups`
 
@@ -117,9 +126,9 @@ less disk space, than a fresh full copy every time.
 
 **From the long-term storage disk** (`/mnt/storage`): these are just
 plain folders, so getting a file back is a plain copy. (The offsite
-copy is a separate copy on a remote server — and per the section above,
-it isn't currently being kept up to date, so `/mnt/storage` is
-effectively the only real backup right now.)
+copy on the remote server should have the same files, but restoring
+from it isn't documented here — it needs a separate login on that
+remote server, which most people reading this wiki won't have.)
 
 ```bash
 cp /mnt/storage/experiments/some_experiment.braidz ~/Desktop/
@@ -164,9 +173,21 @@ wrong.
 
 ## Common failures
 
-> ⚠️ **Common failure:** the offsite mirror is currently broken — see
-> above. Check `/home/nfc/rsync-storage-to-*.log` if you want to confirm
-> it's still failing.
+> ⚠️ **Common failure: an empty-looking log doesn't always mean a job is
+> broken.** `rsync` normally prints nothing at all when it succeeds — so
+> a job that's working perfectly and a job that's been dead for days can
+> look identical in the log. Since 2026-08-13, both backup jobs print a
+> line like `[2026-08-13 13:00:03] backup completed successfully` at the
+> end of every successful run, so you can tell the two apart:
+> ```bash
+> tail -n 5 /home/nfc/rsync-data-to-storage.log
+> tail -n 5 /home/nfc/rsync-storage-to-*.log
+> ```
+> If the last line isn't one of these "completed successfully" lines
+> with a recent date, something went wrong on that run — read the lines
+> above it for the actual error. Runs from before 2026-08-13 won't have
+> this line even though they succeeded — that's expected, not a sign of
+> a problem.
 
 > ⚠️ **Common failure:** a backup job silently doesn't run because the
 > computer was turned off, asleep, or restarting at its scheduled time
@@ -174,7 +195,8 @@ wrong.
 > the way some of the computer's own built-in maintenance tasks do — if
 > the computer is off at 12:00, that day's local mirror simply doesn't
 > happen, with no error or notification anywhere. If you're not sure the
-> backups are current, check the log files' timestamps:
+> backups are current, check the log files' timestamps and last line (see
+> above):
 > ```bash
 > ls -l /home/nfc/rsync-*.log
 > ```
