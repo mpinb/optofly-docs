@@ -18,7 +18,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 DOCS_REPOS = REPO_ROOT / "docs" / "repos"
 
 # (github repo name, relative source path to copy, relative dest path under docs/repos/, exclude dirs, github org)
-# org defaults to "mpinb" — pass it explicitly only for repos still under a personal account.
+# All component repos now live under the "mpinb" org.
 SYNC_TARGETS = [
     ("optofly", "docs", "optofly", {"superpowers"}, "mpinb"),
     ("liquid-lens-calibration", "README.md", "liquid-lens-calibration/README.md", None, "mpinb"),
@@ -26,8 +26,8 @@ SYNC_TARGETS = [
     ("optotune-lens", "README.md", "optotune-lens/README.md", None, "mpinb"),
     ("ximea-py", "README.md", "ximea-py/README.md", None, "mpinb"),
     ("ximea-py", "examples", "ximea-py/examples", None, "mpinb"),
-    ("braid-opto-power-measure", "README.md", "braid-opto-power-measure/README.md", None, "elhananby"),
-    ("optofly-analysis", "README.md", "optofly-analysis/README.md", None, "elhananby"),
+    ("braid-opto-power-measure", "README.md", "braid-opto-power-measure/README.md", None, "mpinb"),
+    ("optofly-analysis", "README.md", "optofly-analysis/README.md", None, "mpinb"),
 ]
 
 
