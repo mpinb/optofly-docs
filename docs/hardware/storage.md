@@ -59,7 +59,7 @@ drive. Linux presents both drives to you as a single folder,
 
 ### The backup disk (`/mnt/system_backups`)
 
-Mount point: `//mnt/system_backups`.
+Mount point: `/mnt/system_backups`.
 
 A 1TB SATA SSD (a solid-state drive that connects via a cable, rather than
 plugging directly into the motherboard like the main and working drives
