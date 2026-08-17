@@ -1,0 +1,1876 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mpinb.github.io/optofly-docs/repos/optofly/architecture/">
+      
+      
+        <link rel="prev" href="../calibration/">
+      
+      
+        <link rel="next" href="../camera/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Architecture - OptoFly Ecosystem Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#architecture" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="OptoFly Ecosystem Wiki" class="md-header__button md-logo" aria-label="OptoFly Ecosystem Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OptoFly Ecosystem Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Architecture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mpinb/optofly-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="OptoFly Ecosystem Wiki" class="md-nav__button md-logo" aria-label="OptoFly Ecosystem Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OptoFly Ecosystem Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mpinb/optofly-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Setup
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/udev-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    udev Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/basler-charuco-calibrator-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basler ChArUco Calibrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/braid-extrinsic-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Extrinsic Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/liquid-lens-calibration-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liquid Lens Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/optofly-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/optotune-lens-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optotune Lens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/ximea-py-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ximea Py
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/braid-opto-power-measure-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Opto-Power Measure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/optofly-analysis-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/backups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../claude-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Claude Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Component Docs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Component Docs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OptoFly
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Process Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zmq-message-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ZMQ Message Formats
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Loading
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration Loading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#triggerhandler-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TriggerHandler Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trigger-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trigger Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camera
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../opto-trigger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opto Trigger
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visual-stimuli-panda3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Stimuli (Panda3D)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../liquid-lens-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liquid Lens Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basler-charuco-calibrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basler ChArUco Calibrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../optotune-lens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optotune Lens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ximea-py/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ximea Py
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../braid-opto-power-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Opto-Power Measure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../optofly-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Process Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zmq-message-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ZMQ Message Formats
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Loading
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration Loading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#triggerhandler-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TriggerHandler Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trigger-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trigger Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="architecture">Architecture</h1>
+<h2 id="data-flow">Data Flow</h2>
+<div class="highlight"><pre><span></span><code>Braid Server (100fps 3D tracking)
+    |
+    | HTTP SSE  →  BraidPublisher  →  ZMQ PUB (topic: BRAID, port: 5555)
+    |                     |
+    |                     +→  ZMQ PUB (topic: ACTIVE_BRAID, port: 5557)
+    |                         Updates for the one object currently in the zone
+    v
+TriggerHandler (src/processes/tracking.py)
+    Monitors tracked objects and applies entry gates:
+      1. Object must exist for ≥ min_tracking_age (filters noise)
+      2. Must satisfy global cooldown_period since last ZONE_ENTER
+      3. Must be within trigger zone (camera FOV x/y + z bounds)
+      4. Mean xy-plane speed (over the heading history window) must be in [min_velocity, max_velocity]
+      5. Must be heading toward the FOV center (within heading_cone_deg)
+    |
+    | ZMQ PUB (topics: ZONE_ENTER / ZONE_EXIT / OPTO_ZONE_ENTER / VISUAL_ZONE_ENTER, port: 5556)
+    |
+    +---&gt; RustCameraProcess    (starts recording on ZONE_ENTER; stops on ZONE_EXIT)
+    +---&gt; LiquidLens           (starts on ZONE_ENTER; then follows ACTIVE_BRAID until ZONE_EXIT)
+    +---&gt; OptoTriggerWorker    (one-shot LED on OPTO_ZONE_ENTER only)
+    +---&gt; VisualProcess        (Panda3D; renders stimuli on VISUAL_ZONE_ENTER, one-shot)
+    +---&gt; BraidPublisher       (feedback: learns which object is active)
+
+OptoTriggerWorker, VisualProcess, LiquidLens
+    |
+    | ZMQ PUSH (one LATENCY message per trigger, port: 5558)
+    v
+LatencyLogger  →  latency.csv in the braid folder
+</code></pre></div>
+<p>TriggerHandler is the single admission controller. Each object can produce at most one <code>ZONE_ENTER</code>/<code>ZONE_EXIT</code> pair per visit to the trigger volume, with re-entry treated as a new cycle subject only to the global cooldown period. <code>OPTO_ZONE_ENTER</code>/<code>VISUAL_ZONE_ENTER</code> are separate one-shot events fired once the object, already inside the outer <code>ZONE_ENTER</code> zone, reaches a smaller nested zone sized by <code>opto_zone_scale</code>/<code>visual_zone_scale</code>; at <code>scale=1.0</code> they fire on the same frame as <code>ZONE_ENTER</code>.</p>
+<p><code>BraidPublisher</code> both publishes and subscribes: it forwards the full tracking stream on <code>BRAID</code>, and it also subscribes to <code>ZONE_ENTER</code>/<code>ZONE_EXIT</code> so it knows which object is currently active. Updates for that object are republished on the <code>ACTIVE_BRAID</code> fast lane (<code>SNDHWM = 1</code>, and consumers set <code>RCVHWM = 1</code> — <code>CONFLATE</code> isn't used here because it silently drops multi-part messages when combined with topic-filtered <code>SUBSCRIBE</code>; <code>LiquidLens._get_latest_active_update()</code> already drains-to-latest on every read), so the lens always focuses on the newest position rather than working through a backlog.</p>
+<h2 id="process-model">Process Model</h2>
+<p>All worker processes inherit from <code>WorkerProcess</code> (<code>src/utils/worker.py</code>) and run as <code>multiprocessing.Process</code> instances. The pool's lifecycle (spawn order, startup failure detection, mid-run health checks, ordered shutdown) is owned by <code>Experiment</code> in <code>src/orchestration.py</code> — <code>main.py</code> is only a thin CLI over it. See CLAUDE.md's Orchestration section for the lifecycle details.</p>
+<table>
+<thead>
+<tr>
+<th>Process</th>
+<th>ZMQ Role</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BraidPublisher</td>
+<td>PUB on 5555 (BRAID) + PUB on 5557 (ACTIVE_BRAID) + SUB on 5556 (ZONE_ENTER, ZONE_EXIT)</td>
+<td><code>src/processes/braid.py</code></td>
+</tr>
+<tr>
+<td>TriggerHandler</td>
+<td>SUB on 5555 (BRAID), PUB on 5556 (ZONE_ENTER, ZONE_EXIT, OPTO_ZONE_ENTER, VISUAL_ZONE_ENTER)</td>
+<td><code>src/processes/tracking.py</code></td>
+</tr>
+<tr>
+<td>RustCameraProcess</td>
+<td>SUB on 5556 (ZONE_ENTER, ZONE_EXIT, kill)</td>
+<td><code>src/processes/camera.py</code></td>
+</tr>
+<tr>
+<td>OptoTriggerWorker</td>
+<td>SUB on 5556 (OPTO_ZONE_ENTER) + PUSH on 5558 (LATENCY)</td>
+<td><code>src/processes/led.py</code></td>
+</tr>
+<tr>
+<td>VisualProcess</td>
+<td>SUB on 5556 (VISUAL_ZONE_ENTER) + PUSH on 5558 (LATENCY)</td>
+<td><code>src/visual/process.py</code></td>
+</tr>
+<tr>
+<td>LiquidLens</td>
+<td>SUB on 5557 (ACTIVE_BRAID) + SUB on 5556 (ZONE_ENTER, ZONE_EXIT) + PUSH on 5558 (LATENCY)</td>
+<td><code>src/processes/lens.py</code></td>
+</tr>
+<tr>
+<td>LatencyLogger</td>
+<td>PULL bind on 5558 (LATENCY)</td>
+<td><code>src/processes/latency_logger.py</code></td>
+</tr>
+</tbody>
+</table>
+<p>Port numbers above are the defaults from <code>[zmq]</code> in <code>configs/config.toml</code>; all four are configurable (<code>braid_port</code>, <code>trigger_port</code>, <code>active_braid_port</code>, <code>latency_port</code>), as are the topic names.</p>
+<p><code>LatencyLogger</code> is core and always-on — started immediately after <code>TriggerHandler</code>, before any optional process. It is the sole writer of <code>latency.csv</code>; a dedicated process avoids the header race three concurrent appenders would hit on the first trigger. A dead <code>LatencyLogger</code> only loses latency data, it never aborts the experiment.</p>
+<h2 id="zmq-message-formats">ZMQ Message Formats</h2>
+<p><strong>BRAID topic</strong> (BraidPublisher → TriggerHandler):
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"Update"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"obj_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span><span class="w"> </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.02</span><span class="p">,</span><span class="w"> </span><span class="nt">"z"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.18</span><span class="p">,</span><span class="w"> </span><span class="nt">"..."</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">}}</span>
+</code></pre></div></p>
+<p>Before publishing, <code>BraidPublisher</code> injects two extra fields into every Birth/Update payload: <code>t_relay</code> (its own wall-clock receipt time — the lens timing pipeline compares it against serial-write timestamps) and <code>braid_timestamp</code> (see the timestamp note below). The <code>ACTIVE_BRAID</code> feed on 5557 carries the same Update payloads, restricted to the in-zone object.</p>
+<p><strong>ZONE_ENTER topic</strong> (TriggerHandler → consumers):
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"obj_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"frame"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"record_frame"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">123456.790</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"braid_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">123456.780</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"handler_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">123456.790</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.02</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"z"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.18</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"xvel"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"yvel"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.12</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"zvel"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"mean_heading"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.57</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><code>record_frame</code> is the Braid frame of the outer <code>ZONE_ENTER</code> for this occupancy. On <code>ZONE_ENTER</code> itself it equals <code>frame</code>; on the one-shot <code>OPTO_ZONE_ENTER</code>/<code>VISUAL_ZONE_ENTER</code> events (same payload shape) it is earlier than <code>frame</code>, giving the recording-start → stimulus-onset offset.</p>
+<p><code>xvel</code>/<code>yvel</code>/<code>zvel</code> are the object's most recent instantaneous velocity (not the mean over <code>HEADING_HISTORY_SIZE</code> used for <code>mean_heading</code>). <code>LiquidLens</code> uses them to seed its first focus command immediately on <code>ZONE_ENTER</code>, without waiting for the next <code>ACTIVE_BRAID</code> update.</p>
+<p><strong>The two timestamps are on different clocks and must not be conflated:</strong></p>
+<ul>
+<li><code>timestamp</code> and <code>handler_timestamp</code> are both TriggerHandler's own local receipt-time clock. All velocity, age, and cooldown arithmetic uses these.</li>
+<li><code>braid_timestamp</code> is the Triggerbox-clock-model value that Braid itself computed, lifted from the SSE envelope's <code>trigger_timestamp</code>. It exists solely so <code>LatencyLogger</code> can measure end-to-end latency. It is <code>null</code> when Braid supplied none for that sample — note Braid serializes an unset value as the JSON token <code>NaN</code>, which <code>json.loads</code> parses to <code>float('nan')</code>, not <code>None</code>, so <code>BraidPublisher</code> normalizes it explicitly.</li>
+</ul>
+<p><strong>LATENCY</strong> (OptoTriggerWorker / VisualProcess / LiquidLens → LatencyLogger, PUSH/PULL). Unlike every other channel, these are sent as a single JSON frame with no topic prefix:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"opto"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"obj_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"frame"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"record_frame"</span><span class="p">:</span><span class="w"> </span><span class="mi">12280</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"braid_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">123456.780</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"trigger_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">123456.790</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"activation_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">123456.812</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"sham"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><code>system</code> is <code>"opto"</code>, <code>"visual"</code>, or <code>"lens"</code>. <code>LatencyLogger</code> computes <code>latency_ms = (activation_timestamp - braid_timestamp) * 1000</code> for non-sham trials. <code>LiquidLens</code> publishes only for the first commanded diopter per trial, not every subsequent tracking update.</p>
+<p><code>frame</code> is the Braid frame at which <em>this</em> system fired (i.e. at <code>OPTO_ZONE_ENTER</code> / <code>VISUAL_ZONE_ENTER</code>), while <code>record_frame</code> is the frame at which the outer <code>ZONE_ENTER</code> fired and camera recording began. The two differ whenever <code>opto_zone_scale</code>/<code>visual_zone_scale</code> is below <code>1.0</code>; <code>record_frame</code> is what aligns a stimulus onset against the recorded video — <code>src/tools/frame_alignment.py</code> automates that conversion (fps-ratio scaled Braid-frame delta) against a completed recording, <code>.braidz</code> zip included. See <code>docs/camera.md</code>.</p>
+<p><strong>ZONE_EXIT topic</strong> (TriggerHandler → camera, lens):
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"obj_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"left_fov"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">123456.980</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.19</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Camera kill signal:</strong> the Rust binary subscribes to a bare <code>kill</code> topic on <code>trigger_port</code>, but nothing in this codebase publishes to it. Shutdown is by SIGTERM from the Python wrapper (<code>RustCameraProcess._run</code>). The subscription is vestigial — don't build on it without adding a publisher.</p>
+<h2 id="configuration-loading">Configuration Loading</h2>
+<p>Configurations are loaded via <code>src/utils/config.py</code>. Each process has a dedicated config dataclass (for example <code>BraidPublisherConfig</code> and <code>TriggerHandlerConfig</code>) that reads from TOML and exposes typed attributes with defaults.</p>
+<p><code>AppConfig</code> is the root: one TOML parse, the whole dependency tree assembled in the correct order, and no config class ever constructs another. Every per-section constructor delegates to <code>AppConfig.load()</code>, so pass <code>config_path</code> down to each process rather than reading TOML directly anywhere else.</p>
+<h3 id="triggerhandler-configuration">TriggerHandler Configuration</h3>
+<p>Key parameters in <code>[trigger_handler]</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>z_min</code>, <code>z_max</code></td>
+<td>0.0, 0.5 m</td>
+<td>Z bounds for the trigger zone (<code>config.example.toml</code> narrows these to 0.10/0.25)</td>
+</tr>
+<tr>
+<td><code>heading_cone_deg</code></td>
+<td>45°</td>
+<td>Angular tolerance for heading-toward-center check</td>
+</tr>
+<tr>
+<td><code>min_velocity</code></td>
+<td>0.01 m/s</td>
+<td>Minimum speed to consider object moving</td>
+</tr>
+<tr>
+<td><code>max_velocity</code></td>
+<td>2.0 m/s</td>
+<td>Maximum speed, used to reject tracking noise</td>
+</tr>
+<tr>
+<td><code>min_tracking_age</code></td>
+<td>0.1 s</td>
+<td>Object age before it can trigger</td>
+</tr>
+<tr>
+<td><code>zone_timeout</code></td>
+<td>2.0 s</td>
+<td>Auto-emit <code>ZONE_EXIT</code> if tracking is lost; also used by BraidPublisher to expire the ACTIVE_BRAID active object when zone events stop</td>
+</tr>
+<tr>
+<td><code>cooldown_period</code></td>
+<td>10.0 s</td>
+<td>Global cooldown between <code>ZONE_ENTER</code> events</td>
+</tr>
+<tr>
+<td><code>opto_zone_scale</code></td>
+<td>0.8</td>
+<td>Inner zone for <code>OPTO_ZONE_ENTER</code>, as a fraction of the outer FOV (centered). Must be in (0.0, 1.0]; <code>1.0</code> fires on the same frame as <code>ZONE_ENTER</code></td>
+</tr>
+<tr>
+<td><code>visual_zone_scale</code></td>
+<td>0.8</td>
+<td>Same, for <code>VISUAL_ZONE_ENTER</code></td>
+</tr>
+</tbody>
+</table>
+<p>The trigger zone's x/y bounds come from the camera FOV. Note <code>zone_timeout</code> is <em>not</em> used for camera buffer sizing — that is <code>camera.max_recording_time</code>, which should be set ≥ <code>zone_timeout</code> (<code>main.py</code> warns at startup when it isn't).</p>
+<h2 id="trigger-lifecycle">Trigger Lifecycle</h2>
+<p>When an object crosses into the spatial trigger zone, <code>TriggerHandler</code> applies the five entry gates above. If they pass, it emits <code>ZONE_ENTER</code> once and marks the object active. While active, heading and velocity are not re-checked; only spatial membership matters. <code>ZONE_EXIT</code> is emitted when the object:</p>
+<ol>
+<li>Leaves the trigger zone's x/y bounds (z drift alone does not trigger an exit).</li>
+<li>Dies in BRAID.</li>
+<li>Times out due to missing updates.</li>
+</ol>
+<p>After exit, the same object can trigger again if it re-enters the zone after the global cooldown period has elapsed.</p>
+<h2 id="important-notes">Important Notes</h2>
+<ul>
+<li>The ZMQ BRAID feed is only live when the full stack is running. Standalone tools that need tracking data must connect directly to the Braid HTTP SSE endpoint (<code>http://&lt;braid_url&gt;/events</code>) — except <code>braid_visualizer</code>, which consumes the ZMQ feed, and <code>braid_simulator</code>, which binds the BRAID PUB port itself (so the visualizer also works against the simulator).</li>
+<li>BraidPublisher reads from <code>http://&lt;url&gt;/events</code> as a streaming SSE connection and republishes via ZMQ.</li>
+<li>Zone events are one-way pub/sub: processes never acknowledge them. The one exception to PUB/SUB in the whole codebase is the <code>LATENCY</code> channel, which is PUSH/PULL — a many-producer, one-consumer fan-in rather than a broadcast, so each message is delivered to exactly one reader.</li>
+<li>Camera and liquid lens are lifecycle followers only: start on <code>ZONE_ENTER</code>, stop on <code>ZONE_EXIT</code>, keep no pre-zone state.</li>
+<li><code>LiquidLens</code> has no <code>active</code> flag of its own. It is started iff <code>[camera] active = true</code>, since autofocus is only meaningful while the high-speed camera is recording.</li>
+<li>Every <code>*Config</code> path constructor routes through <code>AppConfig.load()</code>, which builds and validates <strong>all eight</strong> config sections regardless of any section's <code>active</code> flag. <code>configs/config.toml</code> must therefore always contain valid <code>[liquid_lens]</code>, <code>[opto_trigger]</code>, etc. sections (each with its required <code>port</code> key) even when those subsystems are disabled.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.expand", "search.suggest", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

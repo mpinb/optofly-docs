@@ -1,0 +1,1877 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mpinb.github.io/optofly-docs/workflow/">
+      
+      
+        <link rel="prev" href="../hardware/backups/">
+      
+      
+        <link rel="next" href="../troubleshooting/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Workflow - OptoFly Ecosystem Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#workflow" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OptoFly Ecosystem Wiki" class="md-header__button md-logo" aria-label="OptoFly Ecosystem Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OptoFly Ecosystem Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Workflow
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mpinb/optofly-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OptoFly Ecosystem Wiki" class="md-nav__button md-logo" aria-label="OptoFly Ecosystem Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OptoFly Ecosystem Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mpinb/optofly-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Setup
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/udev-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    udev Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/basler-charuco-calibrator-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basler ChArUco Calibrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/braid-extrinsic-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Extrinsic Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/liquid-lens-calibration-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liquid Lens Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/optofly-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/optotune-lens-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optotune Lens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/ximea-py-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ximea Py
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/braid-opto-power-measure-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Opto-Power Measure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/optofly-analysis-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardware/storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardware/backups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lighting-during-calibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lighting during calibration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lighting during calibration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#turning-the-backlight-onoff-from-the-arduino-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Turning the backlight on/off from the Arduino IDE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turning-the-backlight-onoff-from-a-python-repl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Turning the backlight on/off from a Python REPL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-pipeline-dry-run-with-a-laser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full-pipeline dry run with a laser
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-optogenetic-light-power-across-the-arena" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measuring optogenetic light power across the arena
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happens-during-step-6-a-single-experiment-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens during step 6: a single experiment run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analyzing-a-finished-experiment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyzing a finished experiment
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Claude Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Component Docs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Component Docs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OptoFly
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repos/optofly/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repos/optofly/getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repos/optofly/calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repos/optofly/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repos/optofly/camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camera
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repos/optofly/opto-trigger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opto Trigger
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repos/optofly/visual-stimuli-panda3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Stimuli (Panda3D)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repos/optofly/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repos/liquid-lens-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liquid Lens Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repos/basler-charuco-calibrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basler ChArUco Calibrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repos/optotune-lens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optotune Lens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repos/ximea-py/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ximea Py
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repos/braid-opto-power-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Opto-Power Measure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repos/optofly-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lighting-during-calibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lighting during calibration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lighting during calibration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#turning-the-backlight-onoff-from-the-arduino-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Turning the backlight on/off from the Arduino IDE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turning-the-backlight-onoff-from-a-python-repl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Turning the backlight on/off from a Python REPL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-pipeline-dry-run-with-a-laser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full-pipeline dry run with a laser
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-optogenetic-light-power-across-the-arena" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measuring optogenetic light power across the arena
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happens-during-step-6-a-single-experiment-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What happens during step 6: a single experiment run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analyzing-a-finished-experiment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyzing a finished experiment
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="workflow">Workflow</h1>
+<p>This page shows the full pipeline in the order you actually do it, from a
+brand-new rig to a running experiment. Each step depends on the one before
+it — don't skip ahead.</p>
+<p>There are <strong>six steps in total</strong>. Steps 1–3 each live in a different
+repo; steps 4–5 all happen inside <code>optofly</code> itself (not a separate repo,
+but still one-time, by-hand calibration just like 1–3); step 6 is running
+a real experiment. Every step below links straight to its full
+instructions — click the step name, not just the repo name.</p>
+<pre class="mermaid"><code>flowchart TD
+    S1["1. Camera intrinsic calibration&lt;br/&gt;basler-charuco-calibrator"] --&gt; S2["2. Braid extrinsic calibration&lt;br/&gt;Braid's own tooling"]
+    S2 --&gt; S3["3. Liquid lens calibration&lt;br/&gt;liquid-lens-calibration"]
+    S3 --&gt; S4["4. FOV calibration - frustum recommended&lt;br/&gt;optofly"]
+    S4 --&gt; S5["5. Panda3D heading calibration&lt;br/&gt;only if using visual-stimulus screens&lt;br/&gt;optofly"]
+    S5 --&gt; S6["6. Run real experiments&lt;br/&gt;optofly"]</code></pre>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Step</th>
+<th>Tool</th>
+<th>What it produces</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="../repos/basler-charuco-calibrator/">Camera intrinsic calibration</a></td>
+<td><code>basler-charuco-calibrator</code></td>
+<td>A per-camera YAML with focal length and distortion coefficients. Repeat once per tracking camera.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="../setup/braid-extrinsic-calibration/">Braid multi-camera (extrinsic) calibration</a></td>
+<td>Braid's own tooling (not part of this ecosystem)</td>
+<td>An XML describing where each camera sits relative to the others — what Braid uses to triangulate 3D fly positions.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="../repos/liquid-lens-calibration/">Liquid lens calibration</a></td>
+<td><code>liquid-lens-calibration</code> (driving the lens via <code>optotune-lens</code>, reading focus frames via <a href="../repos/ximea-py/"><code>ximea-py</code></a>)</td>
+<td>A <code>z → diopter</code> lookup table, using the same camera geometry from step 2 to triangulate a target's true distance.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>FOV calibration — use <a href="../repos/optofly/calibration/#frustum-fov-calibration">frustum</a> (<strong>recommended</strong>, more accurate); <a href="../repos/optofly/calibration/#camera-fov-calibration">flat</a> only for a quick throwaway test rig</td>
+<td><code>optofly</code></td>
+<td>The camera's field-of-view bounds, written into <code>optofly</code>'s <code>config.toml</code>, so it knows what's actually in frame.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="../repos/optofly/calibration/#panda3d-heading-calibration">Panda3D heading calibration</a> — only if this rig uses visual-stimulus screens</td>
+<td><code>optofly</code></td>
+<td>An offset that aligns Braid's tracked heading with the arena's screens.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="../repos/optofly/getting-started/">Run real experiments</a></td>
+<td><code>optofly</code></td>
+<td>Live tracking, triggered recording, optogenetic stimulation, autofocus, visual stimuli.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>Common failure:</strong> step 3 fails to triangulate any AprilTag — usually
+means the calibration XML path (<code>--calibration</code>) points at a stale or
+wrong file, or Braid isn't actually running and tracking yet. Confirm
+Braid's own web UI shows live 3D tracks before starting step 3.</p>
+<p>⚠️ <strong>Common failure:</strong> looking for steps 4–5 in this repo and not finding
+them — they're documented in <code>optofly</code>'s own repo, not here. Follow the
+links in the table above; don't go looking for separate <code>optofly-docs</code>
+pages for them.</p>
+</blockquote>
+<h2 id="lighting-during-calibration">Lighting during calibration</h2>
+<p>Steps 1–2 (camera intrinsic and Braid extrinsic calibration) and steps
+4–5 (<code>optofly</code>'s own <a href="../repos/optofly/calibration/#frustum-fov-calibration">FOV</a>
+and <a href="../repos/optofly/calibration/#panda3d-heading-calibration">Panda3D heading</a>
+calibration, when done with a laser pointer as the target) all need
+specific lighting in the arena. Get this wrong and the calibration board or
+laser dot can be hard for the camera to pick out cleanly.</p>
+<ul>
+<li><strong>Intrinsic and extrinsic calibration</strong> (steps 1–2, ChArUco board):
+  turn on only the lights mounted above the arena. The floor backlight
+  (driven by the Arduino, see below) is not needed for this — leaving it on
+  doesn't hurt, but there's no benefit to it either.</li>
+<li><strong>Laser pointer calibration</strong> (steps 4–5, when using a laser pointer as
+  the target — see <a href="../repos/optofly/calibration/"><code>optofly</code>'s Calibration
+  doc</a>): turn off <strong>both</strong> the backlight
+  and the overhead lights. Either light source can wash out or be mistaken
+  for the laser's bright spot by the detection threshold.</li>
+</ul>
+<p>The overhead lights are powered by a benchtop power supply, already set to
+the correct voltage — don't change the voltage dial. Turn them on and off
+using the power supply's output on/off switch (or button), not the voltage
+knob. The backlight, however, is wired to the Arduino (pin 9, see
+<a href="../repos/optofly/opto-trigger/#hardware">Optogenetic Trigger</a>) and can also
+be switched off (or on) in software instead of physically unplugging it.</p>
+<h3 id="turning-the-backlight-onoff-from-the-arduino-ide">Turning the backlight on/off from the Arduino IDE</h3>
+<ol>
+<li>Connect the Arduino via USB and open the Arduino IDE.</li>
+<li>Go to <strong>Tools &gt; Port</strong> and confirm the correct port is selected.</li>
+<li>Open <strong>Tools &gt; Serial Monitor</strong>.</li>
+<li>Set the baud rate in the bottom-right of the Serial Monitor window to
+   <strong>115200</strong> — commands sent at the wrong baud rate are ignored or
+   garbled.</li>
+<li>In the send box at the top, type <code>[0]</code> and press <strong>Send</strong> to turn the
+   backlight off, or <code>[255]</code> to turn it fully on. Values in between (e.g.
+   <code>[128]</code>) set partial brightness.</li>
+</ol>
+<blockquote>
+<p>⚠️ <strong>Common failure:</strong> nothing happens when you send a command — the
+Serial Monitor's line-ending setting (bottom-right dropdown) must not
+mangle the brackets. "No line ending" or "Newline" both work; if it still
+doesn't respond, re-check the baud rate first.</p>
+</blockquote>
+<h3 id="turning-the-backlight-onoff-from-a-python-repl">Turning the backlight on/off from a Python REPL</h3>
+<p>A <strong>REPL</strong> is an interactive Python prompt — you type one line of Python
+at a time and see its result immediately, instead of running a whole
+script file. Open one from inside the <code>optofly</code> repo, so the <code>pyserial</code>
+package used below is already installed:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/src/optofly
+uv<span class="w"> </span>run<span class="w"> </span>python
+</code></pre></div>
+<p>You'll see a <code>&gt;&gt;&gt;</code> prompt waiting for input.</p>
+<p>This uses the same serial protocol as the Arduino IDE method above, sent
+with the <a href="https://pyserial.readthedocs.io/"><code>pyserial</code></a> package instead.
+Useful if you'd rather script it or you're already in a Python session.
+Type (or paste) these lines one at a time at the <code>&gt;&gt;&gt;</code> prompt:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">serial</span>
+
+<span class="n">ser</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="s2">"/dev/opto_trigger"</span><span class="p">,</span> <span class="mi">115200</span><span class="p">)</span>  <span class="c1"># match your config.toml port</span>
+<span class="n">ser</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s2">"[0]"</span><span class="p">)</span>     <span class="c1"># backlight off</span>
+<span class="n">ser</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s2">"[255]"</span><span class="p">)</span>   <span class="c1"># backlight fully on</span>
+<span class="n">ser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<blockquote>
+<p>⚠️ <strong>Common failure:</strong> <code>PermissionError</code> or <code>SerialException</code> opening the
+port — another program (e.g. a running <code>optofly</code> experiment, or the
+Arduino Serial Monitor) already has the port open. Only one process can
+hold it at a time; close the other one first.</p>
+</blockquote>
+<h2 id="full-pipeline-dry-run-with-a-laser">Full-pipeline dry run with a laser</h2>
+<p>This is the last thing to do before running a real experiment — after
+steps 1–5 in the table above.</p>
+<p>Everything so far only confirms that individual pieces work: Braid
+tracks in 3D, the lens has a lookup table, the screens are aligned. It
+doesn't confirm that <code>optofly</code> itself — recording, lens tracking, the
+optogenetic trigger, visual stimuli — reacts correctly when something
+moves through the arena. A laser pointer's dot is a controllable
+stand-in for a fly for this check, the same trick used to sanity-check
+tracking during extrinsic calibration (see <a href="../setup/braid-extrinsic-calibration/#optional-verify-tracking-with-a-laser">Braid Extrinsic
+Calibration</a>),
+taken one step further to exercise the whole pipeline instead of just
+Braid.</p>
+<p>Turn off the arena lights first — see <a href="#lighting-during-calibration">Lighting during
+calibration</a> above — then launch Braid
+tracking the laser:</p>
+<div class="highlight"><pre><span></span><code>braid-run<span class="w"> </span>~/braid-configs/laser.toml
+</code></pre></div>
+<p>In another terminal, launch <code>optofly</code> itself:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/src/optofly
+uv<span class="w"> </span>run<span class="w"> </span>main.py<span class="w"> </span>--skip-metadata
+</code></pre></div>
+<p><code>--skip-metadata</code> skips the usual experiment-metadata prompt, since this
+is a quick test rather than a real recording. With the laser standing in
+for a fly, move its dot into <code>optofly</code>'s trigger zone and confirm the
+response you expect actually happens — recording starts, the lens
+tracks focus, the optogenetic trigger or a visual/light stimulus fires —
+whichever this rig has configured.</p>
+<p>Keep this trick in your back pocket beyond calibration, too: it's a
+convenient way to check later that the optogenetic trigger or a
+visual/light stimulus is actually firing, without needing a live fly.</p>
+<h2 id="measuring-optogenetic-light-power-across-the-arena">Measuring optogenetic light power across the arena</h2>
+<p>This is a QC (quality control) check, not one of the six pipeline steps
+above — run it occasionally rather than before every experiment: after
+moving or replacing LEDs, changing stimulus intensity, or if flies in one
+part of the arena seem to respond differently than flies in another.</p>
+<p><a href="../setup/braid-opto-power-measure-setup/"><code>braid-opto-power-measure</code></a> sweeps
+a power meter by hand through the arena while Braid tracks its position,
+and produces heatmaps of both the ambient light level and the optogenetic
+LED's ON-state intensity at every position — showing whether the stimulus
+is even across the arena or stronger in some spots than others.</p>
+<h2 id="what-happens-during-step-6-a-single-experiment-run">What happens during step 6: a single experiment run</h2>
+<p>Once calibration is fully done — steps 1–5 in the table above —
+everything below happens inside <code>optofly</code> itself every time an
+experiment runs, no separate repos involved:</p>
+<ol>
+<li><code>optofly</code> connects to Braid's live tracking feed.</li>
+<li>When a tracked fly enters the outer trigger zone, video recording starts
+   and the liquid lens (driven via <code>optotune-lens</code>, using the lookup table
+   from step 3) begins tracking the fly's distance to stay in focus.</li>
+<li>If the fly reaches a smaller zone nested inside the outer one, an LED
+   fires for optogenetic stimulation, a visual stimulus displays, or both —
+   depending on which are enabled in that experiment's configuration.</li>
+<li>When the fly leaves the outer zone, recording and lens tracking stop for
+   that fly.</li>
+</ol>
+<p>See <a href="../repos/optofly/calibration/"><code>optofly</code>'s own Calibration doc</a> for the
+full technical detail behind each step, including exact commands.</p>
+<p>If Braid itself (or the whole computer) crashes partway through a
+recording, see <a href="../troubleshooting/#braid-crashed-while-recording-leaving-a-braid-folder-behind">Braid crashed while recording, leaving a <code>.braid</code> folder
+behind</a>
+to recover the data by hand.</p>
+<p>Finished recordings land in <code>/mnt/data/experiments</code> and <code>/mnt/data/videos</code>
+on the machine running <code>optofly</code>. See <a href="../hardware/storage/">Storage</a> for
+what's stored where on that machine, and <a href="../hardware/backups/">Backups</a>
+for how (and how well) that data is currently protected.</p>
+<h2 id="analyzing-a-finished-experiment">Analyzing a finished experiment</h2>
+<p>This runs after step 6, once you have one or more finished <code>.braidz</code> files —
+it's not part of the calibration sequence and needs no hardware.</p>
+<p><a href="../setup/optofly-analysis-setup/"><code>optofly-analysis</code></a> reads a <code>.braidz</code> file
+(or several, grouped for comparison) and produces behavior statistics
+(velocity, saccades) and — if the recording has a looming-stimulus or
+optogenetic log — response plots (percent responsive, turn direction and
+size), without writing any code.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

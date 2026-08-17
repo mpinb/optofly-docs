@@ -1,0 +1,1954 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mpinb.github.io/optofly-docs/repos/optofly/camera/">
+      
+      
+        <link rel="prev" href="../architecture/">
+      
+      
+        <link rel="next" href="../opto-trigger/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Camera - OptoFly Ecosystem Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ximea-camera" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="OptoFly Ecosystem Wiki" class="md-header__button md-logo" aria-label="OptoFly Ecosystem Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OptoFly Ecosystem Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Camera
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mpinb/optofly-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="OptoFly Ecosystem Wiki" class="md-nav__button md-logo" aria-label="OptoFly Ecosystem Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OptoFly Ecosystem Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mpinb/optofly-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Setup
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/udev-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    udev Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/basler-charuco-calibrator-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basler ChArUco Calibrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/braid-extrinsic-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Extrinsic Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/liquid-lens-calibration-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liquid Lens Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/optofly-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/optotune-lens-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optotune Lens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/ximea-py-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ximea Py
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/braid-opto-power-measure-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Opto-Power Measure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../setup/optofly-analysis-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/backups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../claude-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Claude Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Component Docs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Component Docs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OptoFly
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camera
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camera
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rust-binary-optofly-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rust Binary (optofly-camera/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-wrapper-srcprocessescamerapy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Wrapper (src/processes/camera.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zmq-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ZMQ Protocol
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-a-videos-stimulus-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding a video's stimulus parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../opto-trigger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opto Trigger
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visual-stimuli-panda3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Stimuli (Panda3D)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../liquid-lens-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liquid Lens Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basler-charuco-calibrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basler ChArUco Calibrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../optotune-lens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optotune Lens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ximea-py/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ximea Py
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../braid-opto-power-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Opto-Power Measure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../optofly-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rust-binary-optofly-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rust Binary (optofly-camera/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-wrapper-srcprocessescamerapy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Wrapper (src/processes/camera.py)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zmq-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ZMQ Protocol
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-a-videos-stimulus-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding a video's stimulus parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="ximea-camera">Ximea Camera</h1>
+<p>High-speed triggered video recording using the <code>optofly-camera</code> Rust binary.</p>
+<p><strong>Specifications:</strong>
+- 500fps at 2112x2112 pixels (configurable)
+- H.264 encoding with NVENC hardware acceleration (x264 fallback)
+- Linear double-buffer design for zero-copy, race-free operation
+- ~18GB memory footprint (default settings, 2 buffers)</p>
+<h2 id="architecture">Architecture</h2>
+<p>The camera subsystem has two layers:</p>
+<ol>
+<li><strong><code>optofly-camera</code> (Rust binary)</strong> — core capture and encoding logic</li>
+<li><strong><code>RustCameraProcess</code> (Python wrapper)</strong> — launches the binary as a subprocess, integrates with the OptoFly process model</li>
+</ol>
+<h3 id="rust-binary-optofly-camera">Rust Binary (<code>optofly-camera/</code>)</h3>
+<p>Single-process design with a background encoder thread:</p>
+<ol>
+<li><strong>Capture loop</strong> (<code>capture.rs</code>) — opens XIMEA camera via <code>xiapi</code>, captures frames at 500fps into a linear double-buffer</li>
+<li><strong>State machine</strong> — <code>Idle</code> polls ZMQ for <code>ZONE_ENTER</code>; on receipt, transitions to <code>Recording</code>. In <code>Recording</code>, captures frames linearly and polls for <code>ZONE_EXIT</code>. On exit (or buffer full), hands the buffer to the encoder</li>
+<li><strong>Encoder thread</strong> (<code>encoder.rs</code>) — pipes raw frames to ffmpeg stdin (single contiguous write), writes CSV metadata</li>
+<li><strong>Config</strong> (<code>config.rs</code>) — reads <code>[camera]</code> and <code>[zmq]</code> sections from the shared TOML config</li>
+</ol>
+<p><strong>Double-buffer pattern:</strong> Two pre-allocated <code>Vec&lt;u8&gt;</code> buffers sized for <code>max_recording_time + 1s</code>. On recording completion, the active buffer is taken (<code>Option::take</code>) and enqueued for encoding. The encoder reads the old buffer while capture continues into the new one.</p>
+<p><strong>Memory:</strong> <code>2 x (max_recording_time + 1s) x fps x width x height</code>
+Default settings (3s, 500fps, 2112x2112): ~17.8GB total (~8.9GB per buffer).</p>
+<h3 id="python-wrapper-srcprocessescamerapy">Python Wrapper (<code>src/processes/camera.py</code>)</h3>
+<p><code>RustCameraProcess</code> extends <code>WorkerProcess</code> and:
+- Locates the binary in <code>optofly-camera/target/{release,debug}/</code> or <code>PATH</code>
+- Launches it with <code>--config</code>, <code>--save-folder</code>, and <code>--log-level</code> arguments
+- Monitors the subprocess and the shared <code>stop_event</code>
+- On shutdown: sends SIGTERM, waits up to 30s for graceful exit, then SIGKILL</p>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><strong>xiapi</strong> (Rust crate) — Rust bindings for XIMEA SDK</li>
+<li><strong>ffmpeg</strong> — must be on PATH; NVENC requires NVIDIA drivers</li>
+<li><strong>XIMEA SDK</strong> — system install required for camera access; install with <code>sudo scripts/install_ximea_driver.sh</code></li>
+</ul>
+<h2 id="building">Building</h2>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>optofly-camera
+cargo<span class="w"> </span>build<span class="w"> </span>--release
+</code></pre></div>
+<p>The release binary is at <code>optofly-camera/target/release/optofly-camera</code>.</p>
+<h2 id="usage">Usage</h2>
+<p><strong>Via main.py (normal use):</strong>
+Set <code>[camera] active = true</code> in <code>configs/config.toml</code>, then <code>uv run python main.py</code>.</p>
+<p><strong>Rust binary directly:</strong>
+<div class="highlight"><pre><span></span><code>./optofly-camera/target/release/optofly-camera<span class="w"> </span>--config<span class="w"> </span>configs/config.toml<span class="w"> </span>--save-folder<span class="w"> </span>/tmp/videos<span class="w"> </span>--log-level<span class="w"> </span>info
+</code></pre></div></p>
+<p><strong>Pre-flight checks:</strong>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">src.processes.camera</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_camera_prerequisites</span>
+
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">check_camera_prerequisites</span><span class="p">(</span><span class="s2">"configs/config.toml"</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Returns a <code>dict[str, CheckResult]</code> covering <code>camera_binary</code>, <code>ffmpeg</code>,
+<code>save_folder_writable</code>, and <code>trigger_port</code>. Each <code>CheckResult</code> has <code>.ok</code> (bool)
+and <code>.detail</code> (what to do if it failed). A failing <code>trigger_port</code> just means the
+experiment isn't running. See <a href="../troubleshooting/#runtime">troubleshooting.md</a>.</p>
+<h2 id="configuration">Configuration</h2>
+<p>The Rust binary reads from the shared <code>configs/config.toml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[camera]</span>
+<span class="n">active</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">resolution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">2112</span><span class="p">,</span><span class="w"> </span><span class="mi">2112</span><span class="p">]</span>
+<span class="n">fps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500</span>
+<span class="n">exposure_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span>
+<span class="n">max_recording_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.0</span><span class="w">   </span><span class="c1"># seconds, controls buffer size</span>
+
+<span class="c1"># Rust-binary-only keys (all optional; ignored by Python):</span>
+<span class="c1"># buffers_queue_size = 32   # XIMEA driver buffer queue depth</span>
+<span class="c1"># aeag = false              # auto-exposure/gain (gain locked at 0 dB)</span>
+<span class="c1"># aeag_level = 50           # AEAG target brightness level</span>
+<span class="c1"># ae_max_limit = 1900.0     # max AE exposure in µs (default: 95% of frame period)</span>
+
+<span class="k">[zmq]</span>
+<span class="n">trigger_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5556</span>
+<span class="n">zone_enter_topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ZONE_ENTER"</span>
+<span class="n">zone_exit_topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ZONE_EXIT"</span>
+</code></pre></div>
+<h2 id="zmq-protocol">ZMQ Protocol</h2>
+<p>Subscribes to topics <code>ZONE_ENTER</code>, <code>ZONE_EXIT</code>, and <code>kill</code> on port 5556 (multipart):
+<div class="highlight"><pre><span></span><code>[b"ZONE_ENTER",     b'{"obj_id": 123, "frame": 4589, "x": 0.01, "y": -0.02, "z": 0.18, "mean_heading": 0.52}']
+[b"ZONE_EXIT",      b'{"obj_id": 123, "reason": "left_fov", "timestamp": 1234.80, "duration": 0.20}']
+</code></pre></div></p>
+<p>The binary also subscribes to a bare <code>kill</code> topic, but <strong>nothing in this
+codebase publishes to it</strong> — shutdown is by SIGTERM from the Python wrapper.
+The subscription is vestigial; don't build on it without adding a publisher.</p>
+<p><strong>State machine:</strong></p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Event</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IDLE</td>
+<td><code>ZONE_ENTER</code></td>
+<td>→ RECORDING; <code>trigger_frame_idx = 0</code></td>
+</tr>
+<tr>
+<td>RECORDING</td>
+<td><code>ZONE_EXIT</code></td>
+<td>finish and hand buffer to encoder</td>
+</tr>
+</tbody>
+</table>
+<h2 id="output">Output</h2>
+<p><strong>Video:</strong> <code>{save_folder}/obj_id_{obj_id}_frame_{frame}.mp4</code>
+- Codec: H.264 (NVENC p4/constqp18, or x264 ultrafast/crf18 fallback), grayscale input
+- To review these high-speed recordings frame-by-frame, use <strong>Avidemux</strong> — it's already installed on this machine. If it's missing on another one, get it from
+  <a href="https://avidemux.sourceforge.net/">avidemux.sourceforge.net</a>.</p>
+<p><strong>Metadata CSV:</strong> <code>{save_folder}/obj_id_{obj_id}_frame_{frame}.csv</code>
+<div class="highlight"><pre><span></span><code>frame_idx,nframe,ts_sec,ts_usec,cam_time_ns,trigger_frame_idx,opto_frame_idx,visual_frame_idx
+0,100,1234,567890,1234567890000,0,3,
+</code></pre></div>
+<code>trigger_frame_idx</code> is written to every row and indicates which buffer frame corresponds to the real <code>ZONE_ENTER</code> moment — that is, it marks <strong>recording start</strong>, not stimulus onset. Since the capture buffer resets at <code>ZONE_ENTER</code>, it is always <code>0</code> (there are no pre-trigger frames).</p>
+<p><code>opto_frame_idx</code>/<code>visual_frame_idx</code> mark the buffer frame at which <code>OPTO_ZONE_ENTER</code>/<code>VISUAL_ZONE_ENTER</code> arrived on the ZMQ trigger socket — a frame-exact, live-captured stimulus-onset marker, with no fps-ratio math and no dropped-frame assumption. They live in this same per-video metadata CSV (<code>{save_folder}/obj_id_{obj_id}_frame_{frame}.csv</code>, next to that trial's <code>.mp4</code>) — there is no separate stimulus-data file per video. Each is written as a constant value across every row (same style as <code>trigger_frame_idx</code>) and is blank when that system never fired during the recording (system inactive, or the fly never reached the inner zone). This marks when the trigger broadcast reached the capture loop, not when the LED/stimulus physically actuated; add <code>(activation_timestamp - trigger_timestamp) × camera_fps</code> from <code>latency.csv</code> to get actuation onset.</p>
+<p><strong>Lens timing CSV:</strong> <code>{save_folder}/obj_id_{obj_id}_frame_{frame}_lens_timing.csv</code></p>
+<p>Written by the Python <code>LiquidLens</code> process. One row per commanded diopter change while tracking an object (updates that fall below the slew-rate threshold or arrive within the 25ms hardware rate limit are skipped and don't produce a row).
+<div class="highlight"><pre><span></span><code>t_braid,t_relay,t_lens_recv,t_serial_start,t_diopter_sent,delay_ms,frame,obj_id,x,y,z,focus_z,diopter,target_diopter,predictor
+1234567.888,1234567.889,1234567.890,1234567.891,1234567.893,2.1,4589,123,0.01,-0.02,0.18,0.18,3.2,3.2,linear
+</code></pre></div>
+<code>delay_ms</code> = time from <code>t_serial_start</code> to <code>t_diopter_sent</code>, i.e. the USB serial write itself. <code>predictor</code> records which mode (<code>none</code> or <code>linear</code>) produced <code>focus_z</code> for that row. <code>diopter</code> is the slew-rate-limited value actually sent to the lens; <code>target_diopter</code> is what the calibration curve returned before limiting. Compare the two to see how much <code>max_diopter_step</code> is holding back a given trial. Feed this file to <code>uv run python -m src.tools.lens_latency_analyze</code> for latency percentile breakdowns and a recommended <code>system_latency</code>.</p>
+<p><strong>Debug histograms:</strong> Generate offline with <code>src/tools/generate_camera_histograms.py</code>
+- Reads CSV files and produces PNG histograms showing frame counter diffs, inter-frame interval, jitter, timeline
+- Usage: <code>python src/tools/generate_camera_histograms.py /path/to/videos/</code></p>
+<p><strong>Stimulus-onset → video-frame alignment:</strong> <code>src/tools/frame_alignment.py</code>
+- <strong>For opto/visual, prefer <code>opto_frame_idx</code>/<code>visual_frame_idx</code> in the metadata CSV above</strong> — they're exact, live-captured frame numbers with no fps-ratio approximation. The tool now surfaces the same value itself (as <code>live_frame_idx</code>, read straight from that CSV) alongside its own fps-ratio estimate, so for recordings made after this feature shipped you don't need to cross-reference the metadata CSV by hand.
+- <strong><code>lens</code> has no comparable live marker, and its <code>latency.csv</code> delta is not currently meaningful</strong>: <code>LiquidLens</code> publishes its <code>frame</code>/<code>record_frame</code> pair from the <code>ZONE_ENTER</code> snapshot rather than the frame the first diopter command was actually sent on, so the two are always equal and this tool's <code>video_frame</code>/<code>live_frame_idx</code> output for <code>lens</code> will always be <code>0</code>/blank. Use <code>lens_timing.csv</code>'s own <code>frame</code> column (see above) for lens timing per adjustment.
+- For each <code>opto</code>/<code>visual</code> (or <code>lens</code>, via <code>--systems</code>) row in <code>latency.csv</code>, computes the corresponding video frame from <code>(row.frame - row.record_frame)</code> scaled by the camera/Braid fps ratio, joins it against the matching <code>obj_id_{obj_id}_frame_{record_frame}.csv</code> to report that video's actual frame count and (for opto/visual) its live <code>opto_frame_idx</code>/<code>visual_frame_idx</code>, and warns when the computed frame falls outside the video's frame count (recording ended — <code>zone_timeout</code>/buffer-full/<code>left_fov</code> — before the stimulus fired).
+- Works directly against a completed recording's zipped <code>.braidz</code> file (reads <code>latency.csv</code> and <code>config.toml</code> — for <code>camera.fps</code> — as zip members) as well as a still-open or crashed/leftover raw <code>.braid</code> folder; no unzipping needed. Point it at the videos folder with <code>--video-folder</code> if it isn't the one auto-derived from <code>src/orchestration.py</code>'s layout (<code>&lt;data_root&gt;/videos/&lt;name&gt;.braid</code>, sibling of <code>&lt;data_root&gt;/experiments/</code>).
+- <code>video_frame</code> is a frame-count approximation, not an exact timestamp lookup — the camera's own per-frame timestamps aren't on a clock synchronized with Braid's. <code>live_frame_idx</code> (opto/visual only, when present) is exact — prefer it when both are available.
+- Usage: <code>uv run python -m src.tools.frame_alignment /mnt/data/experiments/&lt;timestamp&gt;.braidz</code> — prints one row per trigger to stdout as CSV (or write it out with <code>--output</code>):
+<div class="highlight"><pre><span></span><code>obj_id,system,record_frame,braid_frame,braid_frame_delta,video_frame,live_frame_idx,video_csv,video_frame_count,sham,latency_ms
+1,opto,12345,12350,5,25,26,obj_id_1_frame_12345.csv,100,False,12.4
+</code></pre></div>
+  <code>video_frame</code> is the fps-ratio estimate; <code>live_frame_idx</code> (blank for <code>lens</code>, or for recordings made before this feature shipped) is the exact value read from <code>video_csv</code>'s <code>opto_frame_idx</code>/<code>visual_frame_idx</code> column — prefer it when present. <code>video_frame_count</code> (from the matching metadata CSV, blank if it wasn't found) is what <code>video_frame</code> is range-checked against; a warning is printed to stderr per row that falls outside it.
+- Options: <code>--video-folder</code> (override the auto-derived videos folder), <code>--camera-fps</code> (skip reading <code>config.toml</code>, e.g. for recordings that predate config-copying; must be positive), <code>--braid-fps</code> (override the 100 Hz default; must be positive), <code>--systems</code> (comma-separated, default <code>opto,visual</code>; add <code>lens</code> to include liquid-lens triggers, though see the limitation above), <code>--output</code> (write the CSV to a file instead of stdout).</p>
+<h2 id="finding-a-videos-stimulus-parameters">Finding a video's stimulus parameters</h2>
+<p>A video's filename only gives you <code>obj_id</code> and <code>record_frame</code> — the Braid frame <code>ZONE_ENTER</code> fired on, i.e. recording start. That's not enough on its own to look up the LED or visual-stimulus parameters used for that trial, because <code>opto.csv</code>/<code>stim.csv</code> are keyed by <code>frame</code>, the Braid frame <code>OPTO_ZONE_ENTER</code>/<code>VISUAL_ZONE_ENTER</code> actually fired on. <code>frame</code> and <code>record_frame</code> only coincide when <code>opto_zone_scale</code>/<code>visual_zone_scale</code> is <code>1.0</code>; at the default of <code>0.8</code> they typically differ by a handful of Braid frames (see <a href="../architecture/#configuration-loading">Configuration</a> in <code>docs/architecture.md</code>).</p>
+<p><code>latency.csv</code> is the bridge, since every row carries both <code>frame</code> and <code>record_frame</code> for the same trigger:</p>
+<ol>
+<li>Parse <code>obj_id</code> and <code>record_frame</code> from the video filename (<code>obj_id_{obj_id}_frame_{record_frame}.mp4</code>).</li>
+<li>Find the <code>latency.csv</code> row with that <code>obj_id</code>/<code>record_frame</code> and the system you want (<code>system</code> = <code>"opto"</code> or <code>"visual"</code>) — its <code>frame</code> column is the key into the next file.</li>
+<li>Look up that <code>obj_id</code>/<code>frame</code> pair in <code>opto.csv</code> (LED parameters, see <a href="../opto-trigger/">docs/opto-trigger.md</a>) or <code>stim.csv</code> (visual stimulus parameters, see <a href="../visual-stimuli-panda3d/">docs/visual-stimuli-panda3d.md</a>).</li>
+</ol>
+<p><strong><code>latency.csv</code> columns:</strong>
+<code>obj_id, frame, record_frame, system, braid_timestamp, trigger_timestamp, activation_timestamp, latency_ms, sham</code></p>
+<p><code>system</code> is <code>"opto"</code>, <code>"visual"</code>, or <code>"lens"</code>. <code>latency_ms = (activation_timestamp - braid_timestamp) * 1000</code>, blank for sham trials. Written solely by <code>LatencyLogger</code> (<code>src/processes/latency_logger.py</code>) — see the LATENCY message format in <code>docs/architecture.md</code> for the full wire-format description this file mirrors.</p>
+<p>If you only need the exact video frame the stimulus fired on rather than its parameters, skip this lookup entirely — the per-video metadata CSV's <code>opto_frame_idx</code>/<code>visual_frame_idx</code> above already gives you that directly, no <code>latency.csv</code> join required.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p><strong>Camera not detected:</strong>
+<div class="highlight"><pre><span></span><code>lsusb<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Ximea
+ldconfig<span class="w"> </span>-p<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>libxi
+</code></pre></div></p>
+<p><strong>NVENC not available</strong> — ffmpeg falls back to software encoding:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ubuntu-drivers<span class="w"> </span>autoinstall
+ffmpeg<span class="w"> </span>-encoders<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>nvenc
+</code></pre></div></p>
+<p><strong>ZMQ port in use:</strong>
+<div class="highlight"><pre><span></span><code>netstat<span class="w"> </span>-tulpn<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">5556</span>
+</code></pre></div></p>
+<p><strong>Binary not found</strong> — <code>RustCameraProcess</code> searches these paths in order:
+1. <code>optofly-camera/target/release/optofly-camera</code>
+2. <code>optofly-camera/target/debug/optofly-camera</code>
+3. <code>optofly-camera</code> on <code>PATH</code></p>
+<h2 id="testing">Testing</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Python-side unit tests (no hardware)</span>
+uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>tests/test_camera_config.py<span class="w"> </span>tests/test_camera_prerequisites.py
+
+<span class="c1"># Rust unit tests + compile check</span>
+<span class="nb">cd</span><span class="w"> </span>optofly-camera<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cargo<span class="w"> </span>check
+</code></pre></div>
+<p>There is no automated end-to-end camera test: capture needs a real XIMEA device,
+so nothing above proves the binary can actually record. Verify that by hand —
+run <code>main.py</code> with <code>[camera] active = true</code> and confirm an
+<code>obj_id_{N}_frame_{M}.mp4</code> appears in <code>camera.save_folder</code> after a trigger.</p>
+<p><code>RustCameraProcess</code> is the only camera implementation. An earlier pure-Python
+<code>CameraProcess</code> that drove the sensor directly via <code>ximea-py</code> was removed;
+<code>src/orchestration.py</code> imports <code>RustCameraProcess</code> under the alias
+<code>CameraProcess</code>, which is all that name now refers to.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.expand", "search.suggest", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

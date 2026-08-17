@@ -1,0 +1,1834 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mpinb.github.io/optofly-docs/hardware/backups/">
+      
+      
+        <link rel="prev" href="../storage/">
+      
+      
+        <link rel="next" href="../../workflow/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Backups - OptoFly Ecosystem Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#backups" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OptoFly Ecosystem Wiki" class="md-header__button md-logo" aria-label="OptoFly Ecosystem Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OptoFly Ecosystem Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Backups
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mpinb/optofly-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OptoFly Ecosystem Wiki" class="md-nav__button md-logo" aria-label="OptoFly Ecosystem Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OptoFly Ecosystem Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mpinb/optofly-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Setup
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/udev-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    udev Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/basler-charuco-calibrator-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basler ChArUco Calibrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/braid-extrinsic-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Extrinsic Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/liquid-lens-calibration-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liquid Lens Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/optofly-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/optotune-lens-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optotune Lens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/ximea-py-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ximea Py
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/braid-opto-power-measure-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Opto-Power Measure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/optofly-analysis-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backups
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        At a glance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-mirror-mntdata-mntstorage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local mirror: /mnt/data → /mnt/storage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#offsite-mirror-mntstorage-a-remote-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Offsite mirror: /mnt/storage → a remote server
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#home-folder-backup-homenfc-mntsystem_backups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Home folder backup: /home/nfc → /mnt/system_backups
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restoring-a-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restoring a file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common failures
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../claude-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Claude Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Component Docs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Component Docs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OptoFly
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repos/optofly/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repos/optofly/getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repos/optofly/calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repos/optofly/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repos/optofly/camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camera
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repos/optofly/opto-trigger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Opto Trigger
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repos/optofly/visual-stimuli-panda3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Stimuli (Panda3D)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repos/optofly/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repos/liquid-lens-calibration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liquid Lens Calibration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repos/basler-charuco-calibrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basler ChArUco Calibrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repos/optotune-lens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optotune Lens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repos/ximea-py/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ximea Py
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repos/braid-opto-power-measure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Braid Opto-Power Measure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repos/optofly-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OptoFly Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        At a glance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-mirror-mntdata-mntstorage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local mirror: /mnt/data → /mnt/storage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#offsite-mirror-mntstorage-a-remote-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Offsite mirror: /mnt/storage → a remote server
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#home-folder-backup-homenfc-mntsystem_backups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Home folder backup: /home/nfc → /mnt/system_backups
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restoring-a-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restoring a file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common failures
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="backups">Backups</h1>
+<p>Three separate, independent jobs run automatically on <code>nfc3008</code> to protect
+against losing data. Automatic here means a <strong>cron job</strong> — a task the
+computer runs by itself at a scheduled time, with nobody needing to be
+logged in — or a similar tool doing the same thing a different way. You
+don't need to start these by hand, and under normal circumstances you'll
+never see them running.</p>
+<p>Each job protects against a different kind of loss — read the "protects
+against" column below carefully, since none of them protects against
+everything.</p>
+<p>("Mirror" here means a job that copies files to another disk on a
+schedule — a different use of the word than the RAID1 disk mirror
+described on the <a href="../storage/">Storage</a> page, where "mirror" means two
+drives holding identical copies at all times.)</p>
+<h2 id="at-a-glance">At a glance</h2>
+<table>
+<thead>
+<tr>
+<th>Job</th>
+<th>Copies</th>
+<th>Schedule</th>
+<th>Protects against</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Local mirror</td>
+<td><code>/mnt/data</code> → <code>/mnt/storage</code></td>
+<td>Daily, 12:00</td>
+<td>The working disk failing, or a finished file being accidentally deleted before it's archived</td>
+<td>Working</td>
+</tr>
+<tr>
+<td>Offsite mirror</td>
+<td><code>/mnt/storage</code> → a remote server</td>
+<td>Daily, 13:00</td>
+<td>Losing the entire machine (theft, fire, complete hardware failure)</td>
+<td>Working</td>
+</tr>
+<tr>
+<td>Home folder backup</td>
+<td><code>/home/nfc</code> → <code>/mnt/system_backups</code></td>
+<td>Weekly</td>
+<td>Losing installed software, configuration, and code on the main drive</td>
+<td>Working, but see note below</td>
+</tr>
+</tbody>
+</table>
+<h2 id="local-mirror-mntdata-mntstorage">Local mirror: <code>/mnt/data</code> → <code>/mnt/storage</code></h2>
+<p>Every day at noon, this command runs automatically:</p>
+<div class="highlight"><pre><span></span><code>rsync<span class="w"> </span>-a<span class="w"> </span>--exclude<span class="o">=</span><span class="s2">".Trash-1000/"</span><span class="w"> </span>--include<span class="o">=</span><span class="s2">"*.braidz"</span><span class="w"> </span>--exclude<span class="o">=</span><span class="s2">"*"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>/mnt/data/experiments/<span class="w"> </span>/mnt/storage/experiments/
+
+rsync<span class="w"> </span>-a<span class="w"> </span>--prune-empty-dirs<span class="w"> </span>--exclude<span class="o">=</span><span class="s2">".Trash-1000/"</span><span class="w"> </span>--include<span class="o">=</span><span class="s2">"*/"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--include<span class="o">=</span><span class="s2">"*.mp4"</span><span class="w"> </span>--include<span class="o">=</span><span class="s2">"*.csv"</span><span class="w"> </span>--exclude<span class="o">=</span><span class="s2">"*"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>/mnt/data/videos/<span class="w"> </span>/mnt/storage/videos/
+</code></pre></div>
+<p><code>rsync</code> is a program that copies files from one folder to another, only
+copying files that are new or changed since the last time it ran — much
+faster than copying everything every time. The <code>--include</code>/<code>--exclude</code>
+flags mean it only copies <code>.braidz</code> tracking files, plus <code>.mp4</code> video and
+<code>.csv</code> files, skipping everything else (including <code>.Trash-1000</code>, a hidden
+folder the file manager uses for its own Trash/Recycle Bin).</p>
+<p>This job only ever <em>adds</em> files to <code>/mnt/storage</code> — it never deletes
+anything there, even if the original is deleted from <code>/mnt/data</code>. That's
+also why <code>/mnt/storage</code> keeps filling up over time (see
+<a href="../storage/#common-failures">Storage</a>).</p>
+<p>Its log file (a text file recording what happened each time it ran) is at
+<code>/home/nfc/rsync-data-to-storage.log</code>. To check today's run:</p>
+<div class="highlight"><pre><span></span><code>tail<span class="w"> </span>/home/nfc/rsync-data-to-storage.log
+</code></pre></div>
+<p><code>tail</code> shows the last few lines of a file — useful for logs, which grow
+over time and where only the most recent entries usually matter.</p>
+<h2 id="offsite-mirror-mntstorage-a-remote-server">Offsite mirror: <code>/mnt/storage</code> → a remote server</h2>
+<p>A second job, structured the same way, runs daily at 13:00 and copies
+<code>/mnt/storage</code> to a remote server over the network (the lab's institutional
+computing cluster) instead of another local disk — this is what protects
+against losing the whole machine, not just one disk. Its real command uses
+a real server address, username, and remote folder path; since this wiki
+is public on the internet, those specific values aren't published here.
+Shaped like this instead:</p>
+<div class="highlight"><pre><span></span><code>rsync<span class="w"> </span>-a<span class="w"> </span>--no-owner<span class="w"> </span>--no-group<span class="w"> </span>--include<span class="o">=</span><span class="s2">"*.braidz"</span><span class="w"> </span>--exclude<span class="o">=</span><span class="s2">"*"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>/mnt/storage/experiments/<span class="w"> </span>&lt;remote-user&gt;@&lt;remote-host&gt;:&lt;remote-path&gt;/experiments/
+</code></pre></div>
+<p>A second, near-identical command (not shown) does the same for
+<code>/mnt/storage/videos/</code>.</p>
+<p>Anyone working directly on <code>nfc3008</code> can see the real values by running
+<code>crontab -l</code> in a terminal.</p>
+<blockquote>
+<p>⚠️ <strong>Common failure: <code>Permission denied</code> in this job's log.</strong> This job
+logs in to the remote server over SSH — a way for one computer to
+securely control another over the network — using a saved login key
+instead of typing a password. If the remote server stops trusting that
+key, every run ends with <code>Permission denied</code> in this job's log,
+<code>/home/nfc/rsync-storage-to-*.log</code> (the offsite job's log and lock
+files are named after the remote server, whose real name isn't
+published on this public wiki — the <code>*</code> matches whatever it's actually
+called on this machine). This actually happened on this machine: every
+run failed this way up through 2026-08-02, then started working again
+on its own a day or two later — most likely because something changed
+on the remote server's side, since nothing on this machine's own setup
+was touched. As of 2026-08-13, this job is confirmed working: the files
+it copies match the remote server's copy exactly. If you see
+<code>Permission denied</code> in this job's log again, it means the remote server
+has stopped trusting this machine's login key — ask whoever manages
+accounts on that remote server to check it's still authorized there.
+This isn't something you can fix from <code>nfc3008</code> alone.</p>
+</blockquote>
+<h2 id="home-folder-backup-homenfc-mntsystem_backups">Home folder backup: <code>/home/nfc</code> → <code>/mnt/system_backups</code></h2>
+<p>A tool called <code>duplicity</code> backs up the entire <code>/home/nfc</code> folder (code,
+configuration, this wiki, everything a user would lose if the main drive
+failed) into <code>/mnt/system_backups</code>. Instead of copying the full 159GB
+folder every time, it made one full copy on 2026-06-25, and now saves only
+a small "what changed" file roughly once a week — much faster, and much
+less disk space, than a fresh full copy every time.</p>
+<blockquote>
+<p><strong>Not verified:</strong> this wiki couldn't confirm exactly what schedules
+<code>duplicity</code> to run — it isn't in the <code>nfc</code> user's own scheduled jobs, and
+checking the machine's own administrator (root) schedule needs
+administrator access this wiki's author didn't have when writing this
+page. Whoever has administrator access on this machine can check with:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>crontab<span class="w"> </span>-l<span class="w"> </span>-u<span class="w"> </span>root
+</code></pre></div>
+and update this page once confirmed. Not knowing the trigger doesn't
+mean the backup itself is unreliable, though: the job demonstrably has
+been running on schedule, roughly weekly, based on the timestamps of
+the backup files already sitting in <code>/mnt/system_backups</code> — this is a
+documentation gap, not evidence of a broken job.</p>
+</blockquote>
+<h2 id="restoring-a-file">Restoring a file</h2>
+<p><strong>From the long-term storage disk</strong> (<code>/mnt/storage</code>): these are just
+plain folders, so getting a file back is a plain copy. (The offsite
+copy on the remote server should have the same files, but restoring
+from it isn't documented here — it needs a separate login on that
+remote server, which most people reading this wiki won't have.)</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/mnt/storage/experiments/some_experiment.braidz<span class="w"> </span>~/Desktop/
+</code></pre></div>
+<p><strong>From the home folder backup</strong>: use <code>duplicity</code>'s own restore command,
+telling it which backup to read from (<code>file:///mnt/system_backups</code>) and
+where to put the restored files:</p>
+<div class="highlight"><pre><span></span><code>duplicity<span class="w"> </span>restore<span class="w"> </span>file:///mnt/system_backups<span class="w"> </span>~/restored_home
+</code></pre></div>
+<p>This creates a new folder, <code>~/restored_home</code>, with a full copy of the
+backup as of the most recent run. The backup was made of <code>/home/nfc</code>'s
+full path from the filesystem root, so the restored files actually land
+under <code>~/restored_home/home/nfc/...</code> — not directly inside
+<code>~/restored_home/</code> itself — look one level deeper than you might
+expect. This also restores the <em>entire</em> ~159GB backup, so it can take a
+while and use a lot of disk space.</p>
+<p>To restore just a single file instead, add <code>--path-to-restore</code> with the
+file's path as it's stored inside the backup (starting with
+<code>home/nfc/...</code>):</p>
+<div class="highlight"><pre><span></span><code>duplicity<span class="w"> </span>restore<span class="w"> </span>--path-to-restore<span class="w"> </span>home/nfc/some/file.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>file:///mnt/system_backups<span class="w"> </span>~/restored_file
+</code></pre></div>
+<p>This restores only that one file, saving you from restoring everything
+just to get it back.</p>
+<p>Either command refuses to run — with an error, rather than silently
+overwriting anything — if its destination folder (<code>~/restored_home</code> or
+<code>~/restored_file</code> above) already exists. Pick a different destination
+folder name if you need to restore more than once.</p>
+<p>If you need an older version specifically, ask a labmate for help —
+<code>duplicity</code> supports restoring to a specific date, but it's easy to get
+wrong.</p>
+<h2 id="common-failures">Common failures</h2>
+<blockquote>
+<p>⚠️ <strong>Common failure: an empty-looking log doesn't always mean a job is
+broken.</strong> <code>rsync</code> normally prints nothing at all when it succeeds — so
+a job that's working perfectly and a job that's been dead for days can
+look identical in the log. Since 2026-08-13, both backup jobs print a
+line like <code>[2026-08-13 13:00:03] backup completed successfully</code> at the
+end of every successful run, so you can tell the two apart:
+<div class="highlight"><pre><span></span><code>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span>/home/nfc/rsync-data-to-storage.log
+tail<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span>/home/nfc/rsync-storage-to-*.log
+</code></pre></div>
+If the last line isn't one of these "completed successfully" lines
+with a recent date, something went wrong on that run — read the lines
+above it for the actual error. Runs from before 2026-08-13 won't have
+this line even though they succeeded — that's expected, not a sign of
+a problem.</p>
+<p>⚠️ <strong>Common failure:</strong> a backup job silently doesn't run because the
+computer was turned off, asleep, or restarting at its scheduled time
+(noon or 1pm). Plain cron jobs like these don't "catch up" and run later
+the way some of the computer's own built-in maintenance tasks do — if
+the computer is off at 12:00, that day's local mirror simply doesn't
+happen, with no error or notification anywhere. If you're not sure the
+backups are current, check the log files' timestamps and last line (see
+above):
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>/home/nfc/rsync-*.log
+</code></pre></div></p>
+<p>⚠️ <strong>Common failure:</strong> a backup job appears to stop running entirely,
+with no error anywhere. Each job uses a <strong>lock file</strong> — a marker file
+that says "this job is already running," so two copies of the same job
+never run at the same time and collide. If a job crashes partway through
+without cleaning up after itself, that marker file can get left behind,
+and every future run will quietly refuse to start (checking for the
+marker, seeing it, and stopping) instead of showing an error. If a log
+file (see above) hasn't grown in several days, check whether its lock
+file still exists:
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>/tmp/rsync-*.lock
+</code></pre></div>
+Only delete one of these files after confirming (<code>ps aux | grep rsync</code>)
+that the job genuinely isn't still running — deleting the marker while
+the job is actually in progress could let two copies run at once.</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
