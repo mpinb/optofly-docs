@@ -18,7 +18,7 @@ graph TD
     D --> E[optofly<br/>main pipeline]
     F[ximea-py<br/>XIMEA camera driver library] --> C
     C -->|z to diopter lookup table| E
-    B -->|live tracking over HTTP Server-Sent Events (SSE)| E
+    B -->|"live tracking over HTTP Server-Sent Events (SSE)"| E
     B -->|live tracking, same SSE feed| G[braid-opto-power-measure]
     G -->|arena power/irradiance heatmaps| Q[QC check, no file feeds into optofly]
     E -->|finished .braidz recordings| H[optofly-analysis]
